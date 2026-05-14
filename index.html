@@ -1256,7 +1256,42 @@ body.splash-active section {
       <p style="color:var(--gray);margin-top:1rem">Astuces terrain, jurisprudence, actualités réglementaires et bonnes pratiques issues de 10 ans de pratique.</p>
     </div>
     <div id="insights-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:3rem">
-      <div style="text-align:center;padding:3rem;color:var(--gray)">Chargement des articles...</div>
+      <div style="background:white;border-radius:4px;border:1px solid #E8EBF0;overflow:hidden;cursor:pointer" onclick="openArticle('001')">
+        <div style="height:5px;background:#C9A84C"></div>
+        <div style="padding:1.5rem">
+          <span style="display:inline-block;padding:.3rem .8rem;background:#F5E9C0;color:#C9A84C;font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Astuce terrain</span>
+          <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">MAPA : les 5 erreurs qui font perdre les marchés publics en Martinique</h3>
+          <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">De la sous-évaluation du prix à l'absence de mémoire technique, voici les erreurs les plus fréquentes observées dans les dossiers de réponse aux appels d'offres locaux.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
+            <span style="font-family:monospace;font-size:.7rem;color:#6B7080">MAI 2025</span>
+            <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:white;border-radius:4px;border:1px solid #E8EBF0;overflow:hidden;cursor:pointer" onclick="openArticle('002')">
+        <div style="height:5px;background:#1A237E"></div>
+        <div style="padding:1.5rem">
+          <span style="display:inline-block;padding:.3rem .8rem;background:#E8EAF6;color:#1A237E;font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Jurisprudence</span>
+          <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">Transparence des critères : ce que le Conseil d'État précise en 2024</h3>
+          <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">Retour sur les dernières décisions jurisprudentielles concernant la pondération des critères de sélection et leurs implications pratiques pour les acheteurs publics.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
+            <span style="font-family:monospace;font-size:.7rem;color:#6B7080">AVRIL 2025</span>
+            <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:white;border-radius:4px;border:1px solid #E8EBF0;overflow:hidden;cursor:pointer" onclick="openArticle('003')">
+        <div style="height:5px;background:#1D9E75"></div>
+        <div style="padding:1.5rem">
+          <span style="display:inline-block;padding:.3rem .8rem;background:#E8F5E9;color:#1B5E20;font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Stratégie</span>
+          <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">Comment calculer son prix dans une offre AO sans se disqualifier</h3>
+          <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">Prix trop bas = suspicion. Prix trop haut = élimination. La méthode pour construire une offre financière convaincante en tenant compte de la réalité des marchés antillais.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
+            <span style="font-family:monospace;font-size:.7rem;color:#6B7080">MARS 2025</span>
+            <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div style="text-align:center" class="reveal">
       <p style="color:var(--gray);margin-bottom:1.5rem;font-size:.95rem">Recevez les prochains insights directement par email</p>
@@ -1298,7 +1333,44 @@ body.splash-active section {
       </div>
     `).join('');
   } catch(e) {
-    document.getElementById('insights-grid').innerHTML = '<p style="text-align:center;color:var(--gray);grid-column:1/-1">Impossible de charger les articles.</p>';
+    // Fallback : afficher les articles statiques si GitHub inaccessible
+    const fallbackArticles = [
+      {
+        id:'001', category:'Astuce terrain', categoryColor:'#C9A84C', categoryBg:'#F5E9C0',
+        title:'MAPA : les 5 erreurs qui font perdre les marchés publics en Martinique',
+        excerpt:'De la sous-évaluation du prix à l\'absence de mémoire technique, voici les erreurs les plus fréquentes observées dans les dossiers de réponse aux appels d\'offres locaux.',
+        dateLabel:'MAI 2025', document:null
+      },
+      {
+        id:'002', category:'Jurisprudence', categoryColor:'#1A237E', categoryBg:'#E8EAF6',
+        title:'Transparence des critères : ce que le Conseil d\'État précise en 2024',
+        excerpt:'Retour sur les dernières décisions jurisprudentielles concernant la pondération des critères de sélection et leurs implications pratiques pour les acheteurs publics.',
+        dateLabel:'AVRIL 2025', document:null
+      },
+      {
+        id:'003', category:'Stratégie', categoryColor:'#0F2342', categoryBg:'#F5E9C0',
+        title:'Comment calculer son prix dans une offre AO sans se disqualifier',
+        excerpt:'Prix trop bas = suspicion. Prix trop haut = élimination. La méthode pour construire une offre financière convaincante en tenant compte de la réalité des marchés antillais.',
+        dateLabel:'MARS 2025', document:null
+      }
+    ];
+    const grid = document.getElementById('insights-grid');
+    if (grid) {
+      grid.innerHTML = fallbackArticles.map(a => `
+        <div style="background:white;border-radius:4px;border:1px solid #E8EBF0;overflow:hidden;cursor:pointer;transition:all .3s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,35,66,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='#C9A84C'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E8EBF0'" onclick="openArticle('${a.id}')">
+          <div style="height:5px;background:${a.categoryColor}"></div>
+          <div style="padding:1.5rem">
+            <span style="display:inline-block;padding:.3rem .8rem;background:${a.categoryBg};color:${a.categoryColor};font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">${a.category}</span>
+            <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">${a.title}</h3>
+            <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">${a.excerpt}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
+              <span style="font-family:monospace;font-size:.7rem;color:#6B7080">${a.dateLabel}</span>
+              <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
   }
 })();
 
@@ -1528,7 +1600,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
           <strong>Email :</strong> loeildelacheteur@gmail.com<br>
           <strong>Téléphone :</strong> +596 696 266 231</p>
           <h4>Hébergement</h4>
-          <p>[Nom de l'hébergeur] — [Adresse de l'hébergeur] — [Pays de l'hébergeur (UE recommandé)]</p>
+          <p>Vercel Inc. — 340 Pine Street, Suite 701, San Francisco, CA 94104, USA. Données servies via CDN avec points de présence en Europe (conformité RGPD assurée par clauses contractuelles types).</p>
           <h4>Propriété intellectuelle</h4>
           <p>L'ensemble du contenu de ce site (textes, images, structure) est protégé par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation écrite préalable.</p>
           <h4>Limitation de responsabilité</h4>
@@ -1606,7 +1678,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
       
     </div>
     <div class="footer-bottom">
-      <p>© 2025 — Stéphane Loudoux — Consultant Marchés Publics — Martinique<br>
+      <p>© 2025 — Stéphane Loudoux — Procurement Insider — Martinique<br>
       Micro-entrepreneur · SIRET En cours d'immatriculation · Code APE 70.22Z</p>
       <div style="display:flex;flex-direction:column;gap:0.4rem;align-items:flex-end">
         <div style="display:flex;gap:1.5rem;">
