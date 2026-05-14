@@ -138,8 +138,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#F0F2F5;color:#1C1C2E;mi
     </div>
     <h2>Espace administration</h2>
     <p>Connectez-vous pour gérer vos articles et documents</p>
-    <input type="password" id="pwd-input" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="btn-login" onclick="doLogin()">Se connecter</button>
+    <input type="password" id="pwd-input" placeholder="Mot de passe" 
+      onkeydown="if(event.key==='Enter')doLogin()" 
+      autocomplete="current-password"
+      style="font-size:16px">
+    <button class="btn-login" type="button" onclick="doLogin()" style="font-size:16px">Se connecter</button>
     <p class="login-error" id="login-err">Mot de passe incorrect</p>
   </div>
 </div>
@@ -621,6 +624,8 @@ function toast(msg, type='') {
 // Pré-remplir le token si disponible
 // Vérifier si le token est configuré au chargement
 window.addEventListener('DOMContentLoaded', () => {
+  // Focus auto sur champ mot de passe
+  setTimeout(() => document.getElementById('pwd-input')?.focus(), 100);
   if (!GH_TOKEN) {
     const banner = document.createElement('div');
     banner.id = 'token-banner';
