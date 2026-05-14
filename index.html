@@ -81,7 +81,7 @@ section { padding: clamp(5rem, 8vw, 9rem) 0; }
    SCROLL ANIMATIONS
 ═══════════════════════════════════════════════════════ */
 section[id] { scroll-margin-top: 80px; }
-.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1); }
+.reveal { opacity: 1; transform: none; transition: none; }
 .reveal.visible { opacity: 1; transform: none; }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.22s; }
@@ -622,6 +622,227 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
 </style>
 </head>
 <body>
+<!-- ═══════════════════════════════════════════════════
+     ANIMATION D'INTRO — PROCUREMENT INSIDER
+════════════════════════════════════════════════════ -->
+<div id="splash" aria-hidden="true">
+  <canvas id="splash-particles"></canvas>
+  <div id="splash-content">
+    <div id="splash-bar"></div>
+    <div id="splash-logo-wrap">
+      <div id="splash-name">PROCUREMENT INSIDER</div>
+      <div id="splash-line"></div>
+      <div id="splash-sub">L'ŒIL DE L'ACHETEUR</div>
+    </div>
+    <div id="splash-tagline">Conseil · Formation · Marchés Publics</div>
+    <div id="splash-dot"></div>
+  </div>
+</div>
+<style>
+/* ── SPLASH BASE ──────────────────────────────────────── */
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0F2342;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: all;
+}
+#splash canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+}
+#splash-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 2rem;
+}
+/* ── BARRE VERTICALE ─────────────────────────────────── */
+#splash-bar {
+  width: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #E8C96A, #C9A84C, #A8872E);
+  height: 0;
+  flex-shrink: 0;
+  animation: barGrow 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+}
+@keyframes barGrow {
+  to { height: 120px; }
+}
+/* ── BLOC TEXTE ──────────────────────────────────────── */
+#splash-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+/* ── NOM PRINCIPAL ───────────────────────────────────── */
+#splash-name {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: clamp(1.6rem, 4vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  clip-path: inset(0 100% 0 0);
+  animation: revealText 0.9s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+}
+@keyframes revealText {
+  to { clip-path: inset(0 0% 0 0); }
+}
+/* ── FILET OR ────────────────────────────────────────── */
+#splash-line {
+  height: 1.5px;
+  background: linear-gradient(to right, #C9A84C, rgba(201,168,76,0));
+  width: 0;
+  animation: lineGrow 0.8s cubic-bezier(0.16,1,0.3,1) 1.5s forwards;
+}
+@keyframes lineGrow {
+  to { width: 100%; }
+}
+/* ── SOUS-TITRE ──────────────────────────────────────── */
+#splash-sub {
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.65rem, 1.2vw, 0.875rem);
+  letter-spacing: 0.38em;
+  color: #C9A84C;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 0.6s ease 1.8s forwards;
+}
+/* ── TAGLINE ─────────────────────────────────────────── */
+#splash-tagline {
+  position: absolute;
+  bottom: clamp(2rem, 5vh, 4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.3);
+  opacity: 0;
+  white-space: nowrap;
+  animation: fadeUp 0.6s ease 2.2s forwards;
+}
+/* ── DOT PULSANT ─────────────────────────────────────── */
+#splash-dot {
+  position: absolute;
+  bottom: clamp(1rem, 3vh, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #C9A84C;
+  opacity: 0;
+  animation: dotPulse 1.2s ease 2.8s infinite;
+}
+@keyframes dotPulse {
+  0%   { opacity: 0; transform: translateX(-50%) scale(0.5); }
+  50%  { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.5); }
+}
+/* ── FADE OUT FINAL ──────────────────────────────────── */
+#splash.fade-out {
+  animation: splashOut 0.9s cubic-bezier(0.4,0,1,1) forwards;
+}
+@keyframes splashOut {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.04); pointer-events: none; }
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ── MASQUER LE SITE PENDANT LE SPLASH ───────────────── */
+body.splash-active #nav,
+body.splash-active #hero,
+body.splash-active #cookie-banner,
+body.splash-active section {
+  visibility: hidden;
+}
+</style>
+<script>
+(function() {
+  // Ne montrer le splash qu'une seule fois par session
+  if (sessionStorage.getItem('splashShown')) {
+    document.getElementById('splash').style.display = 'none';
+    return;
+  }
+  sessionStorage.setItem('splashShown', '1');
+
+  // Masquer le site pendant l'animation
+  document.body.classList.add('splash-active');
+
+  // ── PARTICULES ────────────────────────────────────────
+  const canvas = document.getElementById('splash-particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function Particle() {
+    this.reset();
+  }
+  Particle.prototype.reset = function() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.r = Math.random() * 1.5 + 0.3;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.alpha = Math.random() * 0.6 + 0.1;
+    this.gold = Math.random() > 0.7;
+  };
+
+  for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+  let raf;
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.gold
+        ? `rgba(201,168,76,${p.alpha})`
+        : `rgba(255,255,255,${p.alpha * 0.4})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) p.reset();
+    });
+    raf = requestAnimationFrame(draw);
+  }
+  draw();
+
+  // ── DÉCLENCHEMENT SORTIE ──────────────────────────────
+  function exitSplash() {
+    cancelAnimationFrame(raf);
+    const splash = document.getElementById('splash');
+    splash.classList.add('fade-out');
+    document.body.classList.remove('splash-active');
+    splash.addEventListener('animationend', function() {
+      splash.style.display = 'none';
+    }, { once: true });
+  }
+
+  // Durée totale : 3.8s puis sortie
+  setTimeout(exitSplash, 3800);
+
+  // Clic pour passer
+  document.getElementById('splash').addEventListener('click', exitSplash);
+})();
+</script>
+
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner">
@@ -1163,58 +1384,59 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
 <section id="contact">
   <div class="container">
     <div class="contact-grid">
+
+      <!-- COLONNE GAUCHE : Infos contact -->
       <div class="contact-info">
-        <span class="label accent-line reveal">Contact</span>
-        <h2 class="h2 reveal reveal-delay-1">Parlons de<br>votre projet.</h2>
-        <p class="reveal reveal-delay-2">Décrivez votre situation en quelques mots. Je vous réponds personnellement sous 48h ouvrées pour convenir d'un échange.</p>
-        <div class="contact-details reveal reveal-delay-3">
+        <span class="label accent-line">Contact</span>
+        <h2 class="h2">Parlons de<br>votre projet.</h2>
+        <p>Décrivez votre situation en quelques mots. Je vous réponds personnellement sous 48h ouvrées pour convenir d'un échange.</p>
+        <div class="contact-details">
+
           <div class="contact-detail">
             <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div class="contact-detail-text">
               <strong>Email</strong>
               <a href="mailto:loeildelacheteur@gmail.com" style="color:var(--gray)">loeildelacheteur@gmail.com</a>
             </div>
           </div>
+
           <div class="contact-detail">
             <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .9h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.1.9h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
             </div>
             <div class="contact-detail-text">
               <strong>Téléphone</strong>
-              <span>+596 696 266 231</span>
+              <a href="tel:+596696266231" style="color:var(--gray)">+596 696 266 231</a>
             </div>
           </div>
+
           <div class="contact-detail">
             <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div class="contact-detail-text">
               <strong>Localisation</strong>
-              <span>Martinique — interventions Antilles & France</span>
+              <span>Martinique — interventions Antilles &amp; France</span>
             </div>
           </div>
+
           <div class="contact-detail">
             <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </div>
             <div class="contact-detail-text">
               <strong>LinkedIn</strong>
-              <span>linkedin.com/in/stéphane-loudoux-a2b64b22</span>
+              <a href="https://www.linkedin.com/in/st%C3%A9phane-loudoux-a2b64b22/" target="_blank" rel="noopener" style="color:var(--gray)">Stéphane Loudoux</a>
             </div>
           </div>
-        </div>
-        <div class="contact-territory reveal reveal-delay-4">
-          <h4>Zones d'intervention</h4>
-          <div class="territory-items">
-            <div class="territory-item"><span class="territory-dot primary"></span>Martinique — territoire principal & présentiel</div>
-            <div class="territory-item"><span class="territory-dot secondary"></span>Guadeloupe & Guyane — déplacements + distanciel</div>
-            <div class="territory-item"><span class="territory-dot future"></span>France hexagonale — missions en distanciel</div>
-          </div>
+
         </div>
       </div>
-      <div class="contact-form reveal reveal-delay-2">
+
+      <!-- COLONNE DROITE : Formulaire -->
+      <div class="contact-form">
         <h3>Écrivez-moi</h3>
         <p class="form-sub">Je réponds personnellement à chaque message sous 48h ouvrées.</p>
         <form id="contact-form" novalidate>
@@ -1279,9 +1501,10 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
           <small>Je vous répondrai dans les 48h ouvrées. À très bientôt.</small>
         </div>
       </div>
+
     </div>
   </div>
-</section>
+
 
 <!-- MENTIONS LÉGALES & RGPD -->
 <section id="legal">
@@ -1301,7 +1524,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
           <strong>Statut :</strong> Micro-entrepreneur<br>
           <strong>SIRET :</strong> En cours d'immatriculation<br>
           <strong>Code APE :</strong> 70.22Z — Conseil pour les affaires et autres conseils de gestion<br>
-          <strong>Adresse :</strong> [Votre adresse], Martinique (972)<br>
+          <strong>Adresse :</strong> Martinique (972), Martinique (972)<br>
           <strong>Email :</strong> loeildelacheteur@gmail.com<br>
           <strong>Téléphone :</strong> +596 696 266 231</p>
           <h4>Hébergement</h4>
@@ -1361,8 +1584,12 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>Marchés Publics<br>Martinique</h3>
-        <span>Conseil · Formation · Accompagnement</span>
+        <svg viewBox="0 0 290 50" xmlns="http://www.w3.org/2000/svg" style="height:38px;width:auto;margin-bottom:0.5rem">
+          <rect x="0" y="4" width="5" height="42" rx="2.5" fill="#C9A84C"/>
+          <text x="13" y="30" font-family="Arial Black,Arial,sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text>
+          <rect x="13" y="35" width="270" height="1" fill="#C9A84C"/>
+          <text x="13" y="46" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
+        </svg>
         <p>Expert en commande publique depuis 10 ans. Au service des entités publiques et des entreprises qui souhaitent améliorer la qualité de leurs pratiques d'achat et de réponse aux appels d'offres.</p>
       </div>
       <div class="footer-col">
@@ -1376,18 +1603,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
           <li><a href="#services">Ateliers collectifs</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Informations</h4>
-        <ul>
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#methode">Méthode</a></li>
-          <li><a href="#zones">Zones d'intervention</a></li>
-          <li><a href="#insights">Insights & Veille</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#diagnostic">Diagnostic gratuit</a></li>
-          <li><a href="#legal">Mentions légales</a></li>
-        </ul>
-      </div>
+      
     </div>
     <div class="footer-bottom">
       <p>© 2025 — Stéphane Loudoux — Consultant Marchés Publics — Martinique<br>
@@ -1426,7 +1642,8 @@ try { if (localStorage.getItem('cookie_consent')) closeCookieBanner(); } catch(e
 
 // ─── SCROLL REVEAL ───────────────────────────────────────────────────────────
 const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
+// animations reveal désactivées
+(entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 revealEls.forEach(el => observer.observe(el));
