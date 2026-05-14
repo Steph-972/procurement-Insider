@@ -6,10 +6,10 @@
 <meta name="description" content="Stéphane Loudoux — Procurement Insider. Consultant expert en marchés publics et commande publique en Martinique. 10 ans de pratique opérationnelle.">
 <meta name="keywords" content="consultant marchés publics Martinique, commande publique Martinique, appels d'offres Martinique, formation marchés publics, audit stratégie achat">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Procurement Insider — L'œil de l'acheteur | Stéphane Loudoux">
+<meta property="og:title" content="Procurement Insider | L'œil de l'acheteur">
 <meta property="og:description" content="Expert en commande publique depuis 10 ans. Accompagnement des entreprises et entités publiques en Martinique et Antilles.">
 <meta property="og:type" content="website">
-<title>Procurement Insider — L'œil de l'acheteur | Stéphane Loudoux | Martinique</title>
+<title>Procurement Insider | L'œil de l'acheteur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -611,6 +611,13 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
   .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
   .contact-form { padding: 1.5rem; }
 }
+
+/* ── MODAL ARTICLE ─── */
+#art-modal-body h3{font-family:var(--serif);color:var(--navy);font-size:1.1rem;margin:1.25rem 0 .5rem;font-weight:600}
+#art-modal-body p{margin-bottom:.85rem;color:#333}
+#art-modal-body ul{padding-left:1.5rem;margin-bottom:.85rem}
+#art-modal-body li{margin-bottom:.4rem;color:#333}
+#art-modal-body strong{color:var(--navy)}
 </style>
 </head>
 <body>
@@ -1023,60 +1030,111 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
   <div class="container">
     <div style="text-align:center;max-width:600px;margin:0 auto 4rem">
       <span style="display:block;width:3.5rem;height:3px;background:var(--gold);margin:0 auto 1.5rem"></span>
-      <h2 class="h2" style="color:var(--navy)">Insights & Veille</h2>
-      <p style="color:var(--gray);margin-top:1rem">Astuces terrain, jurisprudence, actualités réglementaires et bonnes pratiques issues de 10 ans de pratique. Mis à jour régulièrement.</p>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;color:var(--navy)">Insights & Veille</h2>
+      <p style="color:var(--gray);margin-top:1rem">Astuces terrain, jurisprudence, actualités réglementaires et bonnes pratiques issues de 10 ans de pratique.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem">
-
-      <div class="reveal" style="background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-light);overflow:hidden;transition:all var(--transition);" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,35,66,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='var(--gold)'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='var(--gray-light)'">
-        <div style="height:5px;background:var(--navy)"></div>
-        <div style="padding:1.5rem">
-          <span style="display:inline-block;padding:.3rem .8rem;background:var(--gold-pale);color:var(--navy);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Astuce terrain</span>
-          <h3 style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin-bottom:.75rem;line-height:1.4;font-weight:600">MAPA : les 5 erreurs qui font perdre les marchés publics en Martinique</h3>
-          <p style="font-size:.875rem;color:var(--gray);line-height:1.65;margin-bottom:1.25rem">De la sous-évaluation du prix à l'absence de mémoire technique, voici les erreurs les plus fréquentes observées dans les dossiers de réponse aux appels d'offres locaux.</p>
-          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--gray-light)">
-            <span style="font-family:var(--mono);font-size:.7rem;color:var(--gray)">MAI 2025</span>
-            <span style="font-size:.8rem;color:var(--navy);font-weight:600">Lire la suite →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal" style="background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-light);overflow:hidden;transition:all var(--transition);transition-delay:.12s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,35,66,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='var(--gold)'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='var(--gray-light)'">
-        <div style="height:5px;background:var(--gold)"></div>
-        <div style="padding:1.5rem">
-          <span style="display:inline-block;padding:.3rem .8rem;background:#E8EAF6;color:#1A237E;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Jurisprudence</span>
-          <h3 style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin-bottom:.75rem;line-height:1.4;font-weight:600">Transparence des critères : ce que le Conseil d'État précise en 2024</h3>
-          <p style="font-size:.875rem;color:var(--gray);line-height:1.65;margin-bottom:1.25rem">Retour sur les dernières décisions jurisprudentielles concernant la pondération des critères de sélection et leurs implications pratiques pour les acheteurs publics.</p>
-          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--gray-light)">
-            <span style="font-family:var(--mono);font-size:.7rem;color:var(--gray)">AVRIL 2025</span>
-            <span style="font-size:.8rem;color:var(--navy);font-weight:600">Lire la suite →</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal" style="background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-light);overflow:hidden;transition:all var(--transition);transition-delay:.24s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,35,66,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='var(--gold)'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='var(--gray-light)'">
-        <div style="height:5px;background:#1D9E75"></div>
-        <div style="padding:1.5rem">
-          <span style="display:inline-block;padding:.3rem .8rem;background:#E8F5E9;color:#1B5E20;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Stratégie</span>
-          <h3 style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin-bottom:.75rem;line-height:1.4;font-weight:600">Comment calculer son prix dans une offre AO sans se disqualifier</h3>
-          <p style="font-size:.875rem;color:var(--gray);line-height:1.65;margin-bottom:1.25rem">Prix trop bas = suspicion. Prix trop haut = élimination. La méthode pour construire une offre financière convaincante en tenant compte de la réalité des marchés antillais.</p>
-          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--gray-light)">
-            <span style="font-family:var(--mono);font-size:.7rem;color:var(--gray)">MARS 2025</span>
-            <span style="font-size:.8rem;color:var(--navy);font-weight:600">Lire la suite →</span>
-          </div>
-        </div>
-      </div>
-
+    <div id="insights-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:3rem">
+      <div style="text-align:center;padding:3rem;color:var(--gray)">Chargement des articles...</div>
     </div>
-    <div class="reveal" style="text-align:center">
-      <p style="color:var(--gray);margin-bottom:1.5rem;font-size:.95rem">Recevez les prochains insights directement par email ?</p>
-      <a href="#contact" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:#fff;padding:.8rem 2rem;border-radius:var(--radius);font-weight:600;font-size:.9rem;transition:all var(--transition)" onmouseover="this.style.background='var(--navy-mid)'" onmouseout="this.style.background='var(--navy)'">
+    <div style="text-align:center" class="reveal">
+      <p style="color:var(--gray);margin-bottom:1.5rem;font-size:.95rem">Recevez les prochains insights directement par email</p>
+      <a href="#contact" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:#fff;padding:.8rem 2rem;border-radius:var(--radius);font-weight:600;font-size:.9rem;transition:all var(--transition)">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         S'inscrire à la veille
       </a>
     </div>
   </div>
 </section>
+
+<script>
+// ─── CHARGEMENT DYNAMIQUE DES ARTICLES ────────────────────────────────────────
+(async function loadInsights() {
+  try {
+    const r = await fetch('articles.json?t=' + Date.now());
+    const articles = await r.json();
+    const published = articles.filter(a => a.published);
+    const grid = document.getElementById('insights-grid');
+    if (!published.length) {
+      grid.innerHTML = '<p style="text-align:center;color:var(--gray);grid-column:1/-1">Aucun article publié pour le moment.</p>';
+      return;
+    }
+    grid.innerHTML = published.map(a => `
+      <div class="ins-article-card" data-id="${a.id}" style="background:white;border-radius:4px;border:1px solid var(--gray-light,#E8EBF0);overflow:hidden;cursor:pointer;transition:all .3s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,35,66,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='var(--gold)'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='var(--gray-light,#E8EBF0)'" onclick="openArticle('${a.id}')">
+        <div style="height:5px;background:${a.categoryColor || 'var(--navy)'}"></div>
+        <div style="padding:1.5rem">
+          <span style="display:inline-block;padding:.3rem .8rem;background:${a.categoryBg || '#F5E9C0'};color:${a.categoryColor || 'var(--navy)'};font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">${a.category}</span>
+          <h3 style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin-bottom:.75rem;line-height:1.4;font-weight:600">${a.title}</h3>
+          <p style="font-size:.875rem;color:var(--gray);line-height:1.65;margin-bottom:1.25rem">${a.excerpt}</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--gray-light,#E8EBF0)">
+            <span style="font-family:var(--mono);font-size:.7rem;color:var(--gray)">${a.dateLabel}</span>
+            <div style="display:flex;align-items:center;gap:.75rem">
+              ${a.document ? '<span style="font-size:.78rem;color:var(--gold);font-weight:600">📎 Téléchargement</span>' : ''}
+              <span style="font-size:.8rem;color:var(--navy);font-weight:600">Lire →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {
+    document.getElementById('insights-grid').innerHTML = '<p style="text-align:center;color:var(--gray);grid-column:1/-1">Impossible de charger les articles.</p>';
+  }
+})();
+
+// ─── MODAL LECTURE ARTICLE ────────────────────────────────────────────────────
+function openArticle(id) {
+  fetch('articles.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(articles => {
+      const a = articles.find(x => x.id === id);
+      if (!a) return;
+      const modal = document.getElementById('art-modal');
+      document.getElementById('art-modal-cat').textContent = a.category;
+      document.getElementById('art-modal-cat').style.background = a.categoryBg;
+      document.getElementById('art-modal-cat').style.color = a.categoryColor;
+      document.getElementById('art-modal-title').textContent = a.title;
+      document.getElementById('art-modal-date').textContent = a.dateLabel;
+      document.getElementById('art-modal-body').innerHTML = a.content;
+      const dlBtn = document.getElementById('art-modal-dl');
+      if (a.document) {
+        dlBtn.style.display = 'inline-flex';
+        dlBtn.href = 'https://raw.githubusercontent.com/Steph-972/marches-publics-martinique/main/' + a.document;
+        dlBtn.download = a.documentName;
+        document.getElementById('art-modal-dl-name').textContent = a.documentName;
+      } else {
+        dlBtn.style.display = 'none';
+      }
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+}
+function closeArticle() {
+  document.getElementById('art-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(); });
+</script>
+
+<!-- MODAL ARTICLE -->
+<div id="art-modal" style="display:none;position:fixed;inset:0;background:rgba(15,35,66,.7);z-index:9000;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto" onclick="if(event.target===this)closeArticle()">
+  <div style="background:white;border-radius:8px;max-width:760px;width:100%;padding:0;box-shadow:0 24px 80px rgba(15,35,66,.3);margin:auto">
+    <div style="background:var(--navy);padding:1.5rem 2rem;border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
+      <div>
+        <span id="art-modal-cat" style="display:inline-block;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;letter-spacing:.08em;margin-bottom:.75rem"></span>
+        <h2 id="art-modal-title" style="color:white;font-family:var(--serif);font-size:1.4rem;line-height:1.3;font-weight:600"></h2>
+        <span id="art-modal-date" style="color:rgba(255,255,255,.5);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;margin-top:.4rem;display:block"></span>
+      </div>
+      <button onclick="closeArticle()" style="background:rgba(255,255,255,.15);border:none;color:white;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center">✕</button>
+    </div>
+    <div id="art-modal-body" style="padding:2rem;font-size:.975rem;line-height:1.8;color:#333;max-height:60vh;overflow-y:auto"></div>
+    <div style="padding:1.25rem 2rem;border-top:1px solid var(--gray-light,#E8EBF0);display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:#FAFAFA;border-radius:0 0 8px 8px">
+      <a id="art-modal-dl" href="#" download style="display:none;align-items:center;gap:.5rem;background:var(--navy);color:white;padding:.7rem 1.4rem;border-radius:4px;font-weight:600;font-size:.875rem;text-decoration:none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger : <span id="art-modal-dl-name"></span>
+      </a>
+      <button onclick="closeArticle()" style="background:var(--cream,#F8F5EF);color:var(--navy);border:1px solid var(--gray-light,#E8EBF0);padding:.7rem 1.4rem;border-radius:4px;cursor:pointer;font-size:.875rem">Fermer</button>
+    </div>
+  </div>
+</div>
 
 <!-- DIAGNOSTIC CTA -->
 <section id="diagnostic">
@@ -1381,7 +1439,7 @@ function toggleAccordion(btn) {
 }
 
 // ─── FORM SUBMIT ─────────────────────────────────────────────────────────────
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const fields = ['prenom','nom','email','profil','sujet','message'];
   let valid = true;
@@ -1390,13 +1448,102 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     if (!el.value.trim()) { el.style.borderColor = '#E53935'; valid = false; }
     else el.style.borderColor = '';
   });
+  if (!document.getElementById('consent').checked) { valid = false; }
+  if (!valid) { alert('Veuillez remplir tous les champs obligatoires et cocher la case de consentement.'); return; }
+
+  const btn = this.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours...';
+
+  try {
+    const resp = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prenom:       document.getElementById('prenom').value.trim(),
+        nom:          document.getElementById('nom').value.trim(),
+        email:        document.getElementById('email').value.trim(),
+        organisation: document.getElementById('organisation').value.trim(),
+        profil:       document.getElementById('profil').value,
+        sujet:        document.getElementById('sujet').value,
+        message:      document.getElementById('message').value.trim()
+      })
+    });
+    if (resp.ok) {
+      this.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      throw new Error('Erreur serveur');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Envoyer ma demande';
+    alert('Une erreur est survenue. Contactez-nous directement par email ou téléphone.');
+  }
+});
   const consent = document.getElementById('consent');
   if (!consent.checked) { consent.style.accentColor = '#E53935'; valid = false; }
   if (!valid) { alert('Veuillez remplir tous les champs obligatoires et cocher la case de consentement.'); return; }
-  // Simulation envoi (à connecter à un service d'envoi réel : Formspree, Netlify Forms, etc.)
-  this.style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-  // Note pour la mise en production : connecter à un service backend (ex: action="https://formspree.io/f/XXXX" method="POST")
+
+  const btn = this.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours...';
+
+  const prenom = document.getElementById('prenom').value.trim();
+  const nom    = document.getElementById('nom').value.trim();
+  const email  = document.getElementById('email').value.trim();
+  const org    = document.getElementById('organisation').value.trim();
+  const profil = document.getElementById('profil').value;
+  const sujet  = document.getElementById('sujet').value;
+  const msg    = document.getElementById('message').value.trim();
+  const BREVO  = 'REMOVED';
+
+  try {
+    // 1. Ajouter le contact dans Brevo
+    await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: { 'api-key': BREVO, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        attributes: { PRENOM: prenom, NOM: nom, COMPANY: org },
+        listIds: [2],
+        updateEnabled: true
+      })
+    });
+
+    // 2. Envoyer email de notification à Stéphane
+    await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: { 'api-key': BREVO, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        sender: { name: 'Procurement Insider — Site Web', email: 'loeildelacheteur@gmail.com' },
+        to: [{ email: 'loeildelacheteur@gmail.com', name: 'Stéphane Loudoux' }],
+        replyTo: { email: email, name: prenom + ' ' + nom },
+        subject: '📬 Nouveau message — ' + sujet + ' (' + prenom + ' ' + nom + ')',
+        htmlContent: '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#F8F5EF;padding:0"><div style="background:#0F2342;padding:1.5rem 2rem"><div style="color:#C9A84C;font-size:1.2rem;font-weight:900;letter-spacing:1px">PROCUREMENT INSIDER</div><div style="color:rgba(255,255,255,0.7);font-size:0.75rem;letter-spacing:3px;margin-top:2px">NOUVEAU MESSAGE SITE WEB</div></div><div style="background:white;padding:2rem"><h2 style="color:#0F2342;margin-bottom:1.5rem">Nouveau message reçu</h2><table style="width:100%;border-collapse:collapse"><tr style="border-bottom:1px solid #E8EBF0"><td style="padding:.6rem 0;color:#6B7080;font-size:.85rem;width:140px">De</td><td style="padding:.6rem 0;font-weight:600;color:#0F2342">' + prenom + ' ' + nom + '</td></tr><tr style="border-bottom:1px solid #E8EBF0"><td style="padding:.6rem 0;color:#6B7080;font-size:.85rem">Email</td><td style="padding:.6rem 0"><a href="mailto:' + email + '" style="color:#1A3A6B">' + email + '</a></td></tr>' + (org ? '<tr style="border-bottom:1px solid #E8EBF0"><td style="padding:.6rem 0;color:#6B7080;font-size:.85rem">Organisation</td><td style="padding:.6rem 0;color:#0F2342">' + org + '</td></tr>' : '') + '<tr style="border-bottom:1px solid #E8EBF0"><td style="padding:.6rem 0;color:#6B7080;font-size:.85rem">Profil</td><td style="padding:.6rem 0;color:#0F2342">' + profil + '</td></tr><tr style="border-bottom:1px solid #E8EBF0"><td style="padding:.6rem 0;color:#6B7080;font-size:.85rem">Objet</td><td style="padding:.6rem 0;font-weight:600;color:#C9A84C">' + sujet + '</td></tr></table><div style="margin-top:1.5rem;background:#F8F5EF;border-left:3px solid #C9A84C;padding:1rem 1.25rem;border-radius:0 4px 4px 0"><p style="color:#0F2342;line-height:1.7;margin:0">' + msg.replace(/\n/g,'<br>') + '</p></div><div style="margin-top:1.5rem"><a href="mailto:' + email + '?subject=RE: ' + sujet + '" style="background:#0F2342;color:white;padding:.75rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;display:inline-block">Répondre à ' + prenom + '</a></div></div><div style="background:#0F2342;padding:1rem 2rem;text-align:center"><p style="color:rgba(255,255,255,0.5);font-size:.75rem;margin:0">Procurement Insider · loeildelacheteur@gmail.com · +596 696 266 231</p></div></div>'
+      })
+    });
+
+    // 3. Email de confirmation au prospect
+    await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: { 'api-key': BREVO, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        sender: { name: 'Stéphane Loudoux — Procurement Insider', email: 'loeildelacheteur@gmail.com' },
+        to: [{ email: email, name: prenom + ' ' + nom }],
+        subject: 'Votre message a bien été reçu — Procurement Insider',
+        htmlContent: '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#F8F5EF;padding:0"><div style="background:#0F2342;padding:1.5rem 2rem"><div style="color:#C9A84C;font-size:1.2rem;font-weight:900;letter-spacing:1px">PROCUREMENT INSIDER</div><div style="color:rgba(255,255,255,0.7);font-size:0.75rem;letter-spacing:3px;margin-top:2px">L'ŒIL DE L'ACHETEUR</div></div><div style="background:white;padding:2rem"><h2 style="color:#0F2342;margin-bottom:1rem">Bonjour ' + prenom + ',</h2><p style="color:#333;line-height:1.7;margin-bottom:1.25rem">Merci pour votre message. Je l'ai bien reçu et vous répondrai personnellement <strong>sous 48h ouvrées</strong>.</p><p style="color:#333;line-height:1.7;margin-bottom:1.5rem">En attendant, n'hésitez pas à consulter les derniers insights sur les marchés publics disponibles sur le site.</p><div style="background:#F8F5EF;border-left:3px solid #C9A84C;padding:1rem 1.25rem;border-radius:0 4px 4px 0;margin-bottom:1.5rem"><p style="color:#0F2342;font-style:italic;margin:0">« Je reviens vers vous rapidement avec une première analyse de votre situation. »</p><p style="color:#6B7080;font-size:.8rem;margin-top:.5rem">— Stéphane Loudoux</p></div><p style="color:#6B7080;font-size:.875rem">Cordialement,<br><strong style="color:#0F2342">Stéphane Loudoux</strong><br>Procurement Insider — L'Œil de l'Acheteur<br>+596 696 266 231</p></div><div style="background:#0F2342;padding:1rem 2rem;text-align:center"><p style="color:rgba(255,255,255,0.5);font-size:.75rem;margin:0">Procurement Insider · Martinique · loeildelacheteur@gmail.com</p></div></div>'
+      })
+    });
+
+    this.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Envoyer ma demande';
+    alert('Une erreur est survenue. Veuillez nous contacter directement par email ou téléphone.');
+  }
 });
 
 // ─── SMOOTH SCROLL OFFSET (FIXED NAV) ────────────────────────────────────────
