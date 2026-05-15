@@ -721,13 +721,41 @@ function renderStatsEditor() {
 
 async function saveStats() {
   if (!siteData) return;
+
+  // 1. Lire les valeurs du formulaire
   for (let i = 0; i < siteData.stats.length; i++) {
-    siteData.stats[i].value = document.getElementById('stat-val-'+i)?.value || '0';
+    siteData.stats[i].value  = document.getElementById('stat-val-'+i)?.value || '0';
     siteData.stats[i].suffix = document.getElementById('stat-suf-'+i)?.value || '';
-    siteData.stats[i].label = document.getElementById('stat-lbl-'+i)?.value || '';
+    siteData.stats[i].label  = document.getElementById('stat-lbl-'+i)?.value || '';
   }
+
+  // 2. Mettre à jour site-data.json
   await saveSiteData('Mise à jour statistiques');
-  showStatus('stats-status', '✓ Statistiques sauvegardées !');
+
+  // 3. Patcher les valeurs hardcodées dans index.html
+  try {
+    const idxFile = await ghGet('index.html');
+    let html = atob(idxFile.content.replace(/\n/g,''));
+
+    // Construire le nouveau bloc stats-grid
+    const statItems = siteData.stats.map((s, i) => {
+      const delay = i > 0 ? ` reveal-delay-${i}` : '';
+      const disp  = s.value + (s.suffix || '');
+      return `      <div class="stat-item reveal${delay}">\n        <div class="stat-num" data-val="${s.value}" data-suffix="${s.suffix||''}">${disp}</div>\n        <div class="stat-lbl">${s.label}</div>\n      </div>`;
+    }).join('\n');
+
+    // Remplacer le contenu du stats-grid (entre les deux balises)
+    html = html.replace(
+      /(<div id="stats-grid"[^>]*>)([\s\S]*?)(<\/div>\s*<\/div>\s*<\/section>\s*<style>\s*\.stat-item)/,
+      (match, open, inner, after) => open + '\n' + statItems + '\n    ' + after
+    );
+
+    await ghPut('index.html', html, 'Mise à jour statistiques (index.html)', idxFile.sha);
+    showStatus('stats-status', '✓ Statistiques sauvegardées et publiées sur le site !');
+  } catch(e) {
+    console.error('Erreur patch index.html:', e);
+    showStatus('stats-status', '✓ Statistiques sauvegardées (site mis à jour au prochain déploiement)');
+  }
 }
 
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
