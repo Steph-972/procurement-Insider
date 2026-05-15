@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Procurement Insider — Remportez plus de marchés publics en Martinique. Accompagnement TPE/PME : audit candidature, rédaction mémoire technique, réponse aux appels d'offres.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Entreprises Privées | Procurement Insider Martinique">
+<meta property="og:description" content="Remportez plus de marchés publics. Mémoire technique, réponse aux AO, coaching — Expert commande publique Martinique.">
+<title>Entreprises Privées | Procurement Insider — Remportez plus de marchés publics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0F2342; --navy-mid:#1A3A6B; --navy-light:#243F7A;
+  --gold:#C9A84C; --gold-light:#E8C96A; --gold-pale:#F5E9C0;
+  --cream:#F8F5EF; --white:#FFFFFF; --gray:#6B7080; --gray-light:#E8EBF0;
+  --text:#1C1C2E; --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif; --mono:'DM Mono',monospace;
+  --radius:4px; --transition:0.35s cubic-bezier(0.4,0,0.2,1);
+  --shadow:0 8px 40px rgba(15,35,66,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--sans)}
+.container{max-width:1180px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+section{padding:clamp(4rem,7vw,8rem) 0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;transition:all .35s ease;background:transparent}
+nav.scrolled{background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);padding:.8rem 0;box-shadow:0 2px 20px rgba(0,0,0,.2)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-links{list-style:none;display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:.5rem 1.25rem;border-radius:var(--radius);font-weight:700!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+.nav-back{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:rgba(255,255,255,.6)!important;display:flex;align-items:center;gap:.4rem}
+.nav-back:hover{color:var(--gold)!important}
+@media(max-width:768px){.nav-links{display:none}.mobile-nav{display:flex;gap:.75rem}.mobile-nav a{padding:.5rem .9rem;border-radius:3px;font-size:.8rem;font-weight:600;color:white;border:1px solid rgba(255,255,255,.25)}.mobile-nav .nav-cta{background:var(--gold);color:var(--navy);border-color:var(--gold)}}
+@media(min-width:769px){.mobile-nav{display:none}}
+
+/* HERO */
+.page-hero{background:var(--navy);padding:clamp(7rem,12vw,10rem) 0 clamp(4rem,6vw,6rem);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%, rgba(26,58,107,0.6) 0%, transparent 70%)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:.4rem 1rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem}
+.page-hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:1.5rem;letter-spacing:-.02em}
+.page-hero h1 em{color:var(--gold);font-style:normal}
+.page-hero .lead{font-size:clamp(1rem,1.5vw,1.15rem);color:rgba(255,255,255,.75);max-width:620px;line-height:1.8;margin-bottom:2.5rem;font-weight:300}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);padding:.9rem 2rem;border-radius:var(--radius);font-weight:700;font-size:.95rem;transition:all .25s;border:none}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
+.btn-secondary{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--white);padding:.9rem 2rem;border-radius:var(--radius);font-weight:600;font-size:.95rem;border:1.5px solid rgba(255,255,255,.3);transition:all .25s}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+
+/* RÉALITÉ TERRAIN */
+.terrain{background:var(--cream)}
+.terrain-quote{max-width:760px;margin:0 auto;text-align:center;padding:clamp(2.5rem,4vw,4rem)}
+.terrain-quote blockquote{font-family:var(--serif);font-size:clamp(1.2rem,2.5vw,1.8rem);font-style:italic;color:var(--navy);line-height:1.5;position:relative;padding:0 2rem}
+.terrain-quote blockquote::before{content:'"';position:absolute;left:0;top:-.5rem;font-size:4rem;color:var(--gold);opacity:.3;line-height:1}
+.terrain-quote cite{display:block;margin-top:1.5rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--gray);text-transform:uppercase;font-style:normal}
+.reasons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.reason-card{background:white;padding:2rem;border-radius:8px;border-top:3px solid var(--gold);box-shadow:var(--shadow)}
+.reason-card .stat{font-family:var(--serif);font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.75rem}
+.reason-card p{font-size:.875rem;color:var(--gray);line-height:1.7}
+@media(max-width:768px){.reasons-grid{grid-template-columns:1fr}}
+
+/* PRICING */
+.pricing{background:var(--white)}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem}
+.pricing-card{border:1.5px solid var(--gray-light);border-radius:10px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.pricing-card:hover{border-color:var(--gold);box-shadow:0 12px 48px rgba(15,35,66,.12);transform:translateY(-4px)}
+.pricing-card.featured{border-color:var(--gold);box-shadow:0 8px 40px rgba(201,168,76,.2)}
+.featured-badge{background:var(--gold);color:var(--navy);font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.35rem 1rem;text-align:center}
+.pricing-header{background:var(--navy);padding:1.75rem 1.5rem}
+.pricing-name{font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.pricing-price{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;color:var(--white);line-height:1.2}
+.pricing-unit{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:.2rem;font-family:var(--mono)}
+.pricing-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.pricing-desc{font-size:.875rem;color:var(--gray);line-height:1.6;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--gray-light)}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.pricing-features li{font-size:.83rem;color:var(--text);display:flex;align-items:flex-start;gap:.6rem;line-height:1.4}
+.pricing-features li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.05rem}
+.pricing-cta{padding:1.5rem;padding-top:0}
+.pricing-cta a{display:block;text-align:center;padding:.8rem;border-radius:var(--radius);font-weight:600;font-size:.875rem;transition:all .25s;border:1.5px solid var(--navy);color:var(--navy)}
+.pricing-card.featured .pricing-cta a{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.pricing-cta a:hover{background:var(--navy);color:var(--white)}
+.pricing-card.featured .pricing-cta a:hover{background:var(--gold-light)}
+@media(max-width:1024px){.pricing-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pricing-grid{grid-template-columns:1fr}}
+
+/* TEMOIGNAGE */
+.temoignage{background:var(--navy);padding:clamp(4rem,6vw,7rem) 0}
+.temoignage-card{max-width:820px;margin:0 auto;position:relative}
+.temoignage-card blockquote{position:relative}
+.temoignage-card blockquote::before{content:'"';font-family:Georgia,serif;font-size:9rem;color:var(--gold);opacity:.12;position:absolute;top:-2rem;left:-1rem;line-height:1}
+.temoignage-card p{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.9);line-height:1.8;position:relative;z-index:1}
+.temoignage-footer{display:flex;align-items:center;gap:1.25rem;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(201,168,76,.2)}
+.temoignage-avatar{width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,.15);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.temoignage-avatar span{color:var(--gold);font-weight:700;font-size:.85rem}
+.temoignage-name{display:block;color:white;font-weight:600;font-size:.95rem}
+.temoignage-role{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase}
+
+/* PROCESS */
+.process{background:var(--cream)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;counter-reset:steps}
+.process-step{text-align:center;position:relative}
+.process-step::after{content:'';position:absolute;top:30px;left:calc(50% + 30px);right:calc(-50% + 30px);height:1.5px;background:var(--gold);opacity:.3}
+.process-step:last-child::after{display:none}
+.step-num{width:60px;height:60px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--gold)}
+.process-step h4{font-family:var(--serif);font-size:1rem;color:var(--navy);margin-bottom:.5rem}
+.process-step p{font-size:.825rem;color:var(--gray);line-height:1.6}
+@media(max-width:768px){.process-steps{grid-template-columns:1fr 1fr}.process-step::after{display:none}}
+@media(max-width:480px){.process-steps{grid-template-columns:1fr}}
+
+/* PROFILS */
+.profils{background:var(--white)}
+.profils-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.profil-card{background:var(--cream);border-radius:8px;padding:2rem;text-align:center;border:1.5px solid transparent;transition:all .3s}
+.profil-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.profil-card .emoji{font-size:2.5rem;margin-bottom:1rem}
+.profil-card h4{font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin-bottom:.6rem}
+.profil-card p{font-size:.825rem;color:var(--gray);line-height:1.6}
+@media(max-width:768px){.profils-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.profils-grid{grid-template-columns:1fr}}
+
+/* CTA BAND */
+.cta-band{background:var(--gold);padding:clamp(3rem,5vw,5rem) 0;text-align:center}
+.cta-band h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);color:var(--navy);margin-bottom:1rem}
+.cta-band p{color:rgba(15,35,66,.75);font-size:1rem;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-navy{display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.9rem 2rem;border-radius:var(--radius);font-weight:700;font-size:.95rem;transition:all .25s}
+.btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px)}
+
+/* SECTION HEADERS */
+.section-header{text-align:center;margin-bottom:clamp(2.5rem,4vw,4rem)}
+.section-header .label{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem}
+.section-header .accent-bar{display:block;width:3.5rem;height:3px;background:var(--gold);margin:0 auto 1rem}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;color:var(--navy);line-height:1.2}
+.section-header p{font-size:1rem;color:var(--gray);max-width:580px;margin:.8rem auto 0;line-height:1.7}
+
+/* FAQ */
+.faq-mini{max-width:760px;margin:2.5rem auto 0}
+.faq-mini-item{border-bottom:1px solid var(--gray-light)}
+.faq-mini-q{width:100%;text-align:left;background:none;border:none;padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--navy);cursor:pointer;transition:color .2s}
+.faq-mini-q:hover{color:var(--gold)}
+.faq-mini-icon{flex-shrink:0;color:var(--gold);font-size:1.2rem;transition:transform .3s}
+.faq-mini-item.open .faq-mini-icon{transform:rotate(45deg)}
+.faq-mini-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-mini-a p{padding:.25rem 0 1.2rem;color:var(--gray);font-size:.875rem;line-height:1.75}
+.faq-mini-item.open .faq-mini-a{max-height:300px}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:2rem 0;text-align:center;font-size:.8rem}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:30px;width:auto;margin-left:.5rem">
+          <rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C9A84C"/>
+          <text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text>
+          <rect x="13" y="37" width="291" height="1" fill="#C9A84C"/>
+          <text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
+        </svg>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#methode">Méthode</a></li>
+        <li><a href="/entites-publiques">Entités publiques</a></li>
+        <li><a href="/#contact" class="nav-cta">Diagnostic gratuit</a></li>
+      </ul>
+      <div class="mobile-nav">
+        <a href="/">Accueil</a>
+        <a href="/#contact" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2"/></svg>
+      Entreprises privées — TPE · PME · Artisans
+    </div>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.8rem);font-weight:700;color:white;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-.02em;max-width:700px">
+      Vous connaissez votre métier.<br>Je connais <em style="color:var(--gold);font-style:normal">l'acheteur public.</em>
+    </h1>
+    <p class="lead">La plupart des marchés perdus ne le sont pas sur la compétence technique — mais sur la façon de la présenter. Je vous aide à construire des dossiers qui parlent le langage de l'acheteur.</p>
+    <div class="hero-actions">
+      <a href="/#contact" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Diagnostic gratuit 30 min
+      </a>
+      <a href="#tarifs" class="btn-secondary">Voir les offres</a>
+    </div>
+  </div>
+</section>
+
+<!-- RÉALITÉ TERRAIN -->
+<section class="terrain">
+  <div class="container">
+    <div class="terrain-quote">
+      <blockquote>
+        "Une offre techniquement excellente, mal structurée, perdra toujours face à une offre ordinaire, bien présentée. J'ai vu ça des centaines de fois."
+        <cite>— Stéphane Loudoux, Fondateur Procurement Insider</cite>
+      </blockquote>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="stat">🎯</div>
+        <p>La majorité des entreprises locales perdent des marchés non pas sur le prix ou la compétence — mais parce que leur mémoire technique ne répond pas aux critères comme l'acheteur l'espère.</p>
+      </div>
+      <div class="reason-card">
+        <div class="stat">📋</div>
+        <p>Les acheteurs publics analysent des dizaines d'offres. Un dossier qui va à l'essentiel, structuré selon leurs critères précis, est systématiquement mieux noté — même à compétence égale.</p>
+      </div>
+      <div class="reason-card">
+        <div class="stat">🔑</div>
+        <p>Connaître les deux côtés de la table est un avantage décisif. C'est exactement ce que j'apporte : la perspective de l'acheteur, mise au service de votre candidature.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUI JE PEUX AIDER -->
+<section class="profils">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Pour qui</span>
+      <span class="accent-bar"></span>
+      <h2>Ces entreprises que j'accompagne</h2>
+      <p>Vous vous reconnaissez dans l'un de ces profils ? Nous avons probablement des choses à faire ensemble.</p>
+    </div>
+    <div class="profils-grid">
+      <div class="profil-card">
+        <div class="emoji">🏗️</div>
+        <h4>Entreprises BTP & Travaux</h4>
+        <p>Marchés de travaux MAPA, appels d'offres ouverts, groupements momentanés. Vous avez les compétences, pas toujours le dossier.</p>
+      </div>
+      <div class="profil-card">
+        <div class="emoji">💼</div>
+        <h4>Prestataires de services</h4>
+        <p>Conseil, informatique, nettoyage, sécurité, logistique. Les marchés de services sont concurrentiels — votre mémoire technique fait toute la différence.</p>
+      </div>
+      <div class="profil-card">
+        <div class="emoji">🛒</div>
+        <h4>Fournisseurs & Distributeurs</h4>
+        <p>Marchés de fournitures, accords-cadres, centrales d'achat. Je vous aide à répondre aux DCE complexes avec efficacité.</p>
+      </div>
+      <div class="profil-card">
+        <div class="emoji">🎓</div>
+        <h4>Organismes de formation</h4>
+        <p>Marchés publics de formation, certification Qualiopi, réponse aux cahiers des charges exigeants des collectivités.</p>
+      </div>
+      <div class="profil-card">
+        <div class="emoji">🔧</div>
+        <h4>Artisans & TPE</h4>
+        <p>Vous pensez que les marchés publics ne sont pas pour vous ? Détrompez-vous. Les MAPA sous seuils sont accessibles — et très rentables.</p>
+      </div>
+      <div class="profil-card">
+        <div class="emoji">🚀</div>
+        <h4>Entreprises en première candidature</h4>
+        <p>Vous n'avez jamais répondu à un appel d'offres et vous ne savez pas par où commencer. C'est exactement pour ça que je suis là.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section class="pricing" id="tarifs" style="background:var(--cream)">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Tarification</span>
+      <span class="accent-bar"></span>
+      <h2>Des offres claires,<br>sans mauvaise surprise</h2>
+      <p>Le diagnostic de 30 minutes est toujours gratuit et sans engagement. Les tarifs ci-dessous sont indicatifs selon la complexité du marché.</p>
+    </div>
+    <div class="pricing-grid" id="pricing-private">
+      <!-- Chargé dynamiquement depuis site-data.json -->
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;padding:1.5rem;background:white;border-radius:8px;border-left:3px solid var(--gold);max-width:680px;margin-left:auto;margin-right:auto">
+      <p style="font-size:.9rem;color:var(--navy);font-weight:600;margin-bottom:.4rem">🎯 Diagnostic gratuit d'abord</p>
+      <p style="font-size:.875rem;color:var(--gray)">Avant tout devis, je prends 30 minutes pour analyser votre situation et vous dire honnêtement si et comment je peux vous aider. Sans frais, sans engagement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGE -->
+<section class="temoignage">
+  <div class="container">
+    <div class="temoignage-card">
+      <blockquote>
+        <p>Nous avions soumissionné six fois de suite sans jamais passer la phase de sélection. On pensait que c'était notre tarif qui posait problème. Stéphane a analysé nos dossiers et identifié en moins de 48 heures ce que les acheteurs cherchaient et que nous ne valorisions absolument pas : nos références locales, notre réactivité, notre capacité à mobiliser en urgence. Il a restructuré notre mémoire technique de A à Z. Deux mois plus tard, nous décrochions un marché de 280 000 € avec une collectivité avec laquelle nous n'avions jamais travaillé.</p>
+        <div class="temoignage-footer">
+          <div class="temoignage-avatar"><span>MC</span></div>
+          <div>
+            <strong class="temoignage-name">M. C.</strong>
+            <span class="temoignage-role">Gérant · Entreprise BTP, Martinique</span>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="process">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Comment ça se passe</span>
+      <span class="accent-bar"></span>
+      <h2>De votre question<br>à votre dossier déposé</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Diagnostic gratuit</h4>
+        <p>30 min d'échange pour analyser votre situation, votre historique AO et l'opportunité visée.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Analyse du DCE</h4>
+        <p>Je décortique le cahier des charges et vous indique précisément ce que l'acheteur valorisera.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Construction du dossier</h4>
+        <p>Rédaction du mémoire, constitution administrative, relecture et optimisation de chaque critère.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Dépôt & suivi</h4>
+        <p>Vérification avant dépôt, accompagnement jusqu'à la notification, retour d'expérience post-attribution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:clamp(4rem,6vw,7rem) 0">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Vos questions</span>
+      <span class="accent-bar"></span>
+      <h2>Ce que vous nous<br>demandez souvent</h2>
+    </div>
+    <div class="faq-mini">
+      <div class="faq-mini-item">
+        <button class="faq-mini-q" onclick="toggleFaqMini(this)">Garantissez-vous que je vais remporter le marché ?<span class="faq-mini-icon">+</span></button>
+        <div class="faq-mini-a"><p>Non — et méfiez-vous de quiconque vous le promet. L'attribution est une décision souveraine de l'acheteur. Ce que je garantis, c'est un dossier structuré, valorisé, conforme aux attentes de l'acheteur. Mes clients remportent significativement plus de marchés qu'avant notre travail ensemble. Mais aucun résultat ne peut être contractuellement garanti.</p></div>
+      </div>
+      <div class="faq-mini-item">
+        <button class="faq-mini-q" onclick="toggleFaqMini(this)">Mon entreprise est petite — est-ce vraiment pour moi ?<span class="faq-mini-icon">+</span></button>
+        <div class="faq-mini-a"><p>Absolument. La majorité de mes clients sont des TPE et PME martiniquaises. Les marchés publics ne sont pas réservés aux grands groupes. Il existe des marchés à procédure adaptée (MAPA) accessibles à toute structure, même très petite. Mon travail, c'est précisément de vous aider à vous présenter aussi professionnellement qu'une grande entreprise — avec vos propres atouts.</p></div>
+      </div>
+      <div class="faq-mini-item">
+        <button class="faq-mini-q" onclick="toggleFaqMini(this)">Dans quels délais pouvez-vous intervenir ?<span class="faq-mini-icon">+</span></button>
+        <div class="faq-mini-a"><p>Je recommande de me contacter au moins 10 jours avant la date limite de remise des offres. En deçà, l'intervention reste possible mais sera nécessairement ciblée sur les points critiques. Pour les urgences, contactez-moi directement par téléphone : +596 696 266 231.</p></div>
+      </div>
+      <div class="faq-mini-item">
+        <button class="faq-mini-q" onclick="toggleFaqMini(this)">Est-ce légal de se faire aider pour répondre à un appel d'offres ?<span class="faq-mini-icon">+</span></button>
+        <div class="faq-mini-a"><p>Oui, parfaitement légal. Aucune règle du Code de la commande publique n'interdit aux entreprises de se faire assister dans la préparation de leur offre. Ce qui est interdit, c'est la collusion entre soumissionnaires ou la corruption — ce qui est sans rapport avec un accompagnement professionnel et transparent.</p></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem"><a href="/#faq" style="color:var(--gold);font-weight:600;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase">Voir toutes les questions fréquentes →</a></p>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="container">
+    <h2>Prêt à déposer un dossier qui gagne ?</h2>
+    <p>30 minutes de diagnostic gratuit. Je vous dis franchement si je peux vous aider et comment.</p>
+    <a href="/#contact" class="btn-navy">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Démarrer mon diagnostic gratuit
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2025 — Stéphane Loudoux — Procurement Insider — Martinique &nbsp;|&nbsp; <a href="/">Accueil</a> &nbsp;|&nbsp; <a href="/entites-publiques">Entités publiques</a> &nbsp;|&nbsp; <a href="/#contact">Contact</a></p>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
+
+function toggleFaqMini(btn) {
+  const item = btn.closest('.faq-mini-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-mini-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+async function loadPricing() {
+  try {
+    const r = await fetch('/site-data.json?t=' + Date.now());
+    const data = await r.json();
+    const plans = data?.pricing?.private?.plans || [];
+    const grid = document.getElementById('pricing-private');
+    if (!grid || !plans.length) return;
+    grid.innerHTML = plans.map((p, i) => `
+      <div class="pricing-card${i===2?' featured':''}">
+        ${i===2 ? '<div class="featured-badge">★ Le plus complet</div>' : ''}
+        <div class="pricing-header">
+          <div class="pricing-name">${p.name}</div>
+          <div class="pricing-price">${p.price}</div>
+          ${p.unit ? `<div class="pricing-unit">${p.unit}</div>` : ''}
+        </div>
+        <div class="pricing-body">
+          <p class="pricing-desc">${p.description}</p>
+          <ul class="pricing-features">
+            ${p.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="pricing-cta">
+          <a href="/#contact">Démarrer mon diagnostic</a>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) { console.warn('pricing load error', e); }
+}
+loadPricing();
+</script>
+</body>
+</html>

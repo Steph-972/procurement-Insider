@@ -159,6 +159,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#F0F2F5;color:#1C1C2E;mi
     <div class="admin-nav">
       <button class="nav-btn active" onclick="showPanel('articles')">📄 Articles</button>
       <button class="nav-btn" onclick="showPanel('editor')">✏️ Nouvel article</button>
+      <button class="nav-btn" onclick="showPanel('stats-panel')">📊 Statistiques</button>
+      <button class="nav-btn" onclick="showPanel('faq-panel')">❓ FAQ</button>
+      <button class="nav-btn" onclick="showPanel('pricing-panel')">💰 Tarifs</button>
       <button class="nav-btn" onclick="showPanel('settings')">⚙️ Paramètres</button>
       <a href="/" target="_blank" style="text-decoration:none"><button class="nav-btn">🌐 Voir le site</button></a>
     </div>
@@ -281,6 +284,70 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#F0F2F5;color:#1C1C2E;mi
       </div>
     </div>
 
+
+    <!-- PANEL : STATISTIQUES -->
+    <div class="panel" id="panel-stats-panel">
+      <div class="panel-header"><h2>Compteurs & Statistiques</h2></div>
+      <div style="background:var(--white);border-radius:8px;padding:2rem;border:1px solid var(--gray-l);margin-bottom:1rem">
+        <p style="color:var(--gray);font-size:.875rem;margin-bottom:1.5rem">Ces chiffres s'affichent dans la section statistiques de la page d'accueil. Mettez à jour régulièrement pour asseoir votre crédibilité.</p>
+        <div id="stats-editor" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+          <p style="color:var(--gray);grid-column:1/-1">Chargement...</p>
+        </div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-l);display:flex;gap:1rem;align-items:center">
+          <button class="btn-publish" onclick="saveStats()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            Sauvegarder les statistiques
+          </button>
+          <div id="stats-status" style="font-size:.875rem;display:none"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL : FAQ -->
+    <div class="panel" id="panel-faq-panel">
+      <div class="panel-header">
+        <h2>Gestion de la FAQ</h2>
+        <button class="btn-new" onclick="addFaqItem()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Ajouter une question
+        </button>
+      </div>
+      <div style="background:var(--white);border-radius:8px;padding:2rem;border:1px solid var(--gray-l)">
+        <p style="color:var(--gray);font-size:.875rem;margin-bottom:1.5rem">Les questions de la FAQ s'affichent sur la page d'accueil et la page Entreprises privées. Ordre modifiable par glisser-déposer (prochainement).</p>
+        <div id="faq-editor">
+          <p style="color:var(--gray)">Chargement...</p>
+        </div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-l);display:flex;gap:1rem">
+          <button class="btn-publish" onclick="saveFaq()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            Sauvegarder la FAQ
+          </button>
+          <div id="faq-status" style="font-size:.875rem;display:none"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL : TARIFS -->
+    <div class="panel" id="panel-pricing-panel">
+      <div class="panel-header"><h2>Gestion des Tarifs</h2></div>
+      <div style="background:var(--white);border-radius:8px;padding:2rem;border:1px solid var(--gray-l)">
+        <p style="color:var(--gray);font-size:.875rem;margin-bottom:1.5rem">Modifiez les tarifs affichés sur les pages Entités publiques et Entreprises privées. Format libre — ex : "À partir de 990 €" ou "Sur devis".</p>
+        <div style="display:flex;gap:.5rem;border-bottom:2px solid var(--gray-l);margin-bottom:1.5rem">
+          <button class="etab active" id="ptab-public" onclick="switchPricingTab('public',this)">🏛️ Entités publiques</button>
+          <button class="etab" id="ptab-private" onclick="switchPricingTab('private',this)">🏢 Entreprises privées</button>
+        </div>
+        <div id="pricing-editor-public" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem"></div>
+        <div id="pricing-editor-private" style="display:none;grid-template-columns:1fr 1fr;gap:1.25rem"></div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-l);display:flex;gap:1rem">
+          <button class="btn-publish" onclick="savePricing()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            Sauvegarder les tarifs
+          </button>
+          <div id="pricing-status" style="font-size:.875rem;display:none"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- PANEL : PARAMÈTRES -->
     <div class="panel" id="panel-settings">
       <div class="panel-header"><h2>Paramètres</h2></div>
@@ -320,6 +387,7 @@ function doLogin() {
     document.getElementById('login').style.display = 'none';
     document.getElementById('admin').style.display = 'block';
     loadArticles();
+    loadSiteData();
   } else {
     document.getElementById('login-err').style.display = 'block';
     document.getElementById('pwd-input').value = '';
@@ -336,7 +404,7 @@ function showPanel(name) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + name).classList.add('active');
   document.querySelectorAll('.nav-btn').forEach((b,i) => {
-    const names = ['articles','editor','settings'];
+    const names = ['articles','editor','stats-panel','faq-panel','pricing-panel','settings'];
     b.classList.toggle('active', names[i] === name);
   });
   if (name === 'articles') loadArticles();
@@ -611,6 +679,182 @@ function saveSettings() {
   s.style.color = 'var(--green)';
   s.textContent = '✓ Paramètres sauvegardés avec succès.';
   setTimeout(() => s.style.display = 'none', 3000);
+}
+
+
+// ─── SITE DATA (stats, faq, pricing) ─────────────────────────────────────────
+let siteData = null;
+
+async function loadSiteData() {
+  try {
+    const d = await ghGet('site-data.json');
+    siteData = JSON.parse(atob(d.content.replace(/\n/g,'')));
+    renderStatsEditor();
+    renderFaqEditor();
+    renderPricingEditor();
+  } catch(e) {
+    console.error('site-data load error', e);
+  }
+}
+
+// ─── STATS ────────────────────────────────────────────────────────────────────
+function renderStatsEditor() {
+  const el = document.getElementById('stats-editor');
+  if (!el || !siteData?.stats) return;
+  el.innerHTML = siteData.stats.map((s, i) => `
+    <div style="background:var(--cream);border-radius:6px;padding:1.25rem;border:1px solid var(--gray-l)">
+      <div class="fg" style="margin-bottom:.75rem">
+        <label>Valeur (chiffre)</label>
+        <input type="text" id="stat-val-${i}" value="${s.value}" placeholder="ex: 47">
+      </div>
+      <div class="fg" style="margin-bottom:.75rem">
+        <label>Suffixe</label>
+        <input type="text" id="stat-suf-${i}" value="${s.suffix||''}" placeholder="ex: + ou %">
+      </div>
+      <div class="fg" style="margin-bottom:0">
+        <label>Libellé</label>
+        <input type="text" id="stat-lbl-${i}" value="${s.label}">
+      </div>
+    </div>
+  `).join('');
+}
+
+async function saveStats() {
+  if (!siteData) return;
+  for (let i = 0; i < siteData.stats.length; i++) {
+    siteData.stats[i].value = document.getElementById('stat-val-'+i)?.value || '0';
+    siteData.stats[i].suffix = document.getElementById('stat-suf-'+i)?.value || '';
+    siteData.stats[i].label = document.getElementById('stat-lbl-'+i)?.value || '';
+  }
+  await saveSiteData('Mise à jour statistiques');
+  showStatus('stats-status', '✓ Statistiques sauvegardées !');
+}
+
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+function renderFaqEditor() {
+  const el = document.getElementById('faq-editor');
+  if (!el || !siteData?.faq) return;
+  el.innerHTML = siteData.faq.map((item, i) => `
+    <div style="border:1px solid var(--gray-l);border-radius:6px;padding:1.25rem;margin-bottom:.75rem;position:relative">
+      <div style="position:absolute;top:.75rem;right:.75rem;display:flex;gap:.4rem">
+        <button onclick="moveFaq(${i},-1)" title="Monter" style="background:var(--cream);border:1px solid var(--gray-l);border-radius:3px;padding:.2rem .5rem;cursor:pointer;font-size:.8rem">↑</button>
+        <button onclick="moveFaq(${i},1)" title="Descendre" style="background:var(--cream);border:1px solid var(--gray-l);border-radius:3px;padding:.2rem .5rem;cursor:pointer;font-size:.8rem">↓</button>
+        <button onclick="deleteFaq(${i})" class="btn-del" style="padding:.2rem .6rem;font-size:.75rem">✕</button>
+      </div>
+      <div class="fg" style="margin-bottom:.75rem;padding-right:6rem">
+        <label>Question ${i+1}</label>
+        <input type="text" id="faq-q-${i}" value="${item.q.replace(/"/g,'&quot;')}">
+      </div>
+      <div class="fg" style="margin-bottom:0">
+        <label>Réponse</label>
+        <textarea id="faq-a-${i}" style="min-height:100px">${item.a}</textarea>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addFaqItem() {
+  if (!siteData) return;
+  siteData.faq.push({q:'Nouvelle question ?', a:'Réponse à rédiger.'});
+  renderFaqEditor();
+}
+function deleteFaq(i) {
+  if (!confirm('Supprimer cette question ?')) return;
+  siteData.faq.splice(i, 1);
+  renderFaqEditor();
+}
+function moveFaq(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= siteData.faq.length) return;
+  // Save current values first
+  collectFaqValues();
+  [siteData.faq[i], siteData.faq[j]] = [siteData.faq[j], siteData.faq[i]];
+  renderFaqEditor();
+}
+function collectFaqValues() {
+  if (!siteData?.faq) return;
+  siteData.faq.forEach((item, i) => {
+    const q = document.getElementById('faq-q-'+i);
+    const a = document.getElementById('faq-a-'+i);
+    if (q) item.q = q.value;
+    if (a) item.a = a.value;
+  });
+}
+async function saveFaq() {
+  collectFaqValues();
+  await saveSiteData('Mise à jour FAQ');
+  showStatus('faq-status', '✓ FAQ sauvegardée !');
+}
+
+// ─── PRICING ──────────────────────────────────────────────────────────────────
+let currentPricingTab = 'public';
+function switchPricingTab(tab, btn) {
+  currentPricingTab = tab;
+  document.querySelectorAll('.etab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pricing-editor-public').style.display = tab==='public' ? 'grid' : 'none';
+  document.getElementById('pricing-editor-private').style.display = tab==='private' ? 'grid' : 'none';
+}
+
+function renderPricingEditor() {
+  renderPricingFor('public');
+  renderPricingFor('private');
+}
+function renderPricingFor(type) {
+  const el = document.getElementById('pricing-editor-'+type);
+  if (!el || !siteData?.pricing?.[type]?.plans) return;
+  el.innerHTML = siteData.pricing[type].plans.map((p, i) => `
+    <div style="border:1px solid var(--gray-l);border-radius:6px;padding:1.25rem;background:var(--cream)">
+      <div style="font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:1rem;font-weight:700">${p.name}</div>
+      <div class="fg" style="margin-bottom:.75rem">
+        <label>Prix affiché</label>
+        <input type="text" id="price-${type}-${i}" value="${p.price}" placeholder="ex: À partir de 990 €">
+      </div>
+      <div class="fg" style="margin-bottom:.75rem">
+        <label>Unité / période</label>
+        <input type="text" id="unit-${type}-${i}" value="${p.unit||''}" placeholder="ex: HT / mission">
+      </div>
+      <div class="fg" style="margin-bottom:0">
+        <label>Description courte</label>
+        <textarea id="desc-${type}-${i}" style="min-height:70px">${p.description}</textarea>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function savePricing() {
+  ['public','private'].forEach(type => {
+    if (!siteData?.pricing?.[type]?.plans) return;
+    siteData.pricing[type].plans.forEach((p, i) => {
+      const price = document.getElementById('price-'+type+'-'+i);
+      const unit = document.getElementById('unit-'+type+'-'+i);
+      const desc = document.getElementById('desc-'+type+'-'+i);
+      if (price) p.price = price.value;
+      if (unit) p.unit = unit.value;
+      if (desc) p.description = desc.value;
+    });
+  });
+  await saveSiteData('Mise à jour tarifs');
+  showStatus('pricing-status', '✓ Tarifs sauvegardés !');
+}
+
+// ─── SAVE site-data.json ──────────────────────────────────────────────────────
+async function saveSiteData(message) {
+  const content = JSON.stringify(siteData, null, 2);
+  const existing = await ghGet('site-data.json');
+  await ghPut('site-data.json', content, message, existing.sha);
+}
+
+function showStatus(id, msg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.display = 'block';
+  el.style.color = 'var(--green)';
+  el.style.background = 'var(--green-bg)';
+  el.style.padding = '.4rem .8rem';
+  el.style.borderRadius = '4px';
+  el.textContent = msg;
+  setTimeout(() => el.style.display='none', 3000);
 }
 
 // ─── TOAST ────────────────────────────────────────────────────────────────────

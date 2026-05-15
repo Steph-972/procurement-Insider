@@ -1,0 +1,118 @@
+{
+  "stats": [
+    {"value": "0", "suffix": "+", "label": "Dossiers analysés", "icon": "📁"},
+    {"value": "0", "suffix": "%", "label": "Satisfaction clients", "icon": "⭐"},
+    {"value": "0", "suffix": "+", "label": "Collectivités accompagnées", "icon": "🏛️"},
+    {"value": "0", "suffix": "+", "label": "Formations dispensées", "icon": "🎓"}
+  ],
+  "faq": [
+    {
+      "q": "Est-ce légal de se faire accompagner pour répondre à un appel d'offres ?",
+      "a": "Absolument. Le recours à un consultant ou un prestataire pour préparer une offre est parfaitement légal et très répandu dans le secteur privé. Le Code de la commande publique n'interdit pas aux entreprises de se faire assister dans la rédaction de leur candidature ou de leur offre. Ce qui est interdit, c'est la collusion entre soumissionnaires ou la corruption d'un agent public — ce qui n'a rien à voir avec un accompagnement transparent et professionnel."
+    },
+    {
+      "q": "Garantissez-vous l'obtention du marché ?",
+      "a": "Non, et toute personne qui vous le promettra vous ment. L'attribution d'un marché public est une décision souveraine de l'acheteur public, fondée sur des critères objectifs. Ce que je garantis, c'est la qualité de mon travail : un dossier structuré, une offre valorisée, une stratégie adaptée à votre situation. Mes clients remportent plus de marchés, mais aucun résultat ne peut être contractuellement garanti."
+    },
+    {
+      "q": "Je suis une petite entreprise (TPE/artisan), vos services sont-ils adaptés à ma taille ?",
+      "a": "Oui. La majorité de mes clients sont des TPE et des PME martiniquaises. Les marchés publics ne sont pas réservés aux grandes entreprises — bien au contraire. Le Code de la commande publique contient des dispositions spécifiques pour favoriser l'accès des PME. Mon travail consiste précisément à vous aider à vous présenter aussi professionnellement qu'une grande structure, avec vos propres atouts."
+    },
+    {
+      "q": "Dans quels délais pouvez-vous intervenir ?",
+      "a": "Pour un accompagnement sur réponse à appel d'offres, j'interviens dès que vous me contactez, sous réserve de disponibilité. Pour être efficace, il faut idéalement au moins 7 à 10 jours avant la date limite de remise des offres. En deçà, l'intervention reste possible mais sera nécessairement ciblée sur les points les plus critiques. Ne tardez pas : plus vous anticipez, meilleur sera le résultat."
+    },
+    {
+      "q": "Comment se déroule le diagnostic gratuit ?",
+      "a": "Le diagnostic gratuit est un échange d'environ 30 minutes, en présentiel ou en visioconférence. Vous m'exposez votre situation : votre activité, votre historique avec les marchés publics, vos objectifs. Je vous fais un retour franc sur vos forces, vos points de vigilance, et je vous indique si et comment je peux vous aider. Sans engagement, sans jargon inutile."
+    },
+    {
+      "q": "Travaillez-vous uniquement en Martinique ?",
+      "a": "Ma zone d'intervention principale est la Martinique et les Antilles françaises (Guadeloupe, Saint-Martin, Saint-Barthélemy, Guyane). Je peux également travailler à distance pour des clients en France métropolitaine ou dans d'autres territoires d'outre-mer, notamment pour des missions de conseil, d'audit ou de formation."
+    },
+    {
+      "q": "Quelle est la différence entre un MAPA et une procédure formalisée ?",
+      "a": "Le Marché À Procédure Adaptée (MAPA) concerne les marchés dont le montant est inférieur aux seuils européens (actuellement 143 000 € HT pour les fournitures et services de l'État, 221 000 € pour les autres entités, 5 382 000 € pour les travaux). L'acheteur fixe ses propres règles dans le respect des principes fondamentaux. Les procédures formalisées (appel d'offres, dialogue compétitif, etc.) s'appliquent au-dessus de ces seuils et sont encadrées par des règles strictes définies par le Code."
+    },
+    {
+      "q": "Mon entreprise a déjà perdu un marché. Pouvez-vous m'aider à analyser pourquoi ?",
+      "a": "Oui, c'est même l'une des interventions les plus utiles que je propose. L'analyse post-attribution d'un marché perdu permet d'identifier précisément les points de faiblesse de votre dossier, de comprendre pourquoi le concurrent a été retenu, et de corriger le tir pour les prochains appels d'offres. Vous avez le droit de demander un rapport de présentation à l'acheteur — je vous aide à l'interpréter."
+    },
+    {
+      "q": "Proposez-vous des formations pour des équipes entières ?",
+      "a": "Oui. Je propose des sessions de formation intra-entreprise ou inter-entreprises sur les marchés publics : initiation, rédaction d'offres, analyse des cahiers des charges, stratégie de réponse. Ces formations sont adaptables en durée (demi-journée, journée, multi-jours) et en niveau (débutant, intermédiaire, avancé). Elles peuvent être éligibles à des financements OPCO."
+    },
+    {
+      "q": "Comment protégez-vous la confidentialité de mon dossier ?",
+      "a": "La confidentialité est un engagement fondamental. Je ne divulgue jamais les informations de mes clients à des tiers, et je ne travaille jamais simultanément pour deux entreprises concurrentes sur le même marché. Mes prestations peuvent faire l'objet d'un accord de confidentialité (NDA) sur demande. Toutes les données transmises sont traitées conformément au RGPD."
+    }
+  ],
+  "pricing": {
+    "public": {
+      "intro": "Accompagnement des entités publiques dans la sécurisation et l'optimisation de leurs procédures d'achat.",
+      "plans": [
+        {
+          "name": "Audit Procédure",
+          "price": "À partir de 990 €",
+          "unit": "HT / mission",
+          "description": "Analyse complète d'une procédure de marché public : conformité réglementaire, rédaction des pièces, grille d'analyse des offres.",
+          "features": ["Revue du DCE complet", "Analyse de conformité juridique", "Rapport d'audit détaillé", "Recommandations correctives", "1 réunion de restitution"]
+        },
+        {
+          "name": "Rédaction DCE / CCTP",
+          "price": "À partir de 1 490 €",
+          "unit": "HT / marché",
+          "description": "Rédaction ou relecture du Dossier de Consultation des Entreprises, incluant CCAP, CCTP, RC et AE.",
+          "features": ["Rédaction des pièces administratives", "Rédaction ou relecture du CCTP", "Critères de sélection optimisés", "Mise en conformité réglementaire", "Livraison sous 10 jours ouvrés"]
+        },
+        {
+          "name": "Formation Équipe Achat",
+          "price": "À partir de 750 €",
+          "unit": "HT / jour / groupe",
+          "description": "Formation sur-mesure pour vos équipes achat : procédures, jurisprudence, rédaction, sécurisation juridique.",
+          "features": ["Programme adapté à votre niveau", "Cas pratiques martiniquais", "Support de formation fourni", "Jusqu'à 12 participants", "Éligible financement OPCO"]
+        },
+        {
+          "name": "Accompagnement Annuel",
+          "price": "Sur devis",
+          "unit": "",
+          "description": "Partenariat continu : conseiller dédié pour toutes vos procédures, veille réglementaire, assistance ad hoc tout au long de l'année.",
+          "features": ["Hotline juridique marchés publics", "Revue de toutes vos procédures", "Veille réglementaire mensuelle", "Formations incluses", "Disponibilité prioritaire"]
+        }
+      ]
+    },
+    "private": {
+      "intro": "Accompagnement des entreprises privées pour remporter plus de marchés publics en Martinique et aux Antilles.",
+      "plans": [
+        {
+          "name": "Audit Candidature",
+          "price": "À partir de 490 €",
+          "unit": "HT / dossier",
+          "description": "Analyse complète de votre dernier dossier de candidature perdu : identification des failles, axes d'amélioration prioritaires.",
+          "features": ["Revue de votre DC1/DC2", "Analyse du mémoire technique", "Comparaison avec le gagnant (si possible)", "Rapport de recommandations", "Échange téléphonique de restitution"]
+        },
+        {
+          "name": "Pack Mémoire Technique",
+          "price": "À partir de 790 €",
+          "unit": "HT / appel d'offres",
+          "description": "Rédaction ou restructuration de votre mémoire technique pour maximiser votre score sur les critères de jugement.",
+          "features": ["Analyse du cahier des charges", "Structuration argumentation", "Rédaction orientée critères acheteur", "Mise en valeur de vos références", "Livraison en 5 jours ouvrés"]
+        },
+        {
+          "name": "Pack Réponse Complète",
+          "price": "À partir de 1 290 €",
+          "unit": "HT / appel d'offres",
+          "description": "Accompagnement intégral de votre réponse : de l'analyse du DCE à la remise de l'offre. Le plus complet.",
+          "features": ["Analyse DCE et stratégie d'offre", "Constitution dossier administratif", "Rédaction mémoire technique", "Relecture et optimisation prix", "Dépôt et suivi jusqu'à l'attribution"]
+        },
+        {
+          "name": "Coaching Intensif",
+          "price": "Sur devis",
+          "unit": "",
+          "description": "Programme d'autonomisation de votre équipe : formation + outils + templates pour répondre seuls aux prochains marchés.",
+          "features": ["Formation équipe commerciale", "Bibliothèque de templates", "Checklist procédures", "Suivi 3 mois post-formation", "Hotline questions urgentes"]
+        }
+      ]
+    }
+  }
+}
