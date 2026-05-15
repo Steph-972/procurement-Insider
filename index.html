@@ -938,7 +938,7 @@ body.splash-active section {
         <li><a href="#insights">Insights</a></li>
         <li><a href="/faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#diagnostic" class="nav-cta">Diagnostic gratuit</a></li>
+        <li><a href="#contact" class="nav-cta" data-form-mode="diagnostic">Diagnostic gratuit</a></li>
       </ul>
       <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -958,7 +958,7 @@ body.splash-active section {
   <a href="/entites-publiques" onclick="toggleMenu()">Entités publiques</a>
   <a href="/entreprises-privees" onclick="toggleMenu()">Entreprises privées</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="#diagnostic" class="mobile-cta" onclick="toggleMenu()">Diagnostic gratuit</a>
+  <a href="#contact" class="mobile-cta" data-form-mode="diagnostic" onclick="toggleMenu()">Diagnostic gratuit</a>
 </div>
 
 <!-- HERO -->
@@ -987,7 +987,7 @@ body.splash-active section {
         Dix ans de pratique opérationnelle au service des entreprises qui souhaitent améliorer leurs réponses aux appels d'offres et des entités publiques qui structurent leur stratégie d'achat.
       </p>
       <div class="hero-actions">
-        <a href="#diagnostic" class="btn-primary">
+        <a href="#contact" class="btn-primary" data-form-mode="diagnostic">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Diagnostic gratuit 30 min
         </a>
@@ -1562,7 +1562,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
         <span class="diag-feat">Recommandations personnalisées</span>
         <span class="diag-feat">Sans engagement</span>
       </div>
-      <a href="#contact" class="btn-diag">
+      <a href="#contact" class="btn-diag" data-form-mode="diagnostic">
         Réserver mon diagnostic gratuit
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1628,8 +1628,12 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
 
       <!-- COLONNE DROITE : Formulaire -->
       <div class="contact-form">
-        <h3>Écrivez-moi</h3>
-        <p class="form-sub">Je réponds personnellement à chaque message sous 48h ouvrées.</p>
+        <div class="form-mode-badge" id="form-mode-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Diagnostic gratuit · 30 min
+        </div>
+        <h3 id="form-title">Écrivez-moi</h3>
+        <p class="form-sub" id="form-subtitle">Je réponds personnellement à chaque message sous 48h ouvrées.</p>
         <form id="contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
@@ -1675,15 +1679,15 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
           </div>
           <div class="form-group">
             <label for="message">Votre message *</label>
-            <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation ou votre besoin..." required></textarea>
+            <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation ou votre besoin..." required id="message"></textarea>
           </div>
           <div class="form-checkbox">
             <input type="checkbox" id="consent" name="consent" required>
             <label for="consent">J'accepte que mes données soient utilisées pour traiter ma demande et me recontacter. Ces données ne seront pas transmises à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de modification et de suppression. <a href="#legal">En savoir plus</a>.</label>
           </div>
-          <button type="submit" class="btn-submit">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Envoyer ma demande
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <svg width="18" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span id="btn-submit-label">Envoyer ma demande</span>
           </button>
           <p class="form-note">Réponse garantie sous 48h ouvrées · Données sécurisées · RGPD</p>
         </form>
@@ -1974,6 +1978,69 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     alert('Une erreur est survenue. Veuillez nous contacter directement par email ou téléphone.');
   }
 });
+
+
+// ─── FORMULAIRE CONTEXTUEL (diagnostic vs contact) ────────────────────────────
+const FORM_MODES = {
+  diagnostic: {
+    title: 'Réserver mon diagnostic gratuit',
+    subtitle: '30 minutes offertes pour analyser votre situation. Je vous confirme un créneau sous 48h.',
+    sujet: 'diagnostic',
+    placeholder: 'Décrivez votre activité et ce que vous souhaitez accomplir avec les marchés publics (ex : répondre à votre premier AO, améliorer votre taux de succès, structurer votre stratégie achat...)',
+    btnLabel: 'Réserver mon créneau gratuit',
+    badge: true
+  },
+  contact: {
+    title: 'Écrivez-moi',
+    subtitle: 'Je réponds personnellement à chaque message sous 48h ouvrées.',
+    sujet: '',
+    placeholder: 'Décrivez brièvement votre situation ou votre besoin...',
+    btnLabel: 'Envoyer ma demande',
+    badge: false
+  }
+};
+
+function setFormMode(mode) {
+  const cfg = FORM_MODES[mode] || FORM_MODES.contact;
+  const title = document.getElementById('form-title');
+  const subtitle = document.getElementById('form-subtitle');
+  const sujetEl = document.getElementById('sujet');
+  const msgEl = document.getElementById('message');
+  const btnLabel = document.getElementById('btn-submit-label');
+  const badge = document.getElementById('form-mode-badge');
+  const form = document.querySelector('.contact-form');
+
+  if (title) title.textContent = cfg.title;
+  if (subtitle) subtitle.textContent = cfg.subtitle;
+  if (sujetEl && cfg.sujet) sujetEl.value = cfg.sujet;
+  if (msgEl) msgEl.placeholder = cfg.placeholder;
+  if (btnLabel) btnLabel.textContent = cfg.btnLabel;
+  if (badge) badge.classList.toggle('visible', cfg.badge);
+  if (form) form.classList.toggle('mode-diagnostic', mode === 'diagnostic');
+
+  // Scroll doux vers le formulaire
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    const offset = document.getElementById('navbar')?.offsetHeight || 70;
+    window.scrollTo({ top: contactSection.offsetTop - offset, behavior: 'smooth' });
+  }
+}
+
+// Intercepter tous les liens avec data-form-mode
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a[data-form-mode]');
+  if (!link) return;
+  const mode = link.getAttribute('data-form-mode');
+  if (!mode) return;
+  e.preventDefault();
+  setFormMode(mode);
+});
+
+// Détecter si on arrive directement sur #contact ou #diagnostic via URL
+(function() {
+  const hash = window.location.hash;
+  if (hash === '#diagnostic') setFormMode('diagnostic');
+})();
 
 // ─── SMOOTH SCROLL OFFSET (FIXED NAV) ────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
