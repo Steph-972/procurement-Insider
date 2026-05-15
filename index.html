@@ -1023,11 +1023,10 @@ body.splash-active section {
         </svg>
       </a>
       <ul class="nav-links">
-        <li><a href="#about">À propos</a></li>
         <li><a href="/services">Services</a></li>
-        <li><a href="#methode">Méthode</a></li>
+        <li><a href="/entites-publiques">Entités publiques</a></li>
+        <li><a href="/entreprises-privees">Entreprises privées</a></li>
         <li><a href="#insights">Insights</a></li>
-        <li><a href="/faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#contact" class="nav-cta" onclick="setFormMode('diagnostic');return false;">Diagnostic gratuit</a></li>
       </ul>
@@ -1041,13 +1040,11 @@ body.splash-active section {
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
   <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="#about" onclick="toggleMenu()">À propos</a>
   <a href="/services" onclick="toggleMenu()">Services</a>
-  <a href="#methode" onclick="toggleMenu()">Méthode</a>
-  <a href="#insights" onclick="toggleMenu()">Insights</a>
-  <a href="/faq" onclick="toggleMenu()">FAQ</a>
   <a href="/entites-publiques" onclick="toggleMenu()">Entités publiques</a>
   <a href="/entreprises-privees" onclick="toggleMenu()">Entreprises privées</a>
+  <a href="#insights" onclick="toggleMenu()">Insights</a>
+  <a href="/faq" onclick="toggleMenu()">FAQ</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="#contact" class="mobile-cta" onclick="toggleMenu();setFormMode('diagnostic');return false;">Diagnostic gratuit</a>
 </div>
@@ -1789,6 +1786,8 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#methode">Méthode</a></li>
           <li><a href="/services">Tous les services</a></li>
           <li><a href="#services">Rédaction DCE / CCTP</a></li>
           <li><a href="#services">Accompagnement réponse AO</a></li>
