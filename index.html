@@ -684,6 +684,39 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
 #art-modal-body ul{padding-left:1.5rem;margin-bottom:.85rem}
 #art-modal-body li{margin-bottom:.4rem;color:#333}
 #art-modal-body strong{color:var(--navy)}
+
+/* ── ABOUT — Image éditoriale premium ── */
+.about-hero-img {
+  margin: 0 auto clamp(3rem,5vw,5rem);
+  max-width: 1180px;
+  padding: 0 clamp(1.5rem,5vw,3rem);
+}
+.about-hero-img-inner {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(15,35,66,0.14), 0 2px 8px rgba(15,35,66,0.08);
+}
+.about-hero-img-inner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 60%, transparent 100%);
+}
+.about-hero-img img {
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center 28%;
+  transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.about-hero-img-inner:hover img { transform: scale(1.02); }
+@media(max-width:768px){
+  .about-hero-img img { max-height: 240px; }
+}
 </style>
 <script>
 // ─── FORMULAIRE CONTEXTUEL ────────────────────────────────────────────────────
@@ -1128,18 +1161,18 @@ body.splash-active section {
 </style>
 
 <!-- À PROPOS + IMAGE -->
-<section id="about" style="background:var(--white);padding:0 0 clamp(5rem,8vw,9rem);">
+<section id="about" style="background:var(--cream);padding:clamp(4rem,6vw,6rem) 0 clamp(5rem,8vw,9rem);">
 
   <!-- IMAGE PLEINE LARGEUR -->
   <div class="about-hero-img reveal">
-    <img
-      src="/img/collaboration-pro.jpg"
-      srcset="/img/collaboration-pro.jpg 1440w"
-      sizes="100vw"
-      alt="Collaboration professionnelle en marchés publics — Procurement Insider Martinique"
-      loading="lazy"
-      decoding="async"
-    >
+    <div class="about-hero-img-inner">
+      <img
+        src="/img/collaboration-pro.jpg"
+        alt="Collaboration professionnelle en marchés publics — Procurement Insider Martinique"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
   </div>
 
   <!-- CONTENU : About + Témoignage -->
