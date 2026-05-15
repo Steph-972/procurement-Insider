@@ -685,6 +685,64 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
 #art-modal-body li{margin-bottom:.4rem;color:#333}
 #art-modal-body strong{color:var(--navy)}
 </style>
+<script>
+// ─── FORMULAIRE CONTEXTUEL ────────────────────────────────────────────────────
+// Déclaré dans le head pour être disponible dès le chargement
+function setFormMode(mode) {
+  var isDiag = (mode === 'diagnostic');
+
+  var titles = {
+    diagnostic: 'Réserver mon diagnostic gratuit',
+    contact: 'Écrivez-moi'
+  };
+  var subtitles = {
+    diagnostic: '30 minutes offertes pour analyser votre situation. Je vous confirme un créneau sous 48h ouvrées.',
+    contact: 'Je réponds personnellement à chaque message sous 48h ouvrées.'
+  };
+  var placeholders = {
+    diagnostic: 'Décrivez votre activité et votre objectif (premier AO, améliorer votre taux de succès, structurer votre stratégie achat...)',
+    contact: 'Décrivez brièvement votre situation ou votre besoin...'
+  };
+  var btnLabels = {
+    diagnostic: 'Réserver mon créneau gratuit',
+    contact: 'Envoyer ma demande'
+  };
+
+  var el;
+
+  el = document.getElementById('form-title');
+  if (el) el.textContent = titles[mode] || titles.contact;
+
+  el = document.getElementById('form-subtitle');
+  if (el) el.textContent = subtitles[mode] || subtitles.contact;
+
+  el = document.getElementById('sujet');
+  if (el && isDiag) el.value = 'diagnostic';
+
+  el = document.getElementById('message');
+  if (el) el.placeholder = placeholders[mode] || placeholders.contact;
+
+  el = document.getElementById('btn-submit-label');
+  if (el) el.textContent = btnLabels[mode] || btnLabels.contact;
+
+  el = document.getElementById('form-mode-badge');
+  if (el) el.style.display = isDiag ? 'flex' : 'none';
+
+  el = document.querySelector('.contact-form');
+  if (el) {
+    if (isDiag) el.classList.add('mode-diagnostic');
+    else el.classList.remove('mode-diagnostic');
+  }
+
+  // Scroll vers la section contact
+  var contact = document.getElementById('contact');
+  if (contact) {
+    var nav = document.getElementById('navbar');
+    var offset = nav ? nav.offsetHeight + 8 : 70;
+    window.scrollTo({ top: contact.offsetTop - offset, behavior: 'smooth' });
+  }
+}
+</script>
 </head>
 <body>
 <!-- ═══════════════════════════════════════════════════
@@ -1131,24 +1189,11 @@ body.splash-active section {
       <span class="accent-line accent-line-center"></span>
       <h2 class="h1">Deux expertises,<br>un seul terrain.</h2>
       <p style="color:var(--gray);margin-top:1rem;">Une offre pensée pour les deux acteurs de la commande publique : ceux qui achètent, et ceux qui soumissionnent.</p>
-      <!-- Onglets cibles -->
-      <div class="services-tabs">
-        <a href="/entites-publiques" class="services-tab">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          Entités publiques
-          <span class="tab-arrow">→</span>
-        </a>
-        <a href="/entreprises-privees" class="services-tab">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
-          Entreprises privées
-          <span class="tab-arrow">→</span>
-        </a>
-      </div>
     </div>
     <div class="services-grid">
       <!-- Entités publiques -->
       <div class="service-col reveal">
-        <a href="/entites-publiques" class="service-col-header service-col-header-link" title="Voir tous les services — Entités publiques">
+        <div class="service-col-header">
           <div class="service-col-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
           </div>
@@ -1156,8 +1201,7 @@ body.splash-active section {
             <h3>Entités publiques</h3>
             <span>Collectivités · EPCI · Établissements publics</span>
           </div>
-          <svg class="col-header-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        </div>
         <ul class="service-list">
           <li class="service-item">
             <span class="service-item-num">01</span>
@@ -1200,7 +1244,6 @@ body.splash-active section {
             </div>
           </li>
         </ul>
-        <a href="/entites-publiques" class="service-col-link-full">Voir tous les services & tarifs <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <div class="service-offer">
           <span class="label">Porte d'entrée recommandée</span>
           <p>Vous avez une procédure à lancer ou une stratégie à structurer ?</p>
@@ -1210,7 +1253,7 @@ body.splash-active section {
       </div>
       <!-- Entreprises -->
       <div class="service-col reveal reveal-delay-2">
-        <a href="/entreprises-privees" class="service-col-header service-col-header-link" title="Voir toutes les offres — Entreprises privées">
+        <div class="service-col-header">
           <div class="service-col-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2"/></svg>
           </div>
@@ -1218,8 +1261,7 @@ body.splash-active section {
             <h3>Entreprises privées</h3>
             <span>TPE · PME · Artisans · BTP · Prestataires</span>
           </div>
-          <svg class="col-header-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        </div>
         <ul class="service-list">
           <li class="service-item">
             <span class="service-item-num">01</span>
@@ -1262,7 +1304,6 @@ body.splash-active section {
             </div>
           </li>
         </ul>
-        <a href="/entreprises-privees" class="service-col-link-full">Voir toutes les offres & tarifs <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <div class="service-offer">
           <span class="label">Offre de lancement</span>
           <p>Première mission ? Commencez par un diagnostic express :</p>
@@ -1996,54 +2037,9 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
 
 // ─── FORMULAIRE CONTEXTUEL (diagnostic vs contact) ────────────────────────────
-const FORM_MODES = {
-  diagnostic: {
-    title: 'Réserver mon diagnostic gratuit',
-    subtitle: '30 minutes offertes pour analyser votre situation. Je vous confirme un créneau sous 48h.',
-    sujet: 'diagnostic',
-    placeholder: 'Décrivez votre activité et ce que vous souhaitez accomplir avec les marchés publics (ex : répondre à votre premier AO, améliorer votre taux de succès, structurer votre stratégie achat...)',
-    btnLabel: 'Réserver mon créneau gratuit',
-    badge: true
-  },
-  contact: {
-    title: 'Écrivez-moi',
-    subtitle: 'Je réponds personnellement à chaque message sous 48h ouvrées.',
-    sujet: '',
-    placeholder: 'Décrivez brièvement votre situation ou votre besoin...',
-    btnLabel: 'Envoyer ma demande',
-    badge: false
-  }
-};
-
-function setFormMode(mode) {
-  const cfg = FORM_MODES[mode] || FORM_MODES.contact;
-  const title = document.getElementById('form-title');
-  const subtitle = document.getElementById('form-subtitle');
-  const sujetEl = document.getElementById('sujet');
-  const msgEl = document.getElementById('message');
-  const btnLabel = document.getElementById('btn-submit-label');
-  const badge = document.getElementById('form-mode-badge');
-  const form = document.querySelector('.contact-form');
-
-  if (title) title.textContent = cfg.title;
-  if (subtitle) subtitle.textContent = cfg.subtitle;
-  if (sujetEl && cfg.sujet) sujetEl.value = cfg.sujet;
-  if (msgEl) msgEl.placeholder = cfg.placeholder;
-  if (btnLabel) btnLabel.textContent = cfg.btnLabel;
-  if (badge) badge.classList.toggle('visible', cfg.badge);
-  if (form) form.classList.toggle('mode-diagnostic', mode === 'diagnostic');
-
-  // Scroll doux vers le formulaire
-  const contactSection = document.getElementById('contact');
-  if (contactSection) {
-    const offset = document.getElementById('navbar')?.offsetHeight || 70;
-    window.scrollTo({ top: contactSection.offsetTop - offset, behavior: 'smooth' });
-  }
-}
-
 // Détecter si on arrive directement sur #diagnostic via URL
 (function() {
-  if (window.location.hash === '#diagnostic') setFormMode('diagnostic');
+  if (window.location.hash === '#diagnostic') window.setFormMode && setFormMode('diagnostic');
 })();
 
 // ─── SMOOTH SCROLL OFFSET (FIXED NAV) ────────────────────────────────────────
