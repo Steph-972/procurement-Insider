@@ -46,7 +46,8 @@ nav.scrolled{background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);padding:.
 
 /* HERO */
 .page-hero{background:var(--navy);padding:clamp(7rem,12vw,10rem) 0 clamp(4rem,6vw,6rem);position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%, rgba(26,58,107,0.7) 0%, transparent 70%)}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%, rgba(26,58,107,0.7) 0%, transparent 70%);z-index:0;pointer-events:none}
+.page-hero .container{position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:.4rem 1rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem}
 .page-hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.8rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:1.5rem;letter-spacing:-.02em}
 .page-hero h1 em{color:var(--gold);font-style:normal}
@@ -180,7 +181,7 @@ footer a{color:var(--gold)}
         </div>
         <h1>Sécurisez vos procédures.<br><em>Optimisez</em> chaque achat.</h1>
         <p class="lead">Votre acheteur public mérite un soutien à la hauteur de ses responsabilités. J'interviens en renfort de vos équipes pour sécuriser juridiquement vos procédures, rédiger vos DCE et former vos agents.</p>
-        <div class="hero-actions">
+        <div class="hero-actions" style="position:relative;z-index:2;">
           <a href="/#contact" class="btn-primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             Demander un devis
@@ -225,7 +226,7 @@ footer a{color:var(--gold)}
 <section class="problems">
   <div class="container">
     <div class="section-header">
-      <span class="label">Pourquoi faire appel à un expert</span>
+      <span class="label" style="color:var(--gold);display:block;margin-bottom:0.5rem;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;">Pourquoi faire appel à un expert</span>
       <span class="accent-bar"></span>
       <h2>Les défis quotidiens<br>de l'acheteur public</h2>
       <p>Sous-effectifs, pression réglementaire, risques juridiques croissants : votre équipe achat mérite un appui structuré.</p>

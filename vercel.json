@@ -3,29 +3,72 @@
   "outputDirectory": ".",
   "framework": null,
   "rewrites": [
-    { "source": "/entites-publiques", "destination": "/entites-publiques.html" },
-    { "source": "/entreprises-privees", "destination": "/entreprises-privees.html" },
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/site-data.json", "destination": "/site-data.json" },
-    { "source": "/admin", "destination": "/admin.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/entites-publiques",
+      "destination": "/entites-publiques.html"
+    },
+    {
+      "source": "/entreprises-privees",
+      "destination": "/entreprises-privees.html"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/site-data.json",
+      "destination": "/site-data.json"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
       ]
     },
     {
       "source": "/site-data.json",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
     }
   ]

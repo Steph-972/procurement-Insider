@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Foire aux questions — Procurement Insider Martinique. Tout ce que vous devez savoir avant de nous contacter : légalité, garanties, délais, tarifs, confidentialité.">
+<meta name="robots" content="index, follow">
+<title>FAQ | Procurement Insider — Questions fréquentes sur les marchés publics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0F2342; --navy-mid:#1A3A6B;
+  --gold:#C9A84C; --gold-light:#E8C96A; --gold-pale:#F5E9C0;
+  --cream:#F8F5EF; --white:#FFFFFF; --gray:#6B7080; --gray-light:#E8EBF0;
+  --text:#1C1C2E; --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif; --mono:'DM Mono',monospace;
+  --radius:4px; --transition:0.35s cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--sans)}
+.container{max-width:1180px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.2)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-links{list-style:none;display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:.5rem 1.25rem;border-radius:var(--radius);font-weight:700!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+@media(max-width:768px){.nav-links{display:none}.mobile-nav{display:flex;gap:.75rem}.mobile-nav a{padding:.5rem .9rem;border-radius:3px;font-size:.8rem;font-weight:600;color:white;border:1px solid rgba(255,255,255,.25)}.mobile-nav .nav-cta{background:var(--gold);color:var(--navy);border-color:var(--gold)}}
+@media(min-width:769px){.mobile-nav{display:none}}
+
+/* HERO FAQ */
+.faq-hero{background:var(--navy);padding:clamp(8rem,12vw,11rem) 0 clamp(4rem,6vw,6rem);text-align:center;position:relative;overflow:hidden}
+.faq-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(201,168,76,0.06) 0%,transparent 60%);z-index:0;pointer-events:none}
+.faq-hero .container{position:relative;z-index:1}
+.faq-hero .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:.4rem 1.25rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem}
+.faq-hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:white;line-height:1.15;margin-bottom:1rem}
+.faq-hero h1 em{color:var(--gold);font-style:normal}
+.faq-hero p{font-size:clamp(1rem,1.5vw,1.1rem);color:rgba(255,255,255,.7);max-width:560px;margin:0 auto 2.5rem;line-height:1.75}
+.faq-hero-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem}
+.faq-category-link{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);padding:.45rem 1.1rem;border-radius:20px;font-size:.82rem;font-weight:500;transition:all .25s;cursor:pointer}
+.faq-category-link:hover,.faq-category-link.active{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:700}
+
+/* FAQ BODY */
+.faq-body{padding:clamp(4rem,6vw,7rem) 0;background:var(--cream)}
+.faq-layout{display:grid;grid-template-columns:240px 1fr;gap:clamp(3rem,5vw,6rem);align-items:start}
+.faq-sidebar{position:sticky;top:100px}
+.faq-sidebar h3{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem}
+.faq-nav-list{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.faq-nav-list a{display:block;padding:.5rem .75rem;border-radius:var(--radius);font-size:.875rem;color:var(--gray);transition:all .2s;border-left:2px solid transparent}
+.faq-nav-list a:hover{color:var(--navy);background:white;border-left-color:var(--gold-pale)}
+.faq-nav-list a.active{color:var(--navy);font-weight:600;background:white;border-left-color:var(--gold)}
+@media(max-width:768px){.faq-layout{grid-template-columns:1fr}.faq-sidebar{display:none}}
+
+/* FAQ ITEMS */
+.faq-group{margin-bottom:3rem}
+.faq-group-title{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
+.faq-group-title::after{content:'';flex:1;height:1px;background:var(--gray-light)}
+.faq-item{background:white;border-radius:8px;margin-bottom:.75rem;border:1px solid var(--gray-light);overflow:hidden;transition:border-color .25s}
+.faq-item:hover{border-color:rgba(201,168,76,.4)}
+.faq-item.open{border-color:var(--gold)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:1.4rem 1.75rem;display:flex;justify-content:space-between;align-items:center;gap:1.25rem;font-family:var(--sans);font-size:clamp(.92rem,1.3vw,1rem);font-weight:600;color:var(--navy);cursor:pointer;transition:color .2s;line-height:1.4}
+.faq-q:hover{color:var(--gold)}
+.faq-item.open .faq-q{color:var(--navy)}
+.faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gray-light);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.faq-icon span{font-size:1rem;color:var(--gray);line-height:1;transition:transform .3s,color .3s}
+.faq-item.open .faq-icon{background:var(--gold);border-color:var(--gold)}
+.faq-item.open .faq-icon span{color:var(--navy);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{padding:0 1.75rem 1.5rem;color:var(--gray);line-height:1.85;font-size:.925rem;border-top:1px solid var(--gray-light)}
+.faq-a-inner p{padding-top:1.25rem}
+.faq-a-inner strong{color:var(--navy)}
+
+/* CTA BAND */
+.faq-cta{background:var(--navy);padding:clamp(4rem,6vw,6rem) 0;text-align:center}
+.faq-cta h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);color:white;margin-bottom:1rem}
+.faq-cta p{color:rgba(255,255,255,.65);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto}
+.btn-gold{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);padding:.9rem 2rem;border-radius:var(--radius);font-weight:700;font-size:.95rem;transition:all .25s}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+
+/* Footer */
+footer{background:var(--navy);color:rgba(255,255,255,.5);padding:1.75rem 0;text-align:center;font-size:.8rem;border-top:1px solid rgba(255,255,255,.05)}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" style="display:flex;align-items:center">
+        <svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto">
+          <rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C9A84C"/>
+          <text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text>
+          <rect x="13" y="37" width="291" height="1" fill="#C9A84C"/>
+          <text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
+        </svg>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/entites-publiques">Entités publiques</a></li>
+        <li><a href="/entreprises-privees">Entreprises privées</a></li>
+        <li><a href="/faq" class="active">FAQ</a></li>
+        <li><a href="/#contact" class="nav-cta">Diagnostic gratuit</a></li>
+      </ul>
+      <div class="mobile-nav">
+        <a href="/">Accueil</a>
+        <a href="/#contact" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="faq-hero">
+  <div class="container">
+    <div class="badge">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Questions fréquentes
+    </div>
+    <h1>Tout ce que vous voulez savoir<br><em>avant de nous contacter.</em></h1>
+    <p>Réponses claires et directes aux questions que l'on nous pose le plus souvent. Sans jargon inutile.</p>
+    <div class="faq-hero-links">
+      <span class="faq-category-link active" onclick="scrollToGroup('generalites')">Généralités</span>
+      <span class="faq-category-link" onclick="scrollToGroup('juridique')">Juridique & légalité</span>
+      <span class="faq-category-link" onclick="scrollToGroup('pratique')">Questions pratiques</span>
+      <span class="faq-category-link" onclick="scrollToGroup('technique')">Technique & procédures</span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ BODY -->
+<section class="faq-body">
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="faq-sidebar">
+        <h3>Catégories</h3>
+        <ul class="faq-nav-list" id="faq-nav">
+          <li><a href="#generalites">Généralités</a></li>
+          <li><a href="#juridique">Juridique & légalité</a></li>
+          <li><a href="#pratique">Questions pratiques</a></li>
+          <li><a href="#technique">Technique & procédures</a></li>
+        </ul>
+        <div style="margin-top:2rem;padding:1.25rem;background:var(--navy);border-radius:8px;text-align:center">
+          <p style="color:rgba(255,255,255,.7);font-size:.8rem;margin-bottom:1rem;line-height:1.6">Votre question n'est pas listée ?</p>
+          <a href="/#contact" style="display:block;background:var(--gold);color:var(--navy);padding:.6rem 1rem;border-radius:4px;font-weight:700;font-size:.8rem">Posez-la directement →</a>
+        </div>
+      </aside>
+
+      <!-- FAQ CONTENT -->
+      <div id="faq-content">
+        <!-- Généralités -->
+        <div class="faq-group" id="generalites">
+          <div class="faq-group-title">Généralités</div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Qu'est-ce que Procurement Insider exactement ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Procurement Insider est une activité de conseil en marchés publics fondée par Stéphane Loudoux, responsable achats et marchés publics depuis 10 ans au sein d'entités martiniquaises. L'activité s'adresse à deux cibles : les <strong>entités publiques</strong> (collectivités, EPCI, hôpitaux, établissements publics) qui souhaitent sécuriser et optimiser leurs procédures d'achat, et les <strong>entreprises privées</strong> (TPE, PME, artisans) qui veulent améliorer leurs réponses aux appels d'offres et remporter plus de marchés.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              En quoi votre approche est-elle différente ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>La plupart des consultants en marchés publics viennent du monde juridique ou académique. Stéphane Loudoux vient du terrain opérationnel : dix ans à piloter des procédures, rédiger des DCE, analyser des offres et notifier des marchés. Cette <strong>double expérience acheteur/fournisseur</strong> est rare et représente un avantage décisif pour nos clients. Nous ne conseillons pas en théorie — nous savons exactement ce que l'acheteur pense quand il ouvre un dossier.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Dans quelles zones géographiques intervenez-vous ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Notre zone principale d'intervention est la <strong>Martinique</strong>, avec des déplacements réguliers en <strong>Guadeloupe</strong>, <strong>Guyane</strong>, et autres territoires des Antilles françaises. Des missions à distance (conseil, audit, formation en visioconférence) sont également proposées pour les clients en France métropolitaine ou dans d'autres DROM-COM.</p></div></div>
+          </div>
+        </div>
+
+        <!-- Juridique & légalité -->
+        <div class="faq-group" id="juridique">
+          <div class="faq-group-title">Juridique & légalité</div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Est-ce légal de se faire accompagner pour répondre à un appel d'offres ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Absolument. Le recours à un consultant pour préparer une offre est <strong>parfaitement légal</strong> et très répandu dans le secteur privé. Le Code de la commande publique n'interdit pas aux entreprises de se faire assister dans la rédaction de leur candidature ou de leur offre. Ce qui est interdit, c'est la collusion entre soumissionnaires ou la corruption d'un agent public — ce qui n'a rien à voir avec un accompagnement professionnel et transparent.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Garantissez-vous l'obtention du marché ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Non, et <strong>méfiez-vous de quiconque vous le promettra</strong>. L'attribution d'un marché public est une décision souveraine de l'acheteur, fondée sur des critères objectifs préalablement définis. Ce que nous garantissons, c'est la qualité de notre travail : un dossier structuré, valorisé, conforme aux attentes de l'acheteur. Nos clients remportent significativement plus de marchés après notre accompagnement — mais aucun résultat ne peut être contractuellement garanti.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Comment protégez-vous la confidentialité de mon dossier ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>La confidentialité est un engagement fondamental. Nous ne divulguons jamais les informations de nos clients à des tiers, et nous ne travaillons jamais simultanément pour deux entreprises concurrentes sur le même marché. Nos prestations peuvent faire l'objet d'un accord de confidentialité (<strong>NDA</strong>) sur demande. Toutes les données transmises sont traitées conformément au RGPD.</p></div></div>
+          </div>
+        </div>
+
+        <!-- Questions pratiques -->
+        <div class="faq-group" id="pratique">
+          <div class="faq-group-title">Questions pratiques</div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Comment se déroule le diagnostic gratuit ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Le diagnostic gratuit est un échange d'environ <strong>30 minutes</strong>, en présentiel ou en visioconférence. Vous nous exposez votre situation : votre activité, votre historique avec les marchés publics, vos objectifs. Nous vous faisons un retour franc sur vos forces, vos points de vigilance, et nous vous indiquons si et comment nous pouvons vous aider. <strong>Sans engagement, sans jargon inutile.</strong></p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Dans quels délais pouvez-vous intervenir ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Pour un accompagnement sur réponse à appel d'offres, nous intervenons dès que vous nous contactez, sous réserve de disponibilité. Pour être efficace, il faut idéalement <strong>au moins 7 à 10 jours</strong> avant la date limite de remise des offres. En deçà, l'intervention reste possible mais sera nécessairement ciblée sur les points les plus critiques. Pour les urgences, contactez-nous directement par téléphone.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Je suis une petite entreprise (TPE/artisan), vos services sont-ils adaptés ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Oui. La majorité de nos clients sont des <strong>TPE et PME martiniquaises</strong>. Les marchés publics ne sont pas réservés aux grandes entreprises. Le Code de la commande publique contient des dispositions spécifiques pour favoriser l'accès des PME. Notre travail consiste précisément à vous aider à vous présenter aussi professionnellement qu'une grande structure, avec vos propres atouts.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Proposez-vous des formations pour des équipes entières ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Oui. Nous proposons des sessions de formation <strong>intra-entreprise ou inter-entreprises</strong> sur les marchés publics : initiation, rédaction d'offres, analyse des cahiers des charges, stratégie de réponse. Ces formations sont adaptables en durée (demi-journée, journée, multi-jours) et en niveau (débutant, intermédiaire, avancé). Elles peuvent être éligibles à des financements OPCO.</p></div></div>
+          </div>
+        </div>
+
+        <!-- Technique & procédures -->
+        <div class="faq-group" id="technique">
+          <div class="faq-group-title">Technique & procédures</div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Quelle est la différence entre un MAPA et une procédure formalisée ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Le <strong>Marché À Procédure Adaptée (MAPA)</strong> concerne les marchés dont le montant est inférieur aux seuils européens (actuellement 143 000 € HT pour les fournitures et services de l'État, 221 000 € pour les autres entités, 5 382 000 € pour les travaux). L'acheteur fixe ses propres règles dans le respect des principes fondamentaux. Les <strong>procédures formalisées</strong> (appel d'offres, dialogue compétitif…) s'appliquent au-dessus de ces seuils et sont encadrées par des règles strictes définies par le Code.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Mon entreprise a perdu un marché. Pouvez-vous m'aider à comprendre pourquoi ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Oui, c'est même l'une de nos interventions les plus utiles. L'<strong>analyse post-attribution d'un marché perdu</strong> permet d'identifier précisément les points de faiblesse de votre dossier, de comprendre pourquoi le concurrent a été retenu, et de corriger le tir pour les prochains appels d'offres. Vous avez le droit de demander un rapport de présentation à l'acheteur — nous vous aidons à l'interpréter.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Travaillez-vous avec toutes les formes d'entités publiques ?
+              <span class="faq-icon"><span>+</span></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Oui. Nous travaillons avec l'ensemble des acheteurs publics soumis au Code de la commande publique : <strong>communes, intercommunalités (EPCI), Collectivité Territoriale de Martinique (CTM), établissements publics (hôpitaux, SDIS, DEAL, universités), offices HLM, régie des eaux</strong>…  Chaque type d'entité a ses spécificités — nous les connaissons.</p></div></div>
+          </div>
+        </div>
+
+      </div><!-- /faq-content -->
+    </div><!-- /faq-layout -->
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="faq-cta">
+  <div class="container">
+    <h2>Votre question n'est pas listée ?</h2>
+    <p>Contactez-nous directement. Premier échange toujours gratuit, réponse sous 48h ouvrées.</p>
+    <a href="/#contact" class="btn-gold">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Poser ma question
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2025 — Stéphane Loudoux — Procurement Insider — Martinique &nbsp;|&nbsp; <a href="/">Accueil</a> &nbsp;|&nbsp; <a href="/entites-publiques">Entités publiques</a> &nbsp;|&nbsp; <a href="/entreprises-privees">Entreprises privées</a> &nbsp;|&nbsp; <a href="/#contact">Contact</a></p>
+  </div>
+</footer>
+
+<script>
+// Navbar
+const nav = document.querySelector('nav');
+
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll to group
+function scrollToGroup(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+  document.querySelectorAll('.faq-category-link').forEach(l => l.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Active sidebar nav on scroll
+const groups = document.querySelectorAll('.faq-group[id]');
+const navLinks = document.querySelectorAll('.faq-nav-list a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  groups.forEach(g => { if (window.scrollY >= g.offsetTop - 140) current = g.id; });
+  navLinks.forEach(a => {
+    const href = a.getAttribute('href').slice(1);
+    a.classList.toggle('active', href === current);
+  });
+}, { passive: true });
+
+// Open first item by default
+document.querySelector('.faq-item .faq-q')?.click();
+</script>
+</body>
+</html>
