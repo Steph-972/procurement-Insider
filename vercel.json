@@ -28,6 +28,10 @@
       "destination": "/faq.html"
     },
     {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

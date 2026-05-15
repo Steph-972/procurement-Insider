@@ -991,7 +991,7 @@ body.splash-active section {
       </a>
       <ul class="nav-links">
         <li><a href="#about">À propos</a></li>
-        <li><a href="#services">Services</a></li>
+        <li><a href="/services">Services</a></li>
         <li><a href="#methode">Méthode</a></li>
         <li><a href="#insights">Insights</a></li>
         <li><a href="/faq">FAQ</a></li>
@@ -1009,7 +1009,7 @@ body.splash-active section {
 <div class="mobile-menu" id="mobile-menu">
   <button class="mobile-close" onclick="toggleMenu()">✕</button>
   <a href="#about" onclick="toggleMenu()">À propos</a>
-  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="/services" onclick="toggleMenu()">Services</a>
   <a href="#methode" onclick="toggleMenu()">Méthode</a>
   <a href="#insights" onclick="toggleMenu()">Insights</a>
   <a href="/faq" onclick="toggleMenu()">FAQ</a>
@@ -1181,137 +1181,19 @@ body.splash-active section {
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="container">
-    <div class="services-header reveal">
-      <span class="label">Services</span>
-      <span class="accent-line accent-line-center"></span>
-      <h2 class="h1">Deux expertises,<br>un seul terrain.</h2>
-      <p style="color:var(--gray);margin-top:1rem;">Une offre pensée pour les deux acteurs de la commande publique : ceux qui achètent, et ceux qui soumissionnent.</p>
-    </div>
-    <div class="services-grid">
-      <!-- Entités publiques -->
-      <div class="service-col reveal">
-        <div class="service-col-header">
-          <div class="service-col-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-          </div>
-          <div>
-            <h3>Entités publiques</h3>
-            <span>Collectivités · EPCI · Établissements publics</span>
-          </div>
-        </div>
-        <ul class="service-list">
-          <li class="service-item">
-            <span class="service-item-num">01</span>
-            <div class="service-item-text">
-              <strong>Audit stratégie d'achat</strong>
-              <span>Diagnostic de votre politique achat, identification des axes d'optimisation, plan d'action opérationnel.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">02</span>
-            <div class="service-item-text">
-              <strong>Rédaction DCE & CCTP</strong>
-              <span>Rédaction ou révision des documents de consultation des entreprises, cahier des charges techniques.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">03</span>
-            <div class="service-item-text">
-              <strong>Accompagnement procédures</strong>
-              <span>Pilotage complet d'une procédure d'appel d'offres de A à Z, de la publication à l'attribution.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">04</span>
-            <div class="service-item-text">
-              <strong>Formation achat public</strong>
-              <span>Sessions intra ou inter-établissements sur la réglementation, les procédures et les bonnes pratiques.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">05</span>
-            <div class="service-item-text">
-              <strong>Conseil mensuel (forfait)</strong>
-              <span>Disponibilité régulière, veille réglementaire incluse, réponses à vos questions ponctuelles.</span>
-              
-            </div>
-          </li>
-        </ul>
-        <div class="service-offer">
-          <span class="label">Porte d'entrée recommandée</span>
-          <p>Vous avez une procédure à lancer ou une stratégie à structurer ?</p>
-          <strong>Audit express 2h — offert pour les collectivités</strong>
-          <a href="#contact" class="btn-offer">Prendre rendez-vous <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-      <!-- Entreprises -->
-      <div class="service-col reveal reveal-delay-2">
-        <div class="service-col-header">
-          <div class="service-col-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2"/></svg>
-          </div>
-          <div>
-            <h3>Entreprises privées</h3>
-            <span>TPE · PME · Artisans · BTP · Prestataires</span>
-          </div>
-        </div>
-        <ul class="service-list">
-          <li class="service-item">
-            <span class="service-item-num">01</span>
-            <div class="service-item-text">
-              <strong>Diagnostic candidature</strong>
-              <span>Évaluation de votre capacité à répondre aux marchés publics, identification des points d'amélioration.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">02</span>
-            <div class="service-item-text">
-              <strong>Accompagnement réponse AO</strong>
-              <span>De la lecture du DCE jusqu'au dépôt du dossier complet : analyse, mémoire technique, prix.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">03</span>
-            <div class="service-item-text">
-              <strong>Formation pratique</strong>
-              <span>Comment lire un DCE, rédiger une offre solide, calculer son prix et améliorer la qualité de sa réponse.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">04</span>
-            <div class="service-item-text">
-              <strong>Veille marchés & conseil</strong>
-              <span>Surveillance personnalisée des opportunités BOAMP/AWS, alertes ciblées, conseil Go/No-Go.</span>
-              
-            </div>
-          </li>
-          <li class="service-item">
-            <span class="service-item-num">05</span>
-            <div class="service-item-text">
-              <strong>Ateliers collectifs</strong>
-              <span>Sessions groupes (5–8 participants) organisées via CCI Martinique ou Médef. Format demi-journée.</span>
-              
-            </div>
-          </li>
-        </ul>
-        <div class="service-offer">
-          <span class="label">Offre de lancement</span>
-          <p>Première mission ? Commencez par un diagnostic express :</p>
-          <strong>Pack 1er marché — à partir de 900 € HT</strong>
-          <a href="#contact" class="btn-offer">Démarrer maintenant <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-    </div>
+<!-- SERVICES CTA -->
+<section id="services" style="background:var(--cream);padding:clamp(4rem,6vw,6rem) 0;">
+  <div class="container" style="text-align:center">
+    <span class="label" style="color:var(--gold);display:block;margin-bottom:.6rem">Nos services</span>
+    <span class="accent-line accent-line-center"></span>
+    <h2 class="h1" style="margin-bottom:1rem">Deux expertises,<br>un seul terrain.</h2>
+    <p style="color:var(--gray);max-width:500px;margin:0 auto 2.5rem;font-size:1rem;line-height:1.7">
+      Audit, rédaction DCE, accompagnement AO, formation — pour les entités publiques et les entreprises privées.
+    </p>
+    <a href="/services" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.9rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;transition:all .25s;text-decoration:none" onmouseover="this.style.background='#1A3A6B'" onmouseout="this.style.background='#0F2342'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Découvrir tous nos services
+    </a>
   </div>
 </section>
 
@@ -1860,7 +1742,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Stratégie d'achat public</a></li>
+          <li><a href="/services">Tous les services</a></li>
           <li><a href="#services">Rédaction DCE / CCTP</a></li>
           <li><a href="#services">Accompagnement réponse AO</a></li>
           <li><a href="#services">Formation marchés publics</a></li>
