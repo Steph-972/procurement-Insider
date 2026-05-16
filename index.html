@@ -1328,72 +1328,74 @@ body.splash-active section {
 </section>
 
 <!-- POURQUOI -->
-<section id="why" style="background:var(--navy);padding:clamp(5rem,8vw,9rem) 0;">
+<section id="why">
   <div class="container">
+    <div class="why-grid">
 
-    <!-- Accroche narrative centrale -->
-    <div style="text-align:center;max-width:760px;margin:0 auto clamp(3.5rem,5vw,5rem)">
-      <span class="label reveal" style="color:var(--gold);margin-bottom:.6rem;display:block;">Pourquoi me choisir</span>
-      <span class="accent-line accent-line-center reveal" style="margin-bottom:1.75rem"></span>
-      <h2 class="h1 reveal reveal-delay-1" style="color:white;margin-bottom:1.5rem">J'ai rédigé les CCTP<br>que vous deviez décrypter.<br><em style="color:var(--gold);font-style:normal">Maintenant je suis de votre côté.</em></h2>
-      <p class="reveal reveal-delay-2" style="color:rgba(255,255,255,.72);font-size:clamp(1rem,1.4vw,1.1rem);line-height:1.85;font-weight:300">
-        Pendant 10 ans, j'ai tenu le stylo côté acheteur. J'ai rédigé des cahiers des charges que des entreprises martiniquaises devaient décrypter pour y répondre. J'ai analysé leurs dossiers, noté leurs offres, décidé des attributions. Je sais exactement ce qui se passe dans la tête d'un acheteur au moment où il ouvre une enveloppe. Cette connaissance — que personne d'autre en Martinique ne possède comme moi — est maintenant entièrement au service des entreprises qui veulent gagner, et des entités qui veulent acheter mieux.
-      </p>
+      <!-- Colonne gauche : storytelling -->
+      <div>
+        <span class="label reveal" style="color:var(--gold);margin-bottom:0.6rem;display:block;">Pourquoi me choisir</span>
+        <span class="accent-line reveal"></span>
+        <h2 class="h1 reveal reveal-delay-1">J'ai rédigé les CCTP<br>que vous deviez<br>décrypter.</h2>
+        <p class="reveal reveal-delay-2">Pendant 10 ans, j'ai tenu le stylo côté acheteur. Des centaines de cahiers des charges rédigés, des offres notées, des attributions décidées. Je sais exactement ce qui se passe dans la tête d'un acheteur au moment où il ouvre une enveloppe. Cette connaissance — que personne d'autre en Martinique ne possède comme moi — est maintenant entièrement de votre côté.</p>
+        <div class="why-quote reveal reveal-delay-3">
+          <p>J'ai rédigé les CCTP que vous deviez décrypter pour répondre. Aujourd'hui je suis de votre côté.</p>
+          <cite>— Stéphane Loudoux, fondateur Procurement Insider</cite>
+        </div>
+      </div>
+
+      <!-- Colonne droite : 4 cartes -->
+      <div class="why-cards">
+        <div class="why-card reveal">
+          <div class="why-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h4>J'ai rédigé vos cahiers des charges</h4>
+            <p>Des centaines de CCTP, DCE, règlements de consultation. Je sais ce que l'acheteur veut vraiment — et comment valoriser votre offre exactement dans ses termes.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <h4>J'ai décidé des attributions</h4>
+            <p>J'ai noté vos offres, comparé vos prix, validé vos références. Je sais pourquoi un dossier gagne — et pourquoi un autre, techniquement meilleur, perd. Cette lecture est unique.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Martinique — terrain, réseau, réactivité</h4>
+            <p>Je connais les acteurs, les pratiques, les spécificités locales. Disponible, joignable, présent. Aucun cabinet continental ne peut offrir ce niveau d'ancrage.</p>
+          </div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4>Honnêteté sur ce que je peux garantir</h4>
+            <p>Je n'ai jamais promis un marché — personne ne le peut légalement. Ce que je garantis : un dossier irréprochable, une offre valorisée, une stratégie adaptée. Le reste appartient à l'acheteur.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- 4 cartes différenciantes -->
-    <div class="why-cards" style="grid-template-columns:repeat(2,1fr)">
-      <div class="why-card reveal" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:clamp(1.5rem,3vw,2rem)">
-        <div class="why-card-icon" style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <div>
-          <h4 style="color:white;margin-bottom:.5rem">J'ai rédigé vos cahiers des charges</h4>
-          <p style="color:rgba(255,255,255,.65)">Des centaines de CCTP, de DCE, de règlements de consultation. Je sais ce que l'acheteur veut vraiment — et comment valoriser votre offre exactement dans ces termes.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-1" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:clamp(1.5rem,3vw,2rem)">
-        <div class="why-card-icon" style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div>
-          <h4 style="color:white;margin-bottom:.5rem">J'ai décidé des attributions</h4>
-          <p style="color:rgba(255,255,255,.65)">J'ai noté vos offres, comparé vos prix, validé vos références. Je sais pourquoi un dossier gagne — et pourquoi un autre, techniquement meilleur, perd. Cette lecture est unique.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-2" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:clamp(1.5rem,3vw,2rem)">
-        <div class="why-card-icon" style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <h4 style="color:white;margin-bottom:.5rem">Martinique — terrain, réseau, réactivité</h4>
-          <p style="color:rgba(255,255,255,.65)">Je connais les acteurs, les pratiques, les spécificités locales. Je suis joignable, disponible, présent. Aucun cabinet continental ne peut offrir ce niveau d'ancrage.</p>
-        </div>
-      </div>
-      <div class="why-card reveal reveal-delay-3" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:clamp(1.5rem,3vw,2rem)">
-        <div class="why-card-icon" style="background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <h4 style="color:white;margin-bottom:.5rem">Honnêteté sur ce que je peux garantir</h4>
-          <p style="color:rgba(255,255,255,.65)">Je n'ai jamais promis un marché. Personne ne le peut légalement. Ce que je garantis : un dossier irréprochable, une offre valorisée, une stratégie adaptée. Le reste appartient à l'acheteur.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA après la section why -->
-    <div style="text-align:center;margin-top:clamp(3rem,5vw,4.5rem)">
-      <p style="color:rgba(255,255,255,.55);font-size:.9rem;margin-bottom:1.25rem;font-family:var(--mono);letter-spacing:.05em">Diagnostic gratuit · 30 minutes · Sans engagement</p>
-      <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);padding:.9rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        Réserver mon diagnostic
+    <!-- CTA en bas de section -->
+    <div style="text-align:center;margin-top:clamp(3rem,5vw,4rem);padding-top:clamp(2rem,3vw,2.5rem);border-top:1px solid var(--gray-light)">
+      <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.85rem 2rem;border-radius:4px;font-weight:700;font-size:.925rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='#1A3A6B'" onmouseout="this.style.background='var(--navy)'">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Réserver mon diagnostic gratuit
       </a>
     </div>
 
   </div>
 </section>
-
-
 
 <!-- INSIGHTS & VEILLE -->
 <section id="insights" style="background:var(--cream);padding:clamp(5rem,8vw,9rem) 0">
