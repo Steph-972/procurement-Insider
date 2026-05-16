@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <title>Procurement Insider | Expert Marchés Publics Martinique – L'Œil de l'Acheteur</title>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Procurement Insider","alternateName":"L'Œil de l'Acheteur","description":"Expert en marchés publics et commande publique en Martinique. Accompagnement des entreprises et entités publiques depuis 10 ans.","url":"https://procurement-insider-git-main-procurement-insiders-projects.vercel.app","telephone":"+596696266231","email":"loeildelacheteur@gmail.com","founder":{"@type":"Person","name":"Stéphane Loudoux","jobTitle":"Consultant Expert Marchés Publics"},"address":{"@type":"PostalAddress","addressLocality":"Fort-de-France","addressRegion":"Martinique","postalCode":"97200","addressCountry":"MQ"},"areaServed":["Martinique","Guadeloupe","Guyane","Antilles françaises"],"serviceType":["Conseil marchés publics","Rédaction DCE","Formation commande publique","Audit procédures achat"],"priceRange":"€€","openingHours":"Mo-Fr 08:00-18:00"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Procurement Insider","alternateName":"L-Oeil de l-Acheteur","description":"Expert en marches publics et commande publique en Martinique. Accompagnement des entreprises et entites publiques depuis 10 ans.","url":"https://procurement-insider-git-main-procurement-insiders-projects.vercel.app","telephone":"+596696266231","email":"loeildelacheteur@gmail.com","founder":{"@type":"Person","name":"Stephane Loudoux","jobTitle":"Consultant Expert Marches Publics"},"address":{"@type":"PostalAddress","addressLocality":"Fort-de-France","addressRegion":"Martinique","postalCode":"97200","addressCountry":"MQ"},"areaServed":["Martinique","Guadeloupe","Guyane","Antilles francaises"],"serviceType":["Conseil marches publics","Redaction DCE","Formation commande publique","Audit procedures achat"],"priceRange":"EE","openingHours":"Mo-Fr 08:00-18:00"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1095,11 +1095,16 @@ body.splash-active section {
         Acheteur public pendant 10 ans, j'ai analysé des centaines de dossiers et décidé des attributions. Aujourd'hui je mets cette connaissance de l'autre côté de la table — au service des entreprises qui veulent gagner, et des entités qui veulent acheter mieux.
       </p>
       <div class="hero-actions">
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.75rem">
+          <span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">52+</strong>&nbsp;dossiers</span>
+          <span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">93%</strong>&nbsp;satisfaction</span>
+          <span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">10 ans</strong>&nbsp;de terrain</span>
+        </div>
         <a href="#contact" class="btn-primary" onclick="setFormMode('diagnostic');return false;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Diagnostic gratuit 30 min
         </a>
-        <a href="#services" class="btn-secondary">Découvrir les services</a>
+        <a href="/services" class="btn-secondary">Découvrir les services</a>
       </div>
     </div>
     <div class="hero-stats">
@@ -1240,6 +1245,17 @@ body.splash-active section {
       </div>
 
     </div>
+
+    <!-- CTA sous le témoignage -->
+    <div style="text-align:center;margin-top:clamp(2.5rem,4vw,3.5rem);padding-top:clamp(2rem,3vw,2.5rem);border-top:1px solid var(--gray-light)">
+      <p style="font-size:.95rem;color:var(--gray);margin-bottom:1.25rem;max-width:480px;margin-left:auto;margin-right:auto">
+        Votre situation mérite un regard d'expert. 30 minutes suffisent pour savoir si je peux vous aider.
+      </p>
+      <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);padding:.85rem 2rem;border-radius:4px;font-weight:700;font-size:.925rem;text-decoration:none;transition:all .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Réserver mon diagnostic gratuit
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1252,6 +1268,14 @@ body.splash-active section {
     <p style="color:var(--gray);max-width:500px;margin:0 auto 2.5rem;font-size:1rem;line-height:1.7">
       Audit, rédaction DCE, accompagnement AO, formation — pour les entités publiques et les entreprises privées.
     </p>
+    <div style="display:inline-flex;align-items:center;gap:1.5rem;margin-bottom:2rem;padding:.75rem 1.5rem;background:white;border-radius:40px;border:1px solid var(--gray-light);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--gray);flex-wrap:wrap;justify-content:center">
+      <span>Accompagnements <strong style="color:var(--navy)">à partir de 490 € HT</strong></span>
+      <span style="color:var(--gray-light)">·</span>
+      <span>Diagnostic <strong style="color:var(--gold)">gratuit</strong></span>
+      <span style="color:var(--gray-light)">·</span>
+      <span>Devis sous <strong style="color:var(--navy)">48h</strong></span>
+    </div>
+    <br>
     <a href="/services" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.9rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;transition:all .25s;text-decoration:none" onmouseover="this.style.background='#1A3A6B'" onmouseout="this.style.background='#0F2342'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       Découvrir tous nos services
@@ -1308,28 +1332,43 @@ body.splash-active section {
   </div>
 </section>
 
+<!-- CTA Méthode -->
+<div style="background:var(--navy);padding:2.5rem 0;text-align:center;border-top:1px solid rgba(255,255,255,.08)">
+  <div class="container">
+    <p style="color:rgba(255,255,255,.55);font-size:.8rem;margin-bottom:1rem;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase">Vous vous reconnaissez dans l'une de ces étapes ?</p>
+    <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--navy);padding:.75rem 1.75rem;border-radius:4px;font-weight:700;font-size:.875rem;text-decoration:none;transition:all .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+      Démarrer par le diagnostic gratuit
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
 <!-- POURQUOI -->
 <section id="why">
   <div class="container">
     <div class="why-grid">
+
+      <!-- Colonne gauche : storytelling -->
       <div>
         <span class="label reveal" style="color:var(--gold);margin-bottom:0.6rem;display:block;">Pourquoi me choisir</span>
         <span class="accent-line reveal"></span>
-        <h2 class="h1 reveal reveal-delay-1">Ce que vous<br>ne trouverez pas<br>ailleurs.</h2>
-        <p class="reveal reveal-delay-2">La plupart des consultants en marchés publics viennent du monde juridique ou académique. Moi, je viens du terrain : dix ans de pratique quotidienne des procédures, des dossiers, des décisions.</p>
+        <h2 class="h1 reveal reveal-delay-1">J'ai rédigé les CCTP<br>que vous deviez<br>décrypter.</h2>
+        <p class="reveal reveal-delay-2">Pendant 10 ans, j'ai tenu le stylo côté acheteur. Des centaines de cahiers des charges rédigés, des offres notées, des attributions décidées. Je sais exactement ce qui se passe dans la tête d'un acheteur au moment où il ouvre une enveloppe. Cette connaissance — que personne d'autre en Martinique ne possède comme moi — est maintenant entièrement de votre côté.</p>
         <div class="why-quote reveal reveal-delay-3">
-          <p>Je connais ce qu'un acheteur public cherche dans un dossier de candidature. Je sais pourquoi certaines offres perdent, même quand elles sont techniquement excellentes.</p>
+          <p>J'ai rédigé les CCTP que vous deviez décrypter pour répondre. Aujourd'hui je suis de votre côté.</p>
           <cite>— Stéphane Loudoux, fondateur Procurement Insider</cite>
         </div>
       </div>
+
+      <!-- Colonne droite : 4 cartes -->
       <div class="why-cards">
         <div class="why-card reveal">
           <div class="why-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
           <div>
-            <h4>10 ans de pratique opérationnelle</h4>
-            <p>Pas de théorie abstraite. Des procédures pilotées, des marchés notifiés, des dossiers analysés. Une expérience qui s'applique directement à votre situation.</p>
+            <h4>J'ai rédigé vos cahiers des charges</h4>
+            <p>Des centaines de CCTP, DCE, règlements de consultation. Je sais ce que l'acheteur veut vraiment — et comment valoriser votre offre exactement dans ses termes.</p>
           </div>
         </div>
         <div class="why-card reveal reveal-delay-1">
@@ -1337,8 +1376,8 @@ body.splash-active section {
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
           <div>
-            <h4>Double vision acheteur & fournisseur</h4>
-            <p>Unique sur le marché martiniquais : je comprends ce qui se passe des deux côtés de la table. Cela change radicalement la qualité des conseils que je peux apporter.</p>
+            <h4>J'ai décidé des attributions</h4>
+            <p>J'ai noté vos offres, comparé vos prix, validé vos références. Je sais pourquoi un dossier gagne — et pourquoi un autre, techniquement meilleur, perd. Cette lecture est unique.</p>
           </div>
         </div>
         <div class="why-card reveal reveal-delay-2">
@@ -1346,8 +1385,8 @@ body.splash-active section {
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <h4>Ancrage local — Martinique & Antilles</h4>
-            <p>Réseau local, connaissance du tissu institutionnel et économique martiniquais, disponibilité et réactivité. Aucun cabinet parisien ne peut proposer cela.</p>
+            <h4>Martinique — terrain, réseau, réactivité</h4>
+            <p>Je connais les acteurs, les pratiques, les spécificités locales. Disponible, joignable, présent. Aucun cabinet continental ne peut offrir ce niveau d'ancrage.</p>
           </div>
         </div>
         <div class="why-card reveal reveal-delay-3">
@@ -1355,16 +1394,24 @@ body.splash-active section {
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div>
-            <h4>Transparence & obligation de moyens</h4>
-            <p>Je m'engage sur mes meilleurs efforts et la qualité de mon travail. Jamais sur l'attribution d'un marché, qui reste une décision souveraine de l'acheteur public.</p>
+            <h4>Honnêteté sur ce que je peux garantir</h4>
+            <p>Je n'ai jamais promis un marché — personne ne le peut légalement. Ce que je garantis : un dossier irréprochable, une offre valorisée, une stratégie adaptée. Le reste appartient à l'acheteur.</p>
           </div>
         </div>
       </div>
+
     </div>
+
+    <!-- CTA en bas de section -->
+    <div style="text-align:center;margin-top:clamp(3rem,5vw,4rem);padding-top:clamp(2rem,3vw,2.5rem);border-top:1px solid var(--gray-light)">
+      <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.85rem 2rem;border-radius:4px;font-weight:700;font-size:.925rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='#1A3A6B'" onmouseout="this.style.background='var(--navy)'">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Réserver mon diagnostic gratuit
+      </a>
+    </div>
+
   </div>
 </section>
-
-
 
 <!-- INSIGHTS & VEILLE -->
 <section id="insights" style="background:var(--cream);padding:clamp(5rem,8vw,9rem) 0">
