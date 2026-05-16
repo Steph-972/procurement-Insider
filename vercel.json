@@ -2,62 +2,62 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/api/render-page?file=index.html"
+      "src": "^/$",
+      "dest": "/api/render-page?file=index.html"
     },
     {
-      "source": "/entites-publiques",
-      "destination": "/api/render-page?file=entites-publiques.html"
+      "src": "^/entites-publiques$",
+      "dest": "/api/render-page?file=entites-publiques.html"
     },
     {
-      "source": "/entreprises-privees",
-      "destination": "/api/render-page?file=entreprises-privees.html"
+      "src": "^/entreprises-privees$",
+      "dest": "/api/render-page?file=entreprises-privees.html"
     },
     {
-      "source": "/services",
-      "destination": "/api/render-page?file=services.html"
+      "src": "^/services$",
+      "dest": "/api/render-page?file=services.html"
     },
     {
-      "source": "/faq",
-      "destination": "/api/render-page?file=faq.html"
+      "src": "^/faq$",
+      "dest": "/api/render-page?file=faq.html"
     },
     {
-      "source": "/mentions-legales",
-      "destination": "/api/render-page?file=mentions-legales.html"
+      "src": "^/mentions-legales$",
+      "dest": "/api/render-page?file=mentions-legales.html"
     },
     {
-      "source": "/outils-gratuits",
-      "destination": "/api/render-page?file=outils-gratuits.html"
+      "src": "^/outils-gratuits$",
+      "dest": "/api/render-page?file=outils-gratuits.html"
     },
     {
-      "source": "/grille-mapa",
-      "destination": "/api/render-page?file=grille-mapa.html"
+      "src": "^/grille-mapa$",
+      "dest": "/api/render-page?file=grille-mapa.html"
     },
     {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
+      "src": "^/sitemap.xml$",
+      "dest": "/sitemap.xml"
     },
     {
-      "source": "/site-data.json",
-      "destination": "/site-data.json"
+      "src": "^/site-data.json$",
+      "dest": "/site-data.json"
     },
     {
-      "source": "/admin",
-      "destination": "/admin.html"
+      "src": "^/admin$",
+      "dest": "/admin.html"
     },
     {
-      "source": "/img/:file",
-      "destination": "/img/:file"
+      "src": "^/img/(.*)$",
+      "dest": "/img/$1"
     },
     {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
+      "src": "^/robots.txt$",
+      "dest": "/robots.txt"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "^/(.*)$",
+      "dest": "/index.html"
     }
   ],
   "headers": [
