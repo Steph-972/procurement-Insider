@@ -1,5 +1,8 @@
 const path = require('path');
 
+const REPO_OWNER = 'Steph-972';
+const REPO_NAME = 'marches-publics-martinique';
+
 const ALLOWED_FILES = new Set([
   'services.html',
   'entreprises-privees.html',
@@ -89,6 +92,11 @@ function safeFile(value) {
   return ALLOWED_FILES.has(normalized) ? normalized : null;
 }
 
+function safeRef(value) {
+  const raw = String(value || '').trim();
+  return /^[A-Za-z0-9._\/-]+$/.test(raw) ? raw : 'main';
+}
+
 module.exports = async function handler(req, res) {
   const file = safeFile(req.query.file);
 
@@ -100,15 +108,14 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const proto = req.headers['x-forwarded-proto'] || 'https';
-    const host = req.headers.host;
-    const sourceUrl = `${proto}://${host}/${file}`;
-    const source = await fetch(sourceUrl, {
+    const ref = safeRef(process.env.VERCEL_GIT_COMMIT_REF || 'main');
+    const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${encodeURIComponent(ref)}/${file}`;
+    const source = await fetch(rawUrl, {
       headers: { 'User-Agent': 'Procurement-Insider-renderer/1.0' }
     });
 
     if (!source.ok) {
-      throw new Error(`Unable to fetch ${file}: ${source.status}`);
+      throw new Error(`Unable to fetch ${file} from GitHub raw: ${source.status}`);
     }
 
     let html = await source.text();
