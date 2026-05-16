@@ -1491,10 +1491,38 @@ body.splash-active section {
 
 // ─── MODAL AGRANDIR / RÉDUIRE ─────────────────────────────────────────────────
 function expandModal() {
-  document.getElementById('art-modal').classList.add('expanded');
+  var modal = document.getElementById('art-modal');
+  var inner = modal.querySelector('div');
+  var body  = document.getElementById('art-modal-body');
+  modal.classList.add('expanded');
+  modal.style.padding = '0.5rem';
+  if (inner) {
+    inner.style.maxWidth = '100%';
+    inner.style.height   = 'calc(100vh - 1rem)';
+    inner.style.display  = 'flex';
+    inner.style.flexDirection = 'column';
+  }
+  if (body) {
+    body.style.maxHeight = 'none';
+    body.style.flex      = '1';
+  }
 }
 function shrinkModal() {
-  document.getElementById('art-modal').classList.remove('expanded');
+  var modal = document.getElementById('art-modal');
+  var inner = modal.querySelector('div');
+  var body  = document.getElementById('art-modal-body');
+  modal.classList.remove('expanded');
+  modal.style.padding = '';
+  if (inner) {
+    inner.style.maxWidth    = '';
+    inner.style.height      = '';
+    inner.style.display     = '';
+    inner.style.flexDirection = '';
+  }
+  if (body) {
+    body.style.maxHeight = '';
+    body.style.flex      = '';
+  }
 }
 
 // ─── MODAL LECTURE ARTICLE ────────────────────────────────────────────────────
