@@ -106,8 +106,11 @@ function normalizeHeaderNav(html) {
 
 function removeAccueilNavLink(html) {
   // Sur les pages secondaires, le retour accueil doit rester porté par le logo / lien retour,
-  // sans bouton texte Accueil dans la navigation principale.
-  return html.replace(/\s*<li>\s*<a\s+href=["']\/["']>Accueil<\/a>\s*<\/li>/gi, '');
+  // sans bouton texte Accueil dans la navigation principale ni dans le menu mobile.
+  return html
+    .replace(/\s*<li>\s*<a\s+href=["']\/["']>Accueil<\/a>\s*<\/li>/gi, '')
+    .replace(/\s*<a\s+href=["']\/["']\s+onclick=["']toggleMenu\(\)["']>Accueil<\/a>/gi, '')
+    .replace(/\s*<a\s+href=["']\/["']>Accueil<\/a>/gi, '');
 }
 
 module.exports = async function handler(req, res) {
