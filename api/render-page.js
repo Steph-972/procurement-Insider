@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 
 const ALLOWED_FILES = new Set([
@@ -90,7 +89,7 @@ function safeFile(value) {
   return ALLOWED_FILES.has(normalized) ? normalized : null;
 }
 
-module.exports = function handler(req, res) {
+module.exports = async function handler(req, res) {
   const file = safeFile(req.query.file);
 
   if (!file) {
@@ -100,10 +99,19 @@ module.exports = function handler(req, res) {
     return;
   }
 
-  const fullPath = path.join(process.cwd(), file);
-
   try {
-    let html = fs.readFileSync(fullPath, 'utf8');
+    const proto = req.headers['x-forwarded-proto'] || 'https';
+    const host = req.headers.host;
+    const sourceUrl = `${proto}://${host}/${file}`;
+    const source = await fetch(sourceUrl, {
+      headers: { 'User-Agent': 'Procurement-Insider-renderer/1.0' }
+    });
+
+    if (!source.ok) {
+      throw new Error(`Unable to fetch ${file}: ${source.status}`);
+    }
+
+    let html = await source.text();
 
     // Sécurise aussi le JS sur les pages où document.querySelector('nav') existe.
     html = html
@@ -124,6 +132,6 @@ module.exports = function handler(req, res) {
   } catch (error) {
     res.statusCode = 500;
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.end('Erreur de rendu de la page');
+    res.end(`Erreur de rendu de la page: ${error.message}`);
   }
 };
