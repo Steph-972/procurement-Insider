@@ -1,0 +1,64 @@
+name: Patch home texts
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-home-texts:
+    if: ${{ !contains(github.event.head_commit.message, 'patch: corrige textes accueil source') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Patch index.html text blocks
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const file = 'index.html';
+          let html = fs.readFileSync(file, 'utf8');
+          const original = html;
+
+          html = html.replace(
+            /Je ne promets jamais l'attribution d'un marché\. J'aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l'acheteur\./g,
+            "« Je m'engage sur la qualité de mes conseils et de mes méthodes. Jamais sur l'attribution d'un marché — c'est une décision qui appartient exclusivement à l'acheteur public. »"
+          );
+
+          html = html.replace(
+            /Pendant 10 ans, j'ai piloté des procédures d'achats publics au sein d'entités martiniquaises — de la définition du besoin jusqu'à la notification du marché\. Des centaines de DCE rédigés, des procédures formalisées et des MAPA conduits, des offres analysées, des attributions décidées\./g,
+            "Pendant 10 ans, j'ai exercé au cœur de la commande publique en Martinique, de la définition du besoin jusqu'à la notification des marchés. DCE, CCTP, procédures formalisées, MAPA, analyse des offres : cette pratique m'a donné une lecture concrète de ce qu'un acheteur attend vraiment d'un dossier."
+          );
+
+          html = html.replace(
+            /Un jour, j'ai changé de côté\. Pas pour tourner le dos à la commande publique, mais pour en démocratiser l'accès\. Trop d'entreprises locales perdent des marchés non pas parce qu'elles ne sont pas compétentes, mais parce qu'elles ne savent pas comment valoriser cette compétence face à un acheteur public\. J'ai créé <strong>Procurement Insider<\/strong> pour ça\./g,
+            "J'ai créé <strong>Procurement Insider</strong> pour rendre cette lecture terrain plus accessible. Trop d'entreprises locales perdent des opportunités non pas par manque de compétence, mais parce que leur dossier ne valorise pas suffisamment leurs moyens, leurs références et leur méthodologie face aux attentes de l'acheteur public."
+          );
+
+          if (html === original) {
+            console.log('No text changes needed.');
+          } else {
+            fs.writeFileSync(file, html, 'utf8');
+            console.log('index.html patched.');
+          }
+          NODE
+
+      - name: Commit patch
+        run: |
+          git config user.name "Procurement Insider Bot"
+          git config user.email "loeildelacheteur@gmail.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "patch: corrige textes accueil source"
+            git push origin main
+          fi
