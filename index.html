@@ -1491,38 +1491,40 @@ body.splash-active section {
 
 // ─── MODAL AGRANDIR / RÉDUIRE ─────────────────────────────────────────────────
 function expandModal() {
-  var modal = document.getElementById('art-modal');
-  var inner = modal.querySelector('div');
-  var body  = document.getElementById('art-modal-body');
+  var modal    = document.getElementById('art-modal');
+  var inner    = modal.querySelector('div');
+  var body     = document.getElementById('art-modal-body');
+  var btnExp   = document.getElementById('btn-expand-modal');
+  var btnShrink= document.getElementById('btn-shrink-modal');
   modal.classList.add('expanded');
   modal.style.padding = '0.5rem';
   if (inner) {
-    inner.style.maxWidth = '100%';
-    inner.style.height   = 'calc(100vh - 1rem)';
-    inner.style.display  = 'flex';
+    inner.style.maxWidth      = '100%';
+    inner.style.height        = 'calc(100vh - 1rem)';
+    inner.style.display       = 'flex';
     inner.style.flexDirection = 'column';
   }
-  if (body) {
-    body.style.maxHeight = 'none';
-    body.style.flex      = '1';
-  }
+  if (body) { body.style.maxHeight = 'none'; body.style.flex = '1'; }
+  if (btnExp)    btnExp.style.display    = 'none';
+  if (btnShrink) btnShrink.style.display = 'flex';
 }
 function shrinkModal() {
-  var modal = document.getElementById('art-modal');
-  var inner = modal.querySelector('div');
-  var body  = document.getElementById('art-modal-body');
+  var modal    = document.getElementById('art-modal');
+  var inner    = modal.querySelector('div');
+  var body     = document.getElementById('art-modal-body');
+  var btnExp   = document.getElementById('btn-expand-modal');
+  var btnShrink= document.getElementById('btn-shrink-modal');
   modal.classList.remove('expanded');
-  modal.style.padding = '';
+  modal.style.padding = '2rem 1rem';
   if (inner) {
-    inner.style.maxWidth    = '';
-    inner.style.height      = '';
-    inner.style.display     = '';
+    inner.style.maxWidth      = '760px';
+    inner.style.height        = '';
+    inner.style.display       = '';
     inner.style.flexDirection = '';
   }
-  if (body) {
-    body.style.maxHeight = '';
-    body.style.flex      = '';
-  }
+  if (body) { body.style.maxHeight = '60vh'; body.style.flex = ''; }
+  if (btnExp)    btnExp.style.display    = 'flex';
+  if (btnShrink) btnShrink.style.display = 'none';
 }
 
 // ─── MODAL LECTURE ARTICLE ────────────────────────────────────────────────────
