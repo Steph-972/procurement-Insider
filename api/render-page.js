@@ -32,8 +32,7 @@ body > nav#navbar {
 footer nav,
 footer nav[style],
 footer .footer-nav,
-footer [class*="footer"] nav,
-nav:not(#navbar):not(.mobile-menu) {
+footer [class*="footer"] nav {
   position: static !important;
   inset: auto !important;
   top: auto !important;
@@ -97,6 +96,14 @@ function safeRef(value) {
   return /^[A-Za-z0-9._\/-]+$/.test(raw) ? raw : 'main';
 }
 
+function normalizeHeaderNav(html) {
+  if (html.includes('id="navbar"') || html.includes("id='navbar'")) {
+    return html;
+  }
+
+  return html.replace(/<nav(?=[\s>])/i, '<nav id="navbar"');
+}
+
 module.exports = async function handler(req, res) {
   const file = safeFile(req.query.file);
 
@@ -119,6 +126,10 @@ module.exports = async function handler(req, res) {
     }
 
     let html = await source.text();
+
+    // Normalise la navigation principale : certaines pages utilisaient <nav> sans id,
+    // ce qui rendait les correctifs CSS et JS moins fiables.
+    html = normalizeHeaderNav(html);
 
     // Sécurise aussi le JS sur les pages où document.querySelector('nav') existe.
     html = html
