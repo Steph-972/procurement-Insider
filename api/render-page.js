@@ -54,6 +54,42 @@ footer nav {
   align-items: flex-start !important;
   justify-content: flex-start !important;
 }
+footer .footer-grid {
+  grid-template-columns: minmax(260px, 1.1fr) minmax(0, 2fr) !important;
+  align-items: start !important;
+}
+footer .footer-links-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 2rem clamp(1.5rem, 4vw, 3rem);
+}
+footer .footer-links-matrix h4 {
+  font-family: var(--mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--gold, #C9A84C);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+footer .footer-links-matrix ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+}
+footer .footer-links-matrix li {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+}
+footer .footer-links-matrix a {
+  color: rgba(255,255,255,0.55);
+  transition: color var(--transition, 0.25s ease);
+}
+footer .footer-links-matrix a:hover {
+  color: var(--gold, #C9A84C);
+}
 img {
   max-width: 100%;
   height: auto;
@@ -69,6 +105,14 @@ img {
 .mobile-menu {
   z-index: 9999 !important;
 }
+@media (max-width: 900px) {
+  footer .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+  footer .footer-links-matrix {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+}
 @media (max-width: 768px) {
   .page-hero + div,
   .page-hero-img {
@@ -82,6 +126,12 @@ img {
   footer nav {
     flex-direction: column !important;
     gap: 1.5rem !important;
+  }
+}
+@media (max-width: 560px) {
+  footer .footer-links-matrix {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
 }
 </style>`;
@@ -149,6 +199,45 @@ function normalizeHomePageTexts(html, file) {
     );
 }
 
+function normalizeFooterColumns(html) {
+  const footerLinks = `
+      <div class="footer-links-matrix" aria-label="Liens de bas de page">
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#cas-pratiques">Cas pratiques</a></li>
+            <li><a href="/outils-gratuits">Outils gratuits</a></li>
+            <li><a href="#methode">Méthode</a></li>
+            <li><a href="#deontologie">Déontologie</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Tous les services</a></li>
+            <li><a href="#services">Rédaction DCE / CCTP</a></li>
+            <li><a href="#services">Accompagnement réponse AO</a></li>
+            <li><a href="#services">Formation marchés publics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Accompagnements</h4>
+          <ul>
+            <li><a href="#services">Veille & conseil mensuel</a></li>
+            <li><a href="#services">Ateliers collectifs</a></li>
+            <li><a href="#contact">Diagnostic gratuit</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>`;
+
+  return html.replace(
+    /\s*<div class="footer-col">\s*<h4>Services<\/h4>\s*<ul>\s*<li><a href="#about">À propos<\/a><\/li>\s*<li><a href="#cas-pratiques">Cas pratiques<\/a><\/li>\s*<li><a href="\/outils-gratuits">Outils gratuits<\/a><\/li>\s*<li><a href="#methode">Méthode<\/a><\/li>\s*<li><a href="#deontologie">Déontologie<\/a><\/li>\s*<li><a href="\/services">Tous les services<\/a><\/li>\s*<li><a href="#services">Rédaction DCE \/ CCTP<\/a><\/li>\s*<li><a href="#services">Accompagnement réponse AO<\/a><\/li>\s*<li><a href="#services">Formation marchés publics<\/a><\/li>\s*<li><a href="#services">Veille & conseil mensuel<\/a><\/li>\s*<li><a href="#services">Ateliers collectifs<\/a><\/li>\s*<\/ul>\s*<\/div>/gi,
+    `\n${footerLinks}`
+  );
+}
+
 module.exports = async function handler(req, res) {
   const file = safeFile(req.query.file);
 
@@ -184,6 +273,9 @@ module.exports = async function handler(req, res) {
 
     // Harmonise les textes stratégiques de l'accueil.
     html = normalizeHomePageTexts(html, file);
+
+    // Réorganise le footer en colonnes lisibles.
+    html = normalizeFooterColumns(html);
 
     // Sécurise aussi le JS sur les pages où document.querySelector('nav') existe.
     html = html
