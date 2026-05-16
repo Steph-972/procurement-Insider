@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <title>Procurement Insider | Expert Marchés Publics Martinique – L'Œil de l'Acheteur</title>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Procurement Insider","alternateName":"L'Œil de l'Acheteur","description":"Expert en marchés publics et commande publique en Martinique. Accompagnement des entreprises et entités publiques depuis 10 ans.","url":"https://procurement-insider-git-main-procurement-insiders-projects.vercel.app","telephone":"+596696266231","email":"loeildelacheteur@gmail.com","founder":{"@type":"Person","name":"Stéphane Loudoux","jobTitle":"Consultant Expert Marchés Publics"},"address":{"@type":"PostalAddress","addressLocality":"Fort-de-France","addressRegion":"Martinique","postalCode":"97200","addressCountry":"MQ"},"areaServed":["Martinique","Guadeloupe","Guyane","Antilles françaises"],"serviceType":["Conseil marchés publics","Rédaction DCE","Formation commande publique","Audit procédures achat"],"priceRange":"€€","openingHours":"Mo-Fr 08:00-18:00"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Procurement Insider","alternateName":"L-Oeil de l-Acheteur","description":"Expert en marches publics et commande publique en Martinique. Accompagnement des entreprises et entites publiques depuis 10 ans.","url":"https://procurement-insider-git-main-procurement-insiders-projects.vercel.app","telephone":"+596696266231","email":"loeildelacheteur@gmail.com","founder":{"@type":"Person","name":"Stephane Loudoux","jobTitle":"Consultant Expert Marches Publics"},"address":{"@type":"PostalAddress","addressLocality":"Fort-de-France","addressRegion":"Martinique","postalCode":"97200","addressCountry":"MQ"},"areaServed":["Martinique","Guadeloupe","Guyane","Antilles francaises"],"serviceType":["Conseil marches publics","Redaction DCE","Formation commande publique","Audit procedures achat"],"priceRange":"EE","openingHours":"Mo-Fr 08:00-18:00"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1095,11 +1095,16 @@ body.splash-active section {
         Acheteur public pendant 10 ans, j'ai analysé des centaines de dossiers et décidé des attributions. Aujourd'hui je mets cette connaissance de l'autre côté de la table — au service des entreprises qui veulent gagner, et des entités qui veulent acheter mieux.
       </p>
       <div class="hero-actions">
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.75rem">
+          <span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">52+</strong>&nbsp;dossiers</span>
+          <span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">93%</strong>&nbsp;satisfaction</span>
+          <span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">10 ans</strong>&nbsp;de terrain</span>
+        </div>
         <a href="#contact" class="btn-primary" onclick="setFormMode('diagnostic');return false;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Diagnostic gratuit 30 min
         </a>
-        <a href="#services" class="btn-secondary">Découvrir les services</a>
+        <a href="/services" class="btn-secondary">Découvrir les services</a>
       </div>
     </div>
     <div class="hero-stats">
@@ -1160,12 +1165,12 @@ body.splash-active section {
         <div class="stat-lbl">Satisfaction clients</div>
       </div>
       <div class="stat-item reveal reveal-delay-2">
-        <div class="stat-num" data-val="4" data-suffix="">4</div>
-        <div class="stat-lbl">Collectivités accompagnées</div>
+        <div class="stat-num" data-val="100" data-suffix="+">100+</div>
+        <div class="stat-lbl">Procédures pilotées</div>
       </div>
       <div class="stat-item reveal reveal-delay-3">
-        <div class="stat-num" data-val="7" data-suffix="">7</div>
-        <div class="stat-lbl">Formations dispensées</div>
+        <div class="stat-num" data-val="10" data-suffix=" ans">10 ans</div>
+        <div class="stat-lbl">D'expérience terrain</div>
       </div>
     </div>
   </div>
@@ -1326,6 +1331,17 @@ body.splash-active section {
     </div>
   </div>
 </section>
+
+<!-- CTA Méthode -->
+<div style="background:var(--navy);padding:2.5rem 0;text-align:center;border-top:1px solid rgba(255,255,255,.08)">
+  <div class="container">
+    <p style="color:rgba(255,255,255,.55);font-size:.8rem;margin-bottom:1rem;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase">Vous vous reconnaissez dans l'une de ces étapes ?</p>
+    <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--navy);padding:.75rem 1.75rem;border-radius:4px;font-weight:700;font-size:.875rem;text-decoration:none;transition:all .25s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+      Démarrer par le diagnostic gratuit
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- POURQUOI -->
 <section id="why">
