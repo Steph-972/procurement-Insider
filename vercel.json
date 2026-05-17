@@ -22,6 +22,7 @@
     { "src": "^/outils-gratuits$", "dest": "/api/render-page-postprocess?file=outils-gratuits.html" },
     { "src": "^/grille-mapa$", "dest": "/api/render-page-postprocess?file=grille-mapa.html" },
     { "src": "^/insights$", "dest": "/api/render-page-postprocess?file=insights.html" },
+    { "src": "^/insights/([a-z0-9-]+)$", "dest": "/api/render-insight?slug=$1" },
     { "src": "^/articles.json$", "dest": "/articles.json" },
     { "src": "^/articles/(.*)$", "dest": "/articles/$1" },
     { "src": "^/sitemap.xml$", "dest": "/sitemap.xml" },
