@@ -103,6 +103,12 @@ function normalizeHomeInsights(html) {
     .replace(/<p style=\"color:var\(--gray\);margin-bottom:1\.5rem;font-size:\.95rem\">Recevez les prochains insights directement par email<\/p>\s*<a href=\"#contact\"([\s\S]*?)>\s*<svg[\s\S]*?<\/svg>\s*S'inscrire à la veille\s*<\/a>/g, '<p style="color:var(--gray);margin-bottom:1.5rem;font-size:.95rem">Consultez toute la veille Procurement Insider : jurisprudence, seuils, MAPA, mémoire technique et stratégie d’offre.</p><a href="/insights" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:#fff;padding:.8rem 2rem;border-radius:var(--radius);font-weight:600;font-size:.9rem;transition:all var(--transition)">Voir plus d’articles →</a>');
 }
 
+function insertBeforeLastFooter(html, block) {
+  const index = String(html).toLowerCase().lastIndexOf('</footer>');
+  if (index === -1) return html + block;
+  return html.slice(0, index) + block + html.slice(index);
+}
+
 function normalizeSeoInternalLinks(html) {
   let output = html;
 
@@ -114,7 +120,7 @@ function normalizeSeoInternalLinks(html) {
 
   if (!output.includes('seo-crosslinks') && output.includes('</footer>')) {
     const block = `\n<div id="seo-crosslinks" style="max-width:1180px;margin:1.5rem auto 0;padding:1rem clamp(1.25rem,5vw,3rem);border-top:1px solid rgba(201,168,76,.25);display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center;font-size:.82rem;line-height:1.5">\n  <a href="/accompagnement-appel-offres-martinique" style="color:#C9A84C;font-weight:700">Accompagnement appel d’offres Martinique</a>\n  <span style="color:rgba(255,255,255,.35)">·</span>\n  <a href="/conseil-acheteur-public-martinique" style="color:#C9A84C;font-weight:700">Conseil acheteur public Martinique</a>\n  <span style="color:rgba(255,255,255,.35)">·</span>\n  <a href="/insights" style="color:#C9A84C;font-weight:700">Insights commande publique</a>\n</div>\n`;
-    output = output.replace(/<\/footer>/, block + '</footer>');
+    output = insertBeforeLastFooter(output, block);
   }
 
   return output;
