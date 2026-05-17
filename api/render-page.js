@@ -34,6 +34,8 @@ const META = {
 const GUARANTEE = "Je m'engage sur la qualité de mes conseils et de mes méthodes. Jamais sur l'attribution d'un marché — c'est une décision qui appartient exclusivement à l'acheteur public.";
 const FOUNDER_HERO = "Dix années au cœur de la commande publique m'ont donné une lecture que peu de prestataires possèdent : comprendre ce qu'un acheteur attend réellement au moment d'analyser une offre. Aujourd'hui, je transforme cette expérience terrain en méthode claire pour aider les entreprises à mieux répondre et les entités publiques à acheter plus juste.";
 const ABOUT_PERSPECTIVE = "Dix années de pratique opérationnelle en Martinique, au contact direct des besoins, des DCE, des CCTP, des MAPA et des procédures formalisées, m'ont donné une lecture concrète des attentes d'un acheteur public : ce qui sécurise un dossier, ce qui le fragilise, et ce qui fait réellement la différence à l'analyse.";
+const NEUTRAL_CASE_RESULT = "Le dossier a gagné en clarté, en preuves et en cohérence. Résultat : une réponse nettement plus professionnelle et mieux alignée sur les attentes de l’acheteur.";
+const ANALYSIS_MECHANICS_CARD = '<h4>Je connais la mécanique d’analyse</h4><p>Critères, pondération, cohérence prix/technique, preuves attendues : je vous aide à rendre votre dossier plus lisible et plus défendable, sans jamais promettre l’attribution.</p>';
 
 const CONSOLIDATED_CSS = `
 <style id="pi-consolidated-renderer">
@@ -66,8 +68,7 @@ function canonicalFor(file) {
 }
 
 function replaceOrInsert(html, pattern, replacement, before = '</head>') {
-  if (pattern.test(html)) return html.replace(pattern, replacement);
-  return html.replace(before, `${replacement}\n${before}`);
+  return pattern.test(html) ? html.replace(pattern, replacement) : html.replace(before, `${replacement}\n${before}`);
 }
 
 function jsonLd(file) {
@@ -97,26 +98,26 @@ function jsonLd(file) {
 
 function applySeo(html, file) {
   const [title, description] = META[file] || META['index.html'];
-  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/gi, '');
-  html = replaceOrInsert(html, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
-  html = replaceOrInsert(html, /<meta name="description" content="[\s\S]*?">/i, `<meta name="description" content="${description}">`);
-  html = replaceOrInsert(html, /<link rel="canonical" href="[\s\S]*?">/i, `<link rel="canonical" href="${canonicalFor(file)}">`);
-  html = replaceOrInsert(html, /<meta property="og:url" content="[\s\S]*?">/i, `<meta property="og:url" content="${canonicalFor(file)}">`);
-  html = replaceOrInsert(html, /<meta property="og:title" content="[\s\S]*?">/i, `<meta property="og:title" content="${title}">`);
-  html = replaceOrInsert(html, /<meta property="og:description" content="[\s\S]*?">/i, `<meta property="og:description" content="${description}">`);
-  html = html.replace(/https:\/\/procurement-insider-git-main-procurement-insiders-projects\.vercel\.app/g, SITE_URL);
-  return html.replace('</head>', `<script type="application/ld+json">${jsonLd(file)}</script>\n</head>`);
+  let out = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/gi, '');
+  out = replaceOrInsert(out, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+  out = replaceOrInsert(out, /<meta name="description" content="[\s\S]*?">/i, `<meta name="description" content="${description}">`);
+  out = replaceOrInsert(out, /<link rel="canonical" href="[\s\S]*?">/i, `<link rel="canonical" href="${canonicalFor(file)}">`);
+  out = replaceOrInsert(out, /<meta property="og:url" content="[\s\S]*?">/i, `<meta property="og:url" content="${canonicalFor(file)}">`);
+  out = replaceOrInsert(out, /<meta property="og:title" content="[\s\S]*?">/i, `<meta property="og:title" content="${title}">`);
+  out = replaceOrInsert(out, /<meta property="og:description" content="[\s\S]*?">/i, `<meta property="og:description" content="${description}">`);
+  out = out.replace(/https:\/\/procurement-insider-git-main-procurement-insiders-projects\.vercel\.app/g, SITE_URL);
+  return out.replace('</head>', `<script type="application/ld+json">${jsonLd(file)}</script>\n</head>`);
 }
 
 function normalizeNavigation(html, file) {
-  if (!/id=["']navbar["']/.test(html)) html = html.replace(/<nav(?=[\s>])/i, '<nav id="navbar"');
+  let out = /id=["']navbar["']/.test(html) ? html : html.replace(/<nav(?=[\s>])/i, '<nav id="navbar"');
   if (file !== 'index.html') {
-    html = html
+    out = out
       .replace(/\s*<li>\s*<a\s+href=["']\/["']>Accueil<\/a>\s*<\/li>/gi, '')
       .replace(/\s*<a\s+href=["']\/["']\s+onclick=["']toggleMenu\(\)["']>Accueil<\/a>/gi, '')
       .replace(/\s*<a\s+href=["']\/["']>Accueil<\/a>/gi, '');
   }
-  return html
+  return out
     .replace(/(<li><a href="#insights">Insights<\/a><\/li>\s*)(<li><a href="#contact">Contact<\/a><\/li>)/g, '$1<li><a href="/outils-gratuits">Outils gratuits</a></li>\n        $2')
     .replace(/(<li><a href="\/#insights">Insights<\/a><\/li>\s*)(<li><a href="\/#contact">Contact<\/a><\/li>)/g, '$1<li><a href="/outils-gratuits">Outils gratuits</a></li>\n        $2')
     .replace(/(<a href="#insights" onclick="toggleMenu\(\)">Insights<\/a>\s*)(<a href="#contact" onclick="toggleMenu\(\)">Contact<\/a>)/g, '$1<a href="/outils-gratuits" onclick="toggleMenu()">Outils gratuits</a>\n  $2')
@@ -136,11 +137,9 @@ function normalizeFounderSignature(html, file) {
 
 function normalizeHome(html, file) {
   if (file !== 'index.html') return html;
-
   const paths = `<!-- PARCOURS DE DECISION --><section class="agency-paths" id="targets"><div class="container"><span class="agency-kicker">Choisissez votre point d'entrée</span><h2 class="agency-title" style="margin-top:.7rem">Deux besoins, deux parcours. Même exigence de méthode.</h2><p class="agency-muted" style="max-width:680px;margin-top:1rem">Sélectionnez votre situation : l’objectif est d’aller vite vers l’offre, le vocabulaire et les livrables qui correspondent à votre enjeu.</p><div class="agency-path-grid"><a href="/entreprises-privees" class="agency-card agency-path"><div class="agency-path-i">E</div><div><h3>Je suis une entreprise</h3><p>Je veux savoir si je dois répondre, améliorer mon mémoire technique ou sécuriser mon dépôt.</p><ul><li>Analyse du DCE et des critères</li><li>Go / No-Go argumenté</li><li>Mémoire technique plus lisible</li></ul><span class="agency-cta">Préparer ma réponse AO →</span></div></a><a href="/entites-publiques" class="agency-card agency-path"><div class="agency-path-i">P</div><div><h3>Je suis une entité publique</h3><p>Je veux sécuriser mon DCE, contrôler mes critères ou renforcer mon équipe achat.</p><ul><li>Audit RC / CCAP / CCTP</li><li>Relecture des critères et pièces financières</li><li>Formation opérationnelle</li></ul><span class="agency-cta">Sécuriser ma procédure →</span></div></a></div></div></section><section class="agency-ba"><div class="container"><span class="agency-kicker">Avant / Après</span><h2 class="agency-title" style="margin-top:.7rem">Ce que je transforme concrètement.</h2><div class="agency-ba-grid"><div class="agency-ba-card before"><h3>Avant</h3><ul><li>Mémoire générique qui ne suit pas les critères</li><li>Références fortes mais mal valorisées</li><li>DCE ou offre avec zones de risque invisibles</li></ul></div><div class="agency-ba-card after"><h3>Après</h3><ul><li>Réponse structurée selon la grille de lecture de l’acheteur</li><li>Preuves, moyens et engagements mieux placés</li><li>Dossier plus lisible, cohérent et défendable</li></ul></div></div></div></section><!-- STATS COMPTEUR -->`;
   const deonto = `<section class="agency-deonto" id="deontologie"><div class="container agency-deonto-grid"><div><span class="agency-kicker">Déontologie</span><h2 class="agency-title" style="color:white;margin-top:.7rem">Un cadre clair avant chaque mission.</h2><p style="color:rgba(255,255,255,.70);line-height:1.75;margin-top:1rem">Aider à mieux structurer, jamais contourner. Chaque mission doit être compatible avec les règles de la commande publique et l’absence de conflit d’intérêts.</p></div><div><div class="agency-deonto-card"><strong>Aucun conflit d’intérêts</strong><span>Pas d’intervention sur une procédure liée directement ou indirectement à mon employeur public actuel ou passé récent.</span></div><div class="agency-deonto-card"><strong>Aucune promesse d’attribution</strong><span>Je m’engage sur la qualité de mes conseils et méthodes. La décision appartient exclusivement à l’acheteur public.</span></div><div class="agency-deonto-card"><strong>Accompagnement transparent</strong><span>Sécuriser, clarifier, structurer et rendre les dossiers plus lisibles au regard des critères.</span></div></div></div></section>`;
-
-  html = html
+  let out = html
     .replace(/<div class="hero-eyebrow label">Consultant Expert — Martinique<\/div>/i, '<div class="hero-eyebrow label">Conseil marchés publics — Martinique</div>')
     .replace(/<h1 class="display hero-title">[\s\S]*?<\/h1>/i, '<h1 class="display hero-title hero-title-refined"><span>Votre offre est solide.</span><em>Rendons-la lisible<br>pour l’acheteur public.</em></h1>')
     .replace(/<p class="lead hero-subtitle">[\s\S]*?<\/p>/i, `<p class="lead hero-subtitle hero-subtitle-agency">${FOUNDER_HERO}</p>`)
@@ -158,10 +157,8 @@ function normalizeHome(html, file) {
     .replace(/Prêt à déposer un dossier qui gagne \?/g, 'Prêt à déposer un dossier plus solide ?')
     .replace(/Diagnostic gratuit 30 min/g, 'Analyser mon dossier')
     .replace(/Découvrir les services/g, 'Voir les accompagnements');
-
-  html = html.replace(/\s*<!-- DÉONTOLOGIE & INDÉPENDANCE -->\s*<section id="deontologie"[\s\S]*?<\/section>\s*(?=<!-- CAS PRATIQUES -->)/i, '');
-  if (!html.includes('agency-deonto')) html = html.replace(/<!-- INSIGHTS & VEILLE -->/i, `${deonto}<!-- INSIGHTS & VEILLE -->`);
-  return html;
+  out = out.replace(/\s*<!-- DÉONTOLOGIE & INDÉPENDANCE -->\s*<section id="deontologie"[\s\S]*?<\/section>\s*(?=<!-- CAS PRATIQUES -->)/i, '');
+  return out.includes('agency-deonto') ? out : out.replace(/<!-- INSIGHTS & VEILLE -->/i, `${deonto}<!-- INSIGHTS & VEILLE -->`);
 }
 
 function normalizeServices(html, file) {
@@ -183,9 +180,8 @@ function normalizePrivatePage(html, file) {
     .replace(/La plupart des marchés perdus ne le sont pas sur la compétence technique — mais sur la façon de la présenter\. Je vous aide à construire des dossiers qui parlent le langage de l'acheteur\./g, 'Je vous aide à traduire votre savoir-faire en réponse structurée : critères traités, preuves visibles, mémoire technique clair, dossier conforme avant dépôt.')
     .replace(/Diagnostic gratuit 30 min/g, 'Faire analyser mon AO')
     .replace(/Prêt à déposer un dossier qui gagne \?/g, 'Prêt à déposer un dossier plus solide ?')
-    .replace(/Deux mois plus tard, nous décrochions un marché de 280&nbsp;000&nbsp;€ avec une collectivité avec laquelle nous n'avions jamais travaillé\./g, 'Le dossier a gagné en clarté, en preuves et en cohérence. Résultat : une réponse nettement plus professionnelle et mieux alignée sur les attentes de l’acheteur.')
-    .replace(/<strong class="temoignage-name">M\. C<\/strong>/g, '<strong class="temoignage-name">Cas client anonymisé</strong>')
-    .replace(/<strong class="temoignage-name">M\. C\.<\/strong>/g, '<strong class="temoignage-name">Cas client anonymisé</strong>');
+    .replace(/Deux mois plus tard, nous décrochions un marché de 280&nbsp;000&nbsp;€ avec une collectivité avec laquelle nous n'avions jamais travaillé\./g, NEUTRAL_CASE_RESULT)
+    .replace(/<strong class="temoignage-name">M\. C\.?<\/strong>/g, '<strong class="temoignage-name">Cas client anonymisé</strong>');
 }
 
 function normalizePublicPage(html, file) {
@@ -216,10 +212,12 @@ function normalizeFooter(html) {
 function harden(html) {
   return html
     .replace(/<button class="btn-cookie-refuse"[\s\S]*?<\/button>/i, '')
+    .replace(/Deux mois plus tard, nous décrochions un marché de 280&nbsp;000&nbsp;€ avec une collectivité avec laquelle nous n'avions jamais travaillé\./g, NEUTRAL_CASE_RESULT)
+    .replace(/<h4>J'ai décidé des attributions<\/h4>\s*<p>J'ai noté vos offres, comparé vos prix, validé vos références\. Je sais pourquoi un dossier gagne — et pourquoi un autre, techniquement meilleur, perd\. Cette lecture est unique\.<\/p>/g, ANALYSIS_MECHANICS_CARD)
     .replace(/<strong class="about-temoignage-name">M\. C\.<\/strong>/g, '<strong class="about-temoignage-name">Cas client anonymisé</strong>')
     .replace(/required id="message"><\/textarea>/g, 'required></textarea>')
-    .replace(/<p><strong>Stéphane Loudoux<\/strong> — Responsable Achat &amp; Marchés Publics, ODYSSI – Régie des Eaux de la CACEM<\/p>/g, '<p><strong>Stéphane Loudoux</strong> — Fondateur Procurement Insider</p>')
-    .replace(/<p><strong>Stéphane Loudoux<\/strong> — Responsable Achat &amp; March\\u00e9s Publics, ODYSSI \\u2013 R\\u00e9gie des Eaux de la CACEM<\/p>/g, '<p><strong>Stéphane Loudoux</strong> — Fondateur Procurement Insider</p>')
+    .replace(/<p><strong>Stéphane Loudoux<\/strong>\s*(?:—|\\u2014)\s*Responsable Achat &amp; March(?:é|\\u00e9)s Publics, ODYSSI\s*(?:–|\\u2013)\s*R(?:é|\\u00e9)gie des Eaux de la CACEM<\/p>/g, '<p><strong>Stéphane Loudoux</strong> — Fondateur Procurement Insider</p>')
+    .replace(/Responsable Achat &amp; March(?:é|\\u00e9)s Publics, ODYSSI\s*(?:–|\\u2013)\s*R(?:é|\\u00e9)gie des Eaux de la CACEM/g, 'Fondateur Procurement Insider')
     .replace(/<p style="margin-top:\.5rem">Fort-de-France, Martinique[\s\S]*?<\/p>/g, '<p style="margin-top:.5rem">Martinique · loeildelacheteur@gmail.com</p>')
     .replace(/const nav = document\.querySelector\('nav'\);/g, "const nav = document.getElementById('navbar');")
     .replace(/window\.addEventListener\('scroll', \(\) => nav\.classList\.toggle\('scrolled', window\.scrollY > 60\), \{passive:true\}\);/g, "if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});");
@@ -257,7 +255,7 @@ module.exports = async function handler(req, res) {
   try {
     const ref = safeRef(process.env.VERCEL_GIT_COMMIT_REF || 'main');
     const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${encodeURIComponent(ref)}/${file}`;
-    const source = await fetch(rawUrl, { headers: { 'User-Agent': 'Procurement-Insider-renderer/2.0' } });
+    const source = await fetch(rawUrl, { headers: { 'User-Agent': 'Procurement-Insider-renderer/2.1' } });
     if (!source.ok) throw new Error(`Unable to fetch ${file} from GitHub raw: ${source.status}`);
     const html = transform(await source.text(), file);
     res.statusCode = 200;
