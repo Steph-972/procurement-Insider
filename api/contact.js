@@ -154,22 +154,28 @@ export default async function handler(req, res) {
       sender: { name: 'Stéphane Loudoux — Procurement Insider', email: 'loeildelacheteur@gmail.com' },
       to: [{ email, name: `${prenom} ${nom}` }],
       subject: 'Votre message a bien été reçu — Procurement Insider',
-      htmlContent: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
-        <div style="background:#0F2342;padding:1.5rem 2rem">
-          <div style="color:#C9A84C;font-size:1.2rem;font-weight:900">PROCUREMENT INSIDER</div>
-          <div style="color:rgba(255,255,255,0.7);font-size:0.75rem;letter-spacing:3px;margin-top:2px">L'ŒIL DE L'ACHETEUR</div>
+      htmlContent: `<div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;background:#F8F5EF;padding:0">
+        <div style="background:#0F2342;padding:1.7rem 2rem;border-bottom:4px solid #C9A84C">
+          <div style="color:#FFFFFF;font-size:1.15rem;font-weight:900;letter-spacing:1.2px">PROCUREMENT INSIDER</div>
+          <div style="color:#C9A84C;font-size:0.72rem;letter-spacing:3px;margin-top:4px;text-transform:uppercase">L'ŒIL DE L'ACHETEUR</div>
         </div>
-        <div style="background:white;padding:2rem">
-          <h2 style="color:#0F2342;margin-bottom:1rem">Bonjour ${safe.prenom},</h2>
-          <p style="color:#333;line-height:1.7;margin-bottom:1.25rem">Merci pour votre message. Je l'ai bien reçu et je reviens vers vous personnellement, en général <strong>sous 48h ouvrées</strong>.</p>
-          <div style="background:#F8F5EF;border-left:3px solid #C9A84C;padding:1rem 1.25rem;margin-bottom:1.5rem">
-            <p style="color:#0F2342;font-style:italic;margin:0">« Je reviens vers vous rapidement avec une première lecture de votre situation. »</p>
-            <p style="color:#6B7080;font-size:.8rem;margin-top:.5rem">— Stéphane Loudoux</p>
+        <div style="background:white;padding:2.1rem 2rem">
+          <p style="color:#C9A84C;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 .7rem">Message bien reçu</p>
+          <h2 style="color:#0F2342;margin:0 0 1rem;font-size:1.45rem;line-height:1.3">Bonjour ${safe.prenom},</h2>
+          <p style="color:#333;line-height:1.75;margin:0 0 1.15rem">Merci pour votre message. Je l’ai bien reçu et je vais en prendre connaissance personnellement afin d’identifier les premiers points d’attention : nature du besoin, niveau d’urgence, procédure concernée, documents disponibles et éventuels risques à sécuriser.</p>
+          <p style="color:#333;line-height:1.75;margin:0 0 1.15rem">Je reviens généralement vers vous <strong style="color:#0F2342">sous 48h ouvrées</strong> avec une première lecture de votre situation.</p>
+          <div style="background:#F8F5EF;border-left:4px solid #C9A84C;padding:1rem 1.15rem;margin:1.4rem 0">
+            <p style="color:#0F2342;line-height:1.65;margin:0"><strong>Échéance courte ?</strong><br>Si votre demande concerne un dépôt d’offre, une procédure en cours ou un délai rapproché, vous pouvez me contacter directement par téléphone ou WhatsApp au <strong>+596 696 266 231</strong>.</p>
           </div>
-          <p style="color:#6B7080;font-size:.875rem">Cordialement,<br><strong style="color:#0F2342">Stéphane Loudoux</strong><br>Procurement Insider — L'Œil de l'Acheteur<br>+596 696 266 231</p>
+          <p style="color:#333;line-height:1.75;margin:0 0 1.15rem">Les éléments transmis sont traités de manière confidentielle. L’accompagnement proposé par Procurement Insider vise à renforcer la clarté, la cohérence et la sécurité de vos démarches en commande publique, sans promesse d’attribution ni garantie de résultat.</p>
+          <div style="margin:1.5rem 0 1.2rem">
+            <a href="https://wa.me/596696266231" style="background:#25D366;color:white;padding:.85rem 1.35rem;border-radius:5px;text-decoration:none;font-weight:700;display:inline-block;margin-right:.6rem">Écrire sur WhatsApp</a>
+            <a href="mailto:loeildelacheteur@gmail.com" style="background:#0F2342;color:white;padding:.85rem 1.35rem;border-radius:5px;text-decoration:none;font-weight:700;display:inline-block">Envoyer un email</a>
+          </div>
+          <p style="color:#6B7080;font-size:.92rem;line-height:1.65;margin:1.4rem 0 0">Cordialement,<br><strong style="color:#0F2342">Stéphane Loudoux</strong><br>Procurement Insider — L’Œil de l’Acheteur<br>Conseil en marchés publics, stratégie achat et commande publique<br>Martinique & Antilles françaises<br><a href="mailto:loeildelacheteur@gmail.com" style="color:#1A3A6B">loeildelacheteur@gmail.com</a> · <a href="tel:+596696266231" style="color:#1A3A6B">+596 696 266 231</a></p>
         </div>
-        <div style="background:#0F2342;padding:1rem 2rem;text-align:center">
-          <p style="color:rgba(255,255,255,0.5);font-size:.75rem;margin:0">Procurement Insider · Martinique · loeildelacheteur@gmail.com</p>
+        <div style="background:#07172D;padding:1rem 2rem;text-align:center">
+          <p style="color:rgba(255,255,255,0.55);font-size:.75rem;margin:0;line-height:1.5">Procurement Insider · Conseil, méthode et structuration des dossiers · Aucune promesse d’attribution</p>
         </div>
       </div>`
     }, headers);
