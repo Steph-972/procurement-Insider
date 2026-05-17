@@ -15,7 +15,7 @@
     },
     { "src": "^/$", "dest": "/api/render-page-postprocess?file=index.html" },
     { "src": "^/entites-publiques$", "dest": "/api/render-page-postprocess?file=entites-publiques.html" },
-    { "src": "^/entreprises-privees$", "dest": "/api/render-page-postprocess?file=entreprises-privees.html" },
+    { "src": "^/entreprises-privees$", "dest": "/api/render-page-enterprises?file=entreprises-privees.html" },
     { "src": "^/services$", "dest": "/api/render-page-postprocess?file=services.html" },
     { "src": "^/faq$", "dest": "/api/render-page-postprocess?file=faq.html" },
     { "src": "^/mentions-legales$", "dest": "/api/render-page-postprocess?file=mentions-legales.html" },
