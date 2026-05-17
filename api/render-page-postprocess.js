@@ -42,11 +42,21 @@ function neutralizeRiskyCommercialClaims(html) {
     .replace(/Ce que je garantis : un dossier irreprochable, une offre valorisee, une strategie adaptee\. Le reste appartient a l'acheteur\./gi, "Ce que je vise : un dossier plus clair, plus cohérent et mieux aligné avec les critères. La décision finale appartient exclusivement à l’acheteur.");
 }
 
+function normalizeFreeToolsFunnel(html) {
+  return html
+    .replace(/https:\/\/procurement-insider-git-main-procurement-insiders-projects\.vercel\.app/g, 'https://marches-publics-martinique.vercel.app')
+    .replace(/<a href=\"\/grille-mapa\" target=\"_blank\" style=\"display:inline-flex;align-items:center;gap:\.5rem;background:var\(--navy\);color:white;padding:\.65rem 1\.25rem;border-radius:4px;font-weight:600;font-size:\.85rem\">([\s\S]*?)Voir la grille PDF\s*<\/a>/g, '<a href="#lead-form-fields-1" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:white;padding:.65rem 1.25rem;border-radius:4px;font-weight:600;font-size:.85rem">$1S’inscrire pour recevoir la grille</a>')
+    .replace(/Accès immédiat après inscription/g, 'Accès gratuit après inscription')
+    .replace(/Accès immédiat par email \+ lien vers la version PDF imprimable\./g, 'Inscription rapide : la grille est envoyée par email et le lien direct apparaît après validation du formulaire.')
+    .replace(/Gratuits, sans engagement\./g, 'Gratuits, sans compte utilisateur et sans engagement.');
+}
+
 function hardenMobileAndCompliance(html) {
   let output = html;
   output = insertToolsInDesktopNav(output);
   output = insertToolsInMobileMenu(output);
   output = neutralizeRiskyCommercialClaims(output);
+  output = normalizeFreeToolsFunnel(output);
   return output;
 }
 
