@@ -21,6 +21,7 @@
     { "src": "^/mentions-legales$", "dest": "/api/render-page-postprocess?file=mentions-legales.html" },
     { "src": "^/outils-gratuits$", "dest": "/api/render-page-postprocess?file=outils-gratuits.html" },
     { "src": "^/grille-mapa$", "dest": "/api/render-page-postprocess?file=grille-mapa.html" },
+    { "src": "^/insights$", "dest": "/api/render-page-postprocess?file=insights.html" },
     { "src": "^/articles.json$", "dest": "/articles.json" },
     { "src": "^/articles/(.*)$", "dest": "/articles/$1" },
     { "src": "^/sitemap.xml$", "dest": "/sitemap.xml" },
