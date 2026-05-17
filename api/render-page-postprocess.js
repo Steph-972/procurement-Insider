@@ -77,12 +77,23 @@ function normalizeFreeToolsFunnel(html) {
     .replace(/Gratuits, sans engagement\./g, 'Gratuits, sans compte utilisateur et sans engagement.');
 }
 
+function normalizeLegalMentions(html) {
+  return html
+    .replace(/<span class=\"placeholder\">Entrepreneur individuel \/ statut juridique à compléter<\/span>/g, 'Micro-entrepreneur en cours de finalisation administrative')
+    .replace(/<span class=\"placeholder\">SIRET : en cours d'immatriculation — information mise à jour dès finalisation de l'immatriculation<\/span>/g, 'SIRET en cours d’immatriculation')
+    .replace(/<span class=\"placeholder\">À compléter — Martinique \(97200\)<\/span>/g, 'Quartier Lowinsky, 97211 Rivière-Pilote, Martinique')
+    .replace(/<span class=\"placeholder\">Coordonnées du médiateur : à compléter si activité BtoC soumise à obligation de médiation<\/span>/g, 'Les coordonnées du médiateur compétent seront précisées avant toute prestation conclue avec un consommateur lorsque cette obligation sera applicable.')
+    .replace(/Dernière mise à jour : mai 2025/g, 'Dernière mise à jour : mai 2026')
+    .replace(/© 2025 Stéphane Loudoux/g, '© 2026 Stéphane Loudoux');
+}
+
 function hardenMobileAndCompliance(html) {
   let output = html;
   output = insertToolsInDesktopNav(output);
   output = insertToolsInMobileMenu(output);
   output = neutralizeRiskyCommercialClaims(output);
   output = normalizeFreeToolsFunnel(output);
+  output = normalizeLegalMentions(output);
   return output;
 }
 
