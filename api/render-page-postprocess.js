@@ -54,6 +54,8 @@ function normalizeFreeToolsFunnel(html) {
     .replace(/<a href=\"\/grille-mapa\" target=\"_blank\"([^>]*)>\s*Consulter la grille\s*<\/a>/g, '<a href="#lead-form-fields-1"$1>S’inscrire pour recevoir la grille</a>')
     .replace(/Accès immédiat après inscription/g, 'Accès gratuit après inscription')
     .replace(/Accès libre immédiat/g, 'Accès après inscription gratuite')
+    .replace(/Accès immédiat · Sans engagement · Déontologie respectée/g, 'Inscription gratuite · Sans compte utilisateur · Déontologie respectée')
+    .replace(/Accès immédiat · Sans compte utilisateur · Déontologie respectée/g, 'Inscription gratuite · Sans compte utilisateur · Déontologie respectée')
     .replace(/Recevoir aussi la grille par email/g, 'Recevoir la grille gratuite')
     .replace(/Inscription optionnelle : recevez le lien PDF et les futures ressources utiles par email\./g, 'Inscription rapide : recevez la grille par email, puis accédez immédiatement au lien direct.')
     .replace(/Accès immédiat par email \+ lien vers la version PDF imprimable\./g, 'Inscription rapide : la grille est envoyée par email et le lien direct apparaît après validation du formulaire.')
