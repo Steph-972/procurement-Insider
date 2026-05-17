@@ -87,6 +87,15 @@ function normalizeLegalMentions(html) {
     .replace(/© 2025 Stéphane Loudoux/g, '© 2026 Stéphane Loudoux');
 }
 
+function normalizeContactForm(html) {
+  return html
+    .replace(/Réponse garantie sous 48h ouvrées/g, 'Réponse généralement sous 48h ouvrées')
+    .replace(/Réponse garantie sous 48h ouvrées · Données sécurisées · RGPD/g, 'Réponse généralement sous 48h ouvrées · Données traitées confidentiellement · RGPD')
+    .replace(/email:\s*document\.getElementById\('email'\)\.value\.trim\(\),\n\s*organisation:/g, "email:        document.getElementById('email').value.trim(),\n        telephone:    document.getElementById('telephone') ? document.getElementById('telephone').value.trim() : '',\n        organisation:")
+    .replace(/Écrivez-moi/g, 'Expliquez-moi votre besoin')
+    .replace(/Je réponds personnellement à chaque message sous 48h ouvrées\./g, 'Je reviens vers vous personnellement, en général sous 48h ouvrées.');
+}
+
 function hardenMobileAndCompliance(html) {
   let output = html;
   output = insertToolsInDesktopNav(output);
@@ -94,6 +103,7 @@ function hardenMobileAndCompliance(html) {
   output = neutralizeRiskyCommercialClaims(output);
   output = normalizeFreeToolsFunnel(output);
   output = normalizeLegalMentions(output);
+  output = normalizeContactForm(output);
   return output;
 }
 
