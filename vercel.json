@@ -25,6 +25,7 @@
     { "src": "^/insights$", "dest": "/insights.html" },
     { "src": "^/insights/([a-z0-9-]+)$", "dest": "/api/render-insight?slug=$1" },
     { "src": "^/accompagnement-appel-offres-martinique$", "dest": "/accompagnement-appel-offres-martinique.html" },
+    { "src": "^/conseil-acheteur-public-martinique$", "dest": "/conseil-acheteur-public-martinique.html" },
     { "src": "^/articles.json$", "dest": "/articles.json" },
     { "src": "^/articles/(.*)$", "dest": "/articles/$1" },
     { "src": "^/sitemap.xml$", "dest": "/sitemap.xml" },
