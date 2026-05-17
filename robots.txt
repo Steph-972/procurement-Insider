@@ -1,17 +1,6 @@
 User-agent: *
 Allow: /
-
-# Pages publiques indexables
-Allow: /services
-Allow: /entites-publiques
-Allow: /entreprises-privees
-Allow: /faq
-Allow: /img/
-
-# Pages exclues de l'indexation
 Disallow: /admin
 Disallow: /admin.html
 Disallow: /site-data.json
-
-# Sitemap
-Sitemap: https://procurement-insider-git-main-procurement-insiders-projects.vercel.app/sitemap.xml
+Sitemap: https://marches-publics-martinique.vercel.app/sitemap.xml
