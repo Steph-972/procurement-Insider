@@ -6,6 +6,10 @@ const CANONICAL_BASE = 'https://procurement-insider.fr';
 
 const ALLOWED_FILES = new Set([
   'mentions-legales.html',
+  'conditions-generales-prestations-services.html',
+  'politique-confidentialite.html',
+  'politique-cookies.html',
+  'deontologie.html',
   'a-propos.html',
   'formation-marches-publics-martinique.html'
 ]);
