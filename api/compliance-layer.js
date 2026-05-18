@@ -56,13 +56,14 @@ function optimizeConversionCopy(out) {
 }
 
 function patchHeroMessaging(out) {
-  var heroTitle = '<h1 class="display hero-title hero-title-refined"><span>Votre offre est solide.</span><em>Rendons-la lisible<br>pour l’acheteur public.</em></h1>';
+  var heroTitle = '<h1 class="display hero-title hero-title-balanced"><span>Des offres plus lisibles.</span><em>Des procédures plus robustes.</em></h1>';
   var heroSubtitle = '<p class="lead hero-subtitle hero-subtitle-agency">Dix années au cœur de la commande publique m’ont donné une lecture que peu de prestataires possèdent : comprendre ce qu’un acheteur attend réellement au moment d’analyser une offre. Aujourd’hui, je transforme cette expérience terrain en méthode claire pour aider les entreprises à mieux répondre et les entités publiques à acheter plus juste.</p>';
   var guarantee = 'Je m’engage sur la qualité de mes conseils et de mes méthodes. Jamais sur l’attribution d’un marché — c’est une décision qui appartient exclusivement à l’acheteur public.';
 
   return String(out || '')
-    .replace(/Marchés publics\. Dossiers plus lisibles\. Procédures plus robustes\./g, 'Conseil · Formation · Marchés Publics')
-    .replace(/<div id="splash-tagline">[\s\S]*?<\/div>/i, '<div id="splash-tagline">Conseil · Formation · Marchés Publics</div>')
+    .replace(/Marchés publics\. Dossiers plus lisibles\. Procédures plus robustes\./g, 'Clarifier. Structurer. Sécuriser.')
+    .replace(/Conseil · Formation · Marchés Publics/g, 'Clarifier. Structurer. Sécuriser.')
+    .replace(/<div id="splash-tagline">[\s\S]*?<\/div>/i, '<div id="splash-tagline">Clarifier. Structurer. Sécuriser.</div>')
     .replace(/<div class="hero-eyebrow label">[\s\S]*?<\/div>/i, '<div class="hero-eyebrow label">Conseil marchés publics — Martinique</div>')
     .replace(/<h1 class="display hero-title(?: [^"]*)?">[\s\S]*?<\/h1>\s*<p class="lead hero-subtitle(?: [^"]*)?">[\s\S]*?<\/p>/i, heroTitle + heroSubtitle)
     .replace(/<p class="hero-guarantee-line">[\s\S]*?<\/p>/i, '<p class="hero-guarantee-line">' + guarantee + '</p>')
