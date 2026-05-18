@@ -11,10 +11,16 @@ function addStyle(out) {
 }
 
 function addHeaderLinks(out) {
-  if (out.indexOf('/a-propos') === -1) out = out.replace(/(<li><a href="\/outils-gratuits">Outils gratuits<\/a><\/li>)/, '$1<li><a href="/a-propos">A propos</a></li>');
-  if (out.indexOf('/formation-marches-publics-martinique') === -1) out = out.replace(/(<li><a href="\/services">Services<\/a><\/li>)/, '$1<li><a href="/formation-marches-publics-martinique">Formation</a></li>');
-  if (out.indexOf('href="/a-propos" onclick="toggleMenu()"') === -1) out = out.replace(/(<a href="\/outils-gratuits" onclick="toggleMenu\(\)">Outils gratuits<\/a>)/, '$1<a href="/a-propos" onclick="toggleMenu()">A propos</a>');
-  if (out.indexOf('href="/formation-marches-publics-martinique" onclick="toggleMenu()"') === -1) out = out.replace(/(<a href="\/services" onclick="toggleMenu\(\)">Services<\/a>)/, '$1<a href="/formation-marches-publics-martinique" onclick="toggleMenu()">Formation</a>');
+  out = out.replace(/(<ul class="nav-links">)([\s\S]*?)(<\/ul>)/i, function(m, open, body, close) {
+    if (body.indexOf('/formation-marches-publics-martinique') === -1) body = body.replace(/(<li><a href="\/services"[^>]*>Services<\/a><\/li>)/, '$1<li><a href="/formation-marches-publics-martinique">Formation</a></li>');
+    if (body.indexOf('/a-propos') === -1) body = body.replace(/(<li><a href="\/outils-gratuits"[^>]*>Outils gratuits<\/a><\/li>)/, '$1<li><a href="/a-propos">A propos</a></li>');
+    return open + body + close;
+  });
+  out = out.replace(/(<div class="mobile-menu"[\s\S]*?>)([\s\S]*?)(<\/div>)/i, function(m, open, body, close) {
+    if (body.indexOf('/formation-marches-publics-martinique') === -1) body = body.replace(/(<a href="\/services" onclick="toggleMenu\(\)">Services<\/a>)/, '$1<a href="/formation-marches-publics-martinique" onclick="toggleMenu()">Formation</a>');
+    if (body.indexOf('/a-propos') === -1) body = body.replace(/(<a href="\/outils-gratuits" onclick="toggleMenu\(\)">Outils gratuits<\/a>)/, '$1<a href="/a-propos" onclick="toggleMenu()">A propos</a>');
+    return open + body + close;
+  });
   return out;
 }
 
