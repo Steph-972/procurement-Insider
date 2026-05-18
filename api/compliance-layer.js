@@ -55,6 +55,16 @@ function optimizeConversionCopy(out) {
     .replace(/Je veux être accompagné/g, 'Demander un accompagnement');
 }
 
+function patchHardcodedStats(out) {
+  return String(out || '')
+    .replace(/data-val="52" data-suffix="\+">52\+<\/div>\s*<div class="stat-lbl">Dossiers analysés<\/div>/g, 'data-val="4" data-suffix="">4</div><div class="stat-lbl">Axes d’accompagnement</div>')
+    .replace(/data-val="93" data-suffix="%">93%<\/div>\s*<div class="stat-lbl">(?:Retours satisfaits|Satisfaction clients)<\/div>/g, 'data-val="7" data-suffix="">7</div><div class="stat-lbl">Modules pratiques</div>')
+    .replace(/data-val="4" data-suffix="">4<\/div>\s*<div class="stat-lbl">(?:Missions publiques|Collectivités accompagnées)<\/div>/g, 'data-val="1" data-suffix="">1</div><div class="stat-lbl">Cadre déontologique strict</div>')
+    .replace(/data-val="7" data-suffix="">7<\/div>\s*<div class="stat-lbl">(?:Sessions terrain|Formations dispensées)<\/div>/g, 'data-val="0" data-suffix="">0</div><div class="stat-lbl">Promesse d’attribution</div>')
+    .replace(/>52\+<\/div>\s*<div class="stat-lbl">Dossiers analysés<\/div>/g, '>4</div><div class="stat-lbl">Axes d’accompagnement</div>')
+    .replace(/>93%<\/div>\s*<div class="stat-lbl">(?:Retours satisfaits|Satisfaction clients)<\/div>/g, '>7</div><div class="stat-lbl">Modules pratiques</div>');
+}
+
 function addConversionNote(out) {
   if (out.indexOf('pi-conversion-note') !== -1) return out;
   if (out.indexOf('id="contact"') === -1 && out.indexOf('id="lead-form"') === -1) return out;
@@ -82,6 +92,7 @@ function applyComplianceLayer(html) {
   out = simplifyHeaderLinks(out);
   out = addFallbackMobileMenu(out);
   out = optimizeConversionCopy(out);
+  out = patchHardcodedStats(out);
   out = addConversionNote(out);
   out = addFormNotice(out);
   out = addLegalLinks(out);
