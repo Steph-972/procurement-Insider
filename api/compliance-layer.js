@@ -6,7 +6,7 @@ function addLegalLinks(out) {
 
 function addStyle(out) {
   if (out.indexOf('pi-compliance-style') !== -1) return out;
-  var style = '<style id="pi-compliance-style">#cookie-banner{display:none!important}#pi-legal-links{max-width:1180px;margin:0 auto;padding:18px 24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;font-size:13px;background:#07172D;color:rgba(255,255,255,.68)}#pi-legal-links a{color:#C9A84C;text-decoration:none;font-weight:700}#pi-legal-links span{color:#fff;font-weight:800}.pi-form-legal{font-size:12px;line-height:1.55;color:#6B7080;margin-top:12px}.pi-cookie-box{position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;background:#0F2342;color:white;border:1px solid #C9A84C;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:center;justify-content:space-between;box-shadow:0 20px 60px rgba(0,0,0,.25)}.pi-cookie-box p{margin:0;font-size:13px;line-height:1.45;color:rgba(255,255,255,.78)}.pi-cookie-box a{border:1px solid rgba(255,255,255,.35);color:white;border-radius:999px;padding:8px 12px;font-weight:700;text-decoration:none;font-size:12px}.pi-cookie-box a:last-child{background:#C9A84C;color:#0F2342;border-color:#C9A84C}@media(max-width:700px){.pi-cookie-box{position:static;margin:12px;flex-direction:column;align-items:flex-start}}</style>';
+  var style = '<style id="pi-compliance-style">#cookie-banner{display:none!important}#pi-legal-links{max-width:1180px;margin:0 auto;padding:18px 24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;font-size:13px;background:#07172D;color:rgba(255,255,255,.68)}#pi-legal-links a{color:#C9A84C;text-decoration:none;font-weight:700}#pi-legal-links span{color:#fff;font-weight:800}.pi-form-legal{font-size:12px;line-height:1.55;color:#6B7080;margin-top:12px}.pi-cookie-box{position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;background:#0F2342;color:white;border:1px solid #C9A84C;border-radius:14px;padding:14px;display:flex;gap:10px;align-items:center;justify-content:space-between;box-shadow:0 20px 60px rgba(0,0,0,.25)}.pi-cookie-box p{margin:0;font-size:13px;line-height:1.45;color:rgba(255,255,255,.78)}.pi-cookie-box a{border:1px solid rgba(255,255,255,.35);color:white;border-radius:999px;padding:8px 12px;font-weight:700;text-decoration:none;font-size:12px}.pi-cookie-box a:last-child{background:#C9A84C;color:#0F2342;border-color:#C9A84C}.pi-mobile-fallback{display:none}@media(max-width:768px){.pi-cookie-box{position:static;margin:12px;flex-direction:column;align-items:flex-start}.pi-mobile-fallback{display:block;position:fixed;right:18px;top:14px;z-index:10050}.pi-mobile-fallback summary{list-style:none;background:#C9A84C;color:#0F2342;border-radius:4px;padding:8px 12px;font-weight:800;cursor:pointer}.pi-mobile-fallback summary::-webkit-details-marker{display:none}.pi-mobile-fallback div{position:fixed;left:0;right:0;top:58px;background:#0F2342;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 60px rgba(0,0,0,.32)}.pi-mobile-fallback a{color:#fff;text-decoration:none;font-size:18px;font-family:Georgia,serif}.pi-mobile-fallback a:hover{color:#C9A84C}}</style>';
   return out.replace('</head>', style + '</head>');
 }
 
@@ -21,7 +21,13 @@ function addHeaderLinks(out) {
     if (body.indexOf('/a-propos') === -1) body = body.replace(/(<a href="\/outils-gratuits" onclick="toggleMenu\(\)">Outils gratuits<\/a>)/, '$1<a href="/a-propos" onclick="toggleMenu()">A propos</a>');
     return open + body + close;
   });
-  return out;
+  return out.replace(/href="\/#insights"/g, 'href="/insights"');
+}
+
+function addFallbackMobileMenu(out) {
+  if (out.indexOf('pi-mobile-fallback') !== -1 || out.indexOf('mobile-menu') !== -1) return out;
+  var menu = '<details class="pi-mobile-fallback"><summary>Menu</summary><div><a href="/services">Services</a><a href="/formation-marches-publics-martinique">Formation</a><a href="/entites-publiques">Entites publiques</a><a href="/entreprises-privees">Entreprises privees</a><a href="/outils-gratuits">Outils gratuits</a><a href="/insights">Insights</a><a href="/a-propos">A propos</a><a href="/#contact">Contact</a></div></details>';
+  return out.replace('</body>', menu + '</body>');
 }
 
 function addFormNotice(out) {
@@ -42,6 +48,7 @@ function applyComplianceLayer(html) {
   var out = String(html || '');
   out = addStyle(out);
   out = addHeaderLinks(out);
+  out = addFallbackMobileMenu(out);
   out = addFormNotice(out);
   out = addLegalLinks(out);
   out = addCookieBox(out);
