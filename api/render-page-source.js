@@ -2,7 +2,7 @@ const path = require('path');
 
 const REPO_OWNER = 'Steph-972';
 const REPO_NAME = 'marches-publics-martinique';
-const CANONICAL_BASE = 'https://procurement-insider.fr';
+const CANONICAL_BASE = process.env.SITE_BASE || 'https://marches-publics-martinique.vercel.app';
 
 const ALLOWED_FILES = new Set([
   'mentions-legales.html',
@@ -26,6 +26,7 @@ function safeRef(value) {
 
 function normalizeTechnicalDomains(html) {
   return String(html || '')
+    .replace(/https:\/\/procurement-insider\.fr/g, CANONICAL_BASE)
     .replace(/https:\/\/marches-publics-martinique\.vercel\.app/g, CANONICAL_BASE)
     .replace(/https:\/\/procurement-insider-git-main-procurement-insiders-projects\.vercel\.app/g, CANONICAL_BASE)
     .replace(/https:\/\/procurement-insider-[a-z0-9-]+-procurement-insiders-projects\.vercel\.app/g, CANONICAL_BASE);
