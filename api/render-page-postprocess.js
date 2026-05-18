@@ -68,6 +68,14 @@ function normalizeInternalLinks(html) {
     .replace(/href=\"#insights\" onclick=\"toggleMenu\(\)\">Insights<\/a>/g, 'href="/insights" onclick="toggleMenu()">Insights</a>');
 }
 
+function normalizeCommitmentStats(html) {
+  return String(html || '')
+    .replace(/<strong style="color:var\(--gold\)">0<\/strong>&nbsp;promesse d’attribution/g, '<strong style="color:var(--gold)">3</strong>&nbsp;engagements clés')
+    .replace(/data-val="0" data-suffix="">0<\/div>\s*<div class="stat-lbl">Promesse d’attribution<\/div>/g, 'data-val="3" data-suffix="">3</div><div class="stat-lbl">Engagements clés</div>')
+    .replace(/>0<\/div>\s*<div class="stat-lbl">Promesse d’attribution<\/div>/g, '>3</div><div class="stat-lbl">Engagements clés</div>')
+    .replace(/0\s+Promesse d’attribution/g, '3 Engagements clés');
+}
+
 function insertSeoCrosslinks(html) {
   if (html.includes('seo-crosslinks')) return html;
   const block = `\n<div id="seo-crosslinks" style="max-width:1180px;margin:1.5rem auto 0;padding:1rem clamp(1.25rem,5vw,3rem);border-top:1px solid rgba(201,168,76,.25);display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center;font-size:.82rem;line-height:1.5">\n  <a href="/accompagnement-appel-offres-martinique" style="color:#C9A84C;font-weight:700">Accompagnement appel d’offres Martinique</a>\n  <span style="color:rgba(255,255,255,.35)">·</span>\n  <a href="/conseil-acheteur-public-martinique" style="color:#C9A84C;font-weight:700">Conseil acheteur public Martinique</a>\n  <span style="color:rgba(255,255,255,.35)">·</span>\n  <a href="/insights" style="color:#C9A84C;font-weight:700">Insights commande publique</a>\n</div>\n`;
@@ -83,7 +91,7 @@ function hardenMobileAndCompliance(html) {
   output = normalizeHomeInsights(output);
   output = normalizeInternalLinks(output);
   output = insertSeoCrosslinks(output);
-  return applyComplianceLayer(output);
+  return normalizeCommitmentStats(applyComplianceLayer(output));
 }
 
 module.exports = async function handler(req, res) {
