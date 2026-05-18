@@ -83,6 +83,28 @@ function insertSeoCrosslinks(html) {
   return index === -1 ? html + block : html.slice(0, index) + block + html.slice(index);
 }
 
+function insertHomepageSlimmingStyle(html) {
+  if (String(html || '').includes('pi-home-slimming-style')) return html;
+  const style = `<style id="pi-home-slimming-style">
+/* Accueil raccourci : les contenus secondaires restent accessibles via les pages internes, le menu et le footer. */
+body:has(#hero) #methode,
+body:has(#hero) #methode + div,
+body:has(#hero) #insights,
+body:has(#hero) #diagnostic,
+body:has(#hero) #cas-pratiques,
+body:has(#hero) #outils,
+body:has(#hero) #legal,
+body:has(#hero) #faq { display:none !important; }
+body:has(#hero) #about { padding-bottom: clamp(3.5rem,5vw,5rem) !important; }
+body:has(#hero) #services { padding: clamp(3rem,5vw,4.5rem) 0 !important; }
+body:has(#hero) #why { padding: clamp(3.5rem,5vw,5rem) 0 !important; }
+body:has(#hero) #deontologie { padding: clamp(2.6rem,4vw,3.7rem) 0 !important; }
+body:has(#hero) #contact { padding-top: clamp(4rem,6vw,5.5rem) !important; }
+body:has(#hero) .about-hero-img { margin-bottom: clamp(2rem,3vw,3rem) !important; }
+</style>`;
+  return String(html || '').replace('</head>', style + '</head>');
+}
+
 function hardenMobileAndCompliance(html) {
   let output = replaceAllSafe(html);
   output = insertToolsInNav(output);
@@ -91,7 +113,8 @@ function hardenMobileAndCompliance(html) {
   output = normalizeHomeInsights(output);
   output = normalizeInternalLinks(output);
   output = insertSeoCrosslinks(output);
-  return normalizeCommitmentStats(applyComplianceLayer(output));
+  output = normalizeCommitmentStats(applyComplianceLayer(output));
+  return insertHomepageSlimmingStyle(output);
 }
 
 module.exports = async function handler(req, res) {
