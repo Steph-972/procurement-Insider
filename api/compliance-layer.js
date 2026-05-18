@@ -1,6 +1,6 @@
 function addLegalLinks(out) {
   if (out.indexOf('pi-legal-links') !== -1) return out;
-  var links = '<div id="pi-legal-links"><span>Ressources :</span> <a href="/a-propos">A propos</a> <a href="/formation-marches-publics-martinique">Formation</a> <a href="/insights">Insights</a> <a href="/outils-gratuits">Outils gratuits</a> <span>Juridique :</span> <a href="/mentions-legales">Mentions legales</a> <a href="/conditions-generales-prestations-services">CGPS</a> <a href="/politique-confidentialite">Confidentialite</a> <a href="/politique-cookies">Cookies</a> <a href="/deontologie">Deontologie</a></div>';
+  var links = '<div id="pi-legal-links"><span>Ressources :</span> <a href="/a-propos">A propos</a> <a href="/formation-marches-publics-martinique">Formation</a> <a href="/entites-publiques">Entites publiques</a> <a href="/entreprises-privees">Entreprises privees</a> <a href="/insights">Insights</a> <a href="/outils-gratuits">Outils gratuits</a> <span>Juridique :</span> <a href="/mentions-legales">Mentions legales</a> <a href="/conditions-generales-prestations-services">CGPS</a> <a href="/politique-confidentialite">Confidentialite</a> <a href="/politique-cookies">Cookies</a> <a href="/deontologie">Deontologie</a></div>';
   return out.replace('</body>', links + '</body>');
 }
 
@@ -10,15 +10,21 @@ function addStyle(out) {
   return out.replace('</head>', style + '</head>');
 }
 
-function addHeaderLinks(out) {
+function simplifyHeaderLinks(out) {
   out = out.replace(/(<ul class="nav-links">)([\s\S]*?)(<\/ul>)/i, function(m, open, body, close) {
-    if (body.indexOf('/formation-marches-publics-martinique') === -1) body = body.replace(/(<li><a href="\/services"[^>]*>Services<\/a><\/li>)/, '$1<li><a href="/formation-marches-publics-martinique">Formation</a></li>');
-    if (body.indexOf('/a-propos') === -1) body = body.replace(/(<li><a href="\/outils-gratuits"[^>]*>Outils gratuits<\/a><\/li>)/, '$1<li><a href="/a-propos">A propos</a></li>');
+    body = body
+      .replace(/\s*<li><a href="\/entites-publiques"[^>]*>[^<]*<\/a><\/li>/gi, '')
+      .replace(/\s*<li><a href="\/entreprises-privees"[^>]*>[^<]*<\/a><\/li>/gi, '')
+      .replace(/\s*<li><a href="\/formation-marches-publics-martinique"[^>]*>[^<]*<\/a><\/li>/gi, '')
+      .replace(/\s*<li><a href="\/a-propos"[^>]*>[^<]*<\/a><\/li>/gi, '')
+      .replace(/\s*<li><a href="\/faq"[^>]*>[^<]*<\/a><\/li>/gi, '');
     return open + body + close;
   });
   out = out.replace(/(<div class="mobile-menu"[\s\S]*?>)([\s\S]*?)(<\/div>)/i, function(m, open, body, close) {
-    if (body.indexOf('/formation-marches-publics-martinique') === -1) body = body.replace(/(<a href="\/services" onclick="toggleMenu\(\)">Services<\/a>)/, '$1<a href="/formation-marches-publics-martinique" onclick="toggleMenu()">Formation</a>');
-    if (body.indexOf('/a-propos') === -1) body = body.replace(/(<a href="\/outils-gratuits" onclick="toggleMenu\(\)">Outils gratuits<\/a>)/, '$1<a href="/a-propos" onclick="toggleMenu()">A propos</a>');
+    if (body.indexOf('/entites-publiques') === -1) body += '<a href="/entites-publiques" onclick="toggleMenu()">Entites publiques</a>';
+    if (body.indexOf('/entreprises-privees') === -1) body += '<a href="/entreprises-privees" onclick="toggleMenu()">Entreprises privees</a>';
+    if (body.indexOf('/formation-marches-publics-martinique') === -1) body += '<a href="/formation-marches-publics-martinique" onclick="toggleMenu()">Formation</a>';
+    if (body.indexOf('/a-propos') === -1) body += '<a href="/a-propos" onclick="toggleMenu()">A propos</a>';
     return open + body + close;
   });
   return out.replace(/href="\/#insights"/g, 'href="/insights"');
@@ -26,14 +32,16 @@ function addHeaderLinks(out) {
 
 function addFallbackMobileMenu(out) {
   if (out.indexOf('pi-mobile-fallback') !== -1 || out.indexOf('mobile-menu') !== -1) return out;
-  var menu = '<details class="pi-mobile-fallback"><summary>Menu</summary><div><a href="/services">Services</a><a href="/formation-marches-publics-martinique">Formation</a><a href="/entites-publiques">Entites publiques</a><a href="/entreprises-privees">Entreprises privees</a><a href="/outils-gratuits">Outils gratuits</a><a href="/insights">Insights</a><a href="/a-propos">A propos</a><a href="/#contact">Contact</a></div></details>';
+  var menu = '<details class="pi-mobile-fallback"><summary>Menu</summary><div><a href="/services">Services</a><a href="/outils-gratuits">Outils gratuits</a><a href="/insights">Insights</a><a href="/#contact">Contact</a><a href="/entites-publiques">Entites publiques</a><a href="/entreprises-privees">Entreprises privees</a><a href="/formation-marches-publics-martinique">Formation</a><a href="/a-propos">A propos</a></div></details>';
   return out.replace('</body>', menu + '</body>');
 }
 
 function optimizeConversionCopy(out) {
   return String(out || '')
-    .replace(/Diagnostic gratuit/g, 'Diagnostic gratuit de votre besoin')
-    .replace(/Demander un diagnostic/g, 'Demander un diagnostic gratuit')
+    .replace(/Diagnostic gratuit de votre besoin/g, 'Diagnostic gratuit')
+    .replace(/Diagnostic gratuit/g, 'Diagnostic gratuit')
+    .replace(/Demander un diagnostic gratuit/g, 'Demander un diagnostic')
+    .replace(/Demander un diagnostic/g, 'Demander un diagnostic')
     .replace(/Optimiser mon mémoire/g, 'Faire relire mon mémoire technique')
     .replace(/Voir les offres/g, 'Comparer les accompagnements')
     .replace(/Recevoir la grille gratuite/g, 'Recevoir la grille MAPA gratuite')
@@ -69,7 +77,7 @@ function addCookieBox(out) {
 function applyComplianceLayer(html) {
   var out = String(html || '');
   out = addStyle(out);
-  out = addHeaderLinks(out);
+  out = simplifyHeaderLinks(out);
   out = addFallbackMobileMenu(out);
   out = optimizeConversionCopy(out);
   out = addConversionNote(out);
