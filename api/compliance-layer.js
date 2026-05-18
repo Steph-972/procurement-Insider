@@ -56,9 +56,9 @@ function optimizeConversionCopy(out) {
 }
 
 function patchHeroMessaging(out) {
-  var heroTitle = '<h1 class="display hero-title hero-title-balanced">Entreprises et entités publiques :<br><em>structurer la commande publique avec méthode.</em></h1>';
-  var heroSubtitle = '<p class="lead hero-subtitle hero-subtitle-agency">J’accompagne les entreprises dans la structuration de leurs réponses aux appels d’offres, et les entités publiques dans la préparation de procédures d’achat plus claires, cohérentes et maîtrisées.</p>';
-  var guarantee = 'J’aide à structurer des dossiers plus lisibles et des procédures plus robustes, dans le respect des règles applicables et d’un cadre déontologique strict.';
+  var heroTitle = '<h1 class="display hero-title hero-title-balanced">J’ai rédigé vos cahiers des charges.<br><em>Aujourd’hui, je renforce vos offres.</em></h1>';
+  var heroSubtitle = '<p class="lead hero-subtitle hero-subtitle-agency">Des deux côtés de la table.<br>La même exigence de méthode.</p>';
+  var guarantee = 'J’aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l’acheteur.';
 
   return String(out || '')
     .replace(/Conseil · Formation · Marchés Publics/g, 'Marchés publics. Dossiers plus lisibles. Procédures plus robustes.')
@@ -73,6 +73,8 @@ function patchHeroMessaging(out) {
     .replace(/<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba\(255,255,255,.1\);border:1px solid rgba\(255,255,255,.18\);border-radius:20px;padding:.3rem .85rem;font-family:var\(--mono\);font-size:.68rem;letter-spacing:.05em;color:rgba\(255,255,255,.82\)"><strong style="color:var\(--gold\)">52\+<\/strong>&nbsp;dossiers<\/span>/g, '<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">4</strong>&nbsp;axes</span>')
     .replace(/<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba\(255,255,255,.1\);border:1px solid rgba\(255,255,255,.18\);border-radius:20px;padding:.3rem .85rem;font-family:var\(--mono\);font-size:.68rem;letter-spacing:.05em;color:rgba\(255,255,255,.82\)"><strong style="color:var\(--gold\)">93%<\/strong>&nbsp;satisfaction<\/span>/g, '<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">0</strong>&nbsp;promesse d’attribution</span>')
     .replace(/J'aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l'acheteur\./g, guarantee)
+    .replace(/J’aide à structurer des dossiers plus lisibles et des procédures plus robustes, dans le respect des règles applicables et d’un cadre déontologique strict\./g, guarantee)
+    .replace(/J’aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l’acheteur, sans jamais garantir l’attribution\./g, guarantee)
     .replace(/Je m'engage sur la qualité de mes conseils et de mes méthodes\. Jamais sur l'attribution d'un marché — c'est une décision qui appartient exclusivement à l'acheteur public\./g, guarantee);
 }
 
