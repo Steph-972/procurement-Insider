@@ -56,24 +56,25 @@ function optimizeConversionCopy(out) {
 }
 
 function patchHeroMessaging(out) {
-  var heroTitle = '<h1 class="display hero-title hero-title-balanced">J’ai rédigé vos cahiers des charges.<br><em>Aujourd’hui, je renforce vos offres.</em></h1>';
-  var heroSubtitle = '<p class="lead hero-subtitle hero-subtitle-agency">Des deux côtés de la table.<br>La même exigence de méthode.</p>';
-  var guarantee = 'J’aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l’acheteur.';
+  var heroTitle = '<h1 class="display hero-title hero-title-refined"><span>Votre offre est solide.</span><em>Rendons-la lisible<br>pour l’acheteur public.</em></h1>';
+  var heroSubtitle = '<p class="lead hero-subtitle hero-subtitle-agency">Dix années au cœur de la commande publique m’ont donné une lecture que peu de prestataires possèdent : comprendre ce qu’un acheteur attend réellement au moment d’analyser une offre. Aujourd’hui, je transforme cette expérience terrain en méthode claire pour aider les entreprises à mieux répondre et les entités publiques à acheter plus juste.</p>';
+  var guarantee = 'Je m’engage sur la qualité de mes conseils et de mes méthodes. Jamais sur l’attribution d’un marché — c’est une décision qui appartient exclusivement à l’acheteur public.';
 
   return String(out || '')
-    .replace(/Conseil · Formation · Marchés Publics/g, 'Marchés publics. Dossiers plus lisibles. Procédures plus robustes.')
-    .replace(/<div id="splash-tagline">[\s\S]*?<\/div>/i, '<div id="splash-tagline">Marchés publics. Dossiers plus lisibles. Procédures plus robustes.</div>')
-    .replace(/<div class="hero-eyebrow label">[\s\S]*?<\/div>/i, '<div class="hero-eyebrow label">Commande publique — Martinique & Antilles</div>')
+    .replace(/Marchés publics\. Dossiers plus lisibles\. Procédures plus robustes\./g, 'Conseil · Formation · Marchés Publics')
+    .replace(/<div id="splash-tagline">[\s\S]*?<\/div>/i, '<div id="splash-tagline">Conseil · Formation · Marchés Publics</div>')
+    .replace(/<div class="hero-eyebrow label">[\s\S]*?<\/div>/i, '<div class="hero-eyebrow label">Conseil marchés publics — Martinique</div>')
     .replace(/<h1 class="display hero-title(?: [^"]*)?">[\s\S]*?<\/h1>\s*<p class="lead hero-subtitle(?: [^"]*)?">[\s\S]*?<\/p>/i, heroTitle + heroSubtitle)
     .replace(/<p class="hero-guarantee-line">[\s\S]*?<\/p>/i, '<p class="hero-guarantee-line">' + guarantee + '</p>')
     .replace(/<p style="font-size:\.78rem;color:rgba\(255,255,255,\.45\);[\s\S]*?<\/p>/i, '<p class="hero-guarantee-line">' + guarantee + '</p>')
-    .replace(/Analyser mon dossier/g, 'Présenter mon besoin')
-    .replace(/Diagnostic gratuit 30 min/g, 'Présenter mon besoin')
+    .replace(/Présenter mon besoin/g, 'Analyser mon dossier')
+    .replace(/Diagnostic gratuit 30 min/g, 'Analyser mon dossier')
     .replace(/Découvrir les services/g, 'Voir les accompagnements')
     .replace(/<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba\(255,255,255,.1\);border:1px solid rgba\(255,255,255,.18\);border-radius:20px;padding:.3rem .85rem;font-family:var\(--mono\);font-size:.68rem;letter-spacing:.05em;color:rgba\(255,255,255,.82\)"><strong style="color:var\(--gold\)">52\+<\/strong>&nbsp;dossiers<\/span>/g, '<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">4</strong>&nbsp;axes</span>')
     .replace(/<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba\(255,255,255,.1\);border:1px solid rgba\(255,255,255,.18\);border-radius:20px;padding:.3rem .85rem;font-family:var\(--mono\);font-size:.68rem;letter-spacing:.05em;color:rgba\(255,255,255,.82\)"><strong style="color:var\(--gold\)">93%<\/strong>&nbsp;satisfaction<\/span>/g, '<span style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:.3rem .85rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;color:rgba(255,255,255,.82)"><strong style="color:var(--gold)">0</strong>&nbsp;promesse d’attribution</span>')
     .replace(/J'aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l'acheteur\./g, guarantee)
     .replace(/J’aide à structurer des dossiers plus lisibles et des procédures plus robustes, dans le respect des règles applicables et d’un cadre déontologique strict\./g, guarantee)
+    .replace(/J’aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l’acheteur\./g, guarantee)
     .replace(/J’aide à construire le meilleur dossier possible, conforme aux règles et aligné sur les attentes de l’acheteur, sans jamais garantir l’attribution\./g, guarantee)
     .replace(/Je m'engage sur la qualité de mes conseils et de mes méthodes\. Jamais sur l'attribution d'un marché — c'est une décision qui appartient exclusivement à l'acheteur public\./g, guarantee);
 }
