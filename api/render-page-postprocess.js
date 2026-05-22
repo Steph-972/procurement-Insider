@@ -54,8 +54,8 @@ function normalizeFreeTools(html) {
 }
 
 function normalizeContactForm(html) {
+  // Le champ telephone est désormais natif dans le formulaire 2-étapes — regex de patch supprimée
   return html
-    .replace(/email:\s*document\.getElementById\('email'\)\.value\.trim\(\),\n\s*organisation:/g, "email:        document.getElementById('email').value.trim(),\n        telephone:    document.getElementById('telephone') ? document.getElementById('telephone').value.trim() : '',\n        organisation:")
     .replace(/Écrivez-moi/g, 'Expliquez-moi votre besoin');
 }
 

@@ -730,6 +730,18 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
 @media(max-width:768px){
   .about-hero-img img { max-height: 240px; }
 }
+/* FORM 2-STEP */
+.form-progress{display:flex;align-items:center;margin-bottom:1.75rem}
+.fp-step{display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.fp-dot{width:10px;height:10px;border-radius:50%;background:var(--gray-light);border:2px solid var(--gray-light);transition:all .3s}
+.fp-step span{font-family:var(--mono);font-size:.62rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;transition:color .3s;white-space:nowrap}
+.fp-step.active .fp-dot{background:var(--gold);border-color:var(--gold)}
+.fp-step.active span{color:var(--navy);font-weight:700}
+.fp-line{flex:1;height:1px;background:var(--gray-light);margin:0 .75rem;margin-bottom:1rem;transition:background .3s}
+.fp-line.active{background:var(--gold)}
+.btn-back{background:none;border:1px solid var(--gray-light);color:var(--gray);padding:.75rem 1rem;border-radius:var(--radius);font-size:.875rem;cursor:pointer;font-family:var(--sans);transition:.2s;display:flex;align-items:center;gap:.4rem;white-space:nowrap}
+.btn-back:hover{border-color:var(--navy);color:var(--navy)}
+.form-step-context{background:rgba(201,168,76,.07);border-left:3px solid var(--gold);padding:.75rem 1rem;border-radius:0 4px 4px 0;margin-bottom:1.25rem;font-size:.875rem;color:var(--navy);line-height:1.55;font-style:italic}
 </style>
 <script>
 // ─── FORMULAIRE CONTEXTUEL ────────────────────────────────────────────────────
@@ -737,9 +749,21 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
 function setFormMode(mode) {
   var isDiag = (mode === 'diagnostic');
 
+  // Toujours revenir à l'étape 1 (le visiteur recommence)
+  var s2 = document.getElementById('form-step-2');
+  if (s2 && s2.style.display !== 'none') {
+    var s1 = document.getElementById('form-step-1');
+    if (s1) s1.style.display = 'block';
+    s2.style.display = 'none';
+    var ind2 = document.getElementById('fp-step-2-ind');
+    var line = document.getElementById('fp-line');
+    if (ind2) ind2.classList.remove('active');
+    if (line) line.classList.remove('active');
+  }
+
   var titles = {
     diagnostic: 'Réserver mon diagnostic gratuit',
-    contact: 'Écrivez-moi'
+    contact: 'Expliquez-moi votre besoin'
   };
   var subtitles = {
     diagnostic: '30 minutes offertes pour analyser votre situation. Je vous confirme un créneau sous 48h ouvrées.',
@@ -765,9 +789,6 @@ function setFormMode(mode) {
   el = document.getElementById('sujet');
   if (el && isDiag) el.value = 'diagnostic';
 
-  el = document.getElementById('message');
-  if (el) el.placeholder = placeholders[mode] || placeholders.contact;
-
   el = document.getElementById('btn-submit-label');
   if (el) el.textContent = btnLabels[mode] || btnLabels.contact;
 
@@ -787,6 +808,70 @@ function setFormMode(mode) {
     var offset = nav ? nav.offsetHeight + 8 : 70;
     window.scrollTo({ top: contact.offsetTop - offset, behavior: 'smooth' });
   }
+}
+
+// ─── FORM 2 ÉTAPES ─────────────────────────────────────────────────────────────
+function formNextStep() {
+  var profil = document.getElementById('profil');
+  var sujet  = document.getElementById('sujet');
+  var email  = document.getElementById('email');
+  var valid  = true;
+
+  if (!profil.value) { profil.style.borderColor = '#E53935'; valid = false; }
+  else profil.style.borderColor = '';
+  if (!sujet.value) { sujet.style.borderColor = '#E53935'; valid = false; }
+  else sujet.style.borderColor = '';
+  var emailVal = email.value.trim();
+  if (!emailVal || !emailVal.includes('@')) { email.style.borderColor = '#E53935'; valid = false; }
+  else email.style.borderColor = '';
+
+  if (!valid) return;
+
+  // Contextualiser l'étape 2 selon le besoin choisi
+  var contextMap = {
+    'diagnostic':     'Parfait pour un diagnostic. Décrivez votre activité et ce que vous souhaitez analyser ensemble.',
+    'accompagnement': 'Quel appel d\'offres préparez-vous ? Quel est votre délai de dépôt ?',
+    'audit':          'Quel aspect de votre stratégie souhaitez-vous auditer ou sécuriser ?',
+    'dce':            'Quelle consultation préparez-vous ? Quel est votre calendrier de publication ?',
+    'formation':      'Pour qui souhaitez-vous la formation ? Quel niveau et quel format envisagez-vous ?',
+    'forfait':        'Quel volume de marchés suivez-vous ? Quel est votre besoin récurrent ?',
+    'autre':          'Décrivez votre situation ou votre besoin en quelques mots.'
+  };
+  var placeholderMap = {
+    'entreprise':     'Ex : PME du BTP, réponse à un marché de travaux, délai dans 3 semaines. Mémoire technique à renforcer…',
+    'collectivite':   'Ex : EPCI, MAPA en cours de préparation, CCTP à sécuriser avant publication en juillet…',
+    'etablissement':  'Ex : Établissement scolaire, consultation fournitures, grille de notation à construire…',
+    'artisan':        'Ex : Artisan électricien, premier appel d\'offres, besoin d\'aide pour le mémoire technique…',
+    'autre':          'Décrivez votre situation ou votre besoin en quelques mots…'
+  };
+
+  var ctxEl = document.getElementById('form-step2-context');
+  if (ctxEl) ctxEl.textContent = contextMap[sujet.value] || 'Quelques détails pour que je prépare notre échange.';
+  var msgEl = document.getElementById('message');
+  if (msgEl) msgEl.placeholder = placeholderMap[profil.value] || 'Décrivez votre situation ou votre besoin…';
+
+  document.getElementById('form-step-1').style.display = 'none';
+  document.getElementById('form-step-2').style.display = 'block';
+  var ind2 = document.getElementById('fp-step-2-ind');
+  var line = document.getElementById('fp-line');
+  if (ind2) ind2.classList.add('active');
+  if (line) line.classList.add('active');
+
+  var contact = document.getElementById('contact');
+  if (contact) {
+    var nav = document.getElementById('navbar');
+    var offset = nav ? nav.offsetHeight + 8 : 70;
+    window.scrollTo({ top: contact.offsetTop - offset, behavior: 'smooth' });
+  }
+}
+
+function formPrevStep() {
+  document.getElementById('form-step-2').style.display = 'none';
+  document.getElementById('form-step-1').style.display = 'block';
+  var ind2 = document.getElementById('fp-step-2-ind');
+  var line = document.getElementById('fp-line');
+  if (ind2) ind2.classList.remove('active');
+  if (line) line.classList.remove('active');
 }
 </script>
 <link rel="canonical" href="https://marches-publics-martinique.vercel.app/">
@@ -1890,65 +1975,96 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
         <h3 id="form-title">Écrivez-moi</h3>
         <p class="form-sub" id="form-subtitle">Je réponds personnellement à chaque message sous 48h ouvrées.</p>
         <form id="contact-form" novalidate>
-          <div class="form-row">
+
+          <!-- INDICATEUR DE PROGRESSION -->
+          <div class="form-progress">
+            <div class="fp-step active" id="fp-step-1-ind">
+              <div class="fp-dot"></div>
+              <span>Votre profil</span>
+            </div>
+            <div class="fp-line" id="fp-line"></div>
+            <div class="fp-step" id="fp-step-2-ind">
+              <div class="fp-dot"></div>
+              <span>Votre message</span>
+            </div>
+          </div>
+
+          <!-- ÉTAPE 1 : Qualification -->
+          <div id="form-step-1">
             <div class="form-group">
-              <label for="prenom">Prénom *</label>
-              <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+              <label for="profil">Vous êtes… *</label>
+              <select id="profil" name="profil" required>
+                <option value="">Sélectionnez votre profil</option>
+                <option value="entreprise">Entreprise / PME / TPE</option>
+                <option value="collectivite">Collectivité / EPCI</option>
+                <option value="etablissement">Établissement public</option>
+                <option value="artisan">Artisan / BTP</option>
+                <option value="autre">Autre</option>
+              </select>
             </div>
             <div class="form-group">
-              <label for="nom">Nom *</label>
-              <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+              <label for="sujet">Votre besoin *</label>
+              <select id="sujet" name="sujet" required>
+                <option value="">Quel sujet vous amène ?</option>
+                <option value="diagnostic">Diagnostic gratuit 30 min</option>
+                <option value="accompagnement">Accompagnement réponse AO</option>
+                <option value="audit">Audit stratégie d'achat</option>
+                <option value="dce">Rédaction DCE / CCTP</option>
+                <option value="formation">Formation marchés publics</option>
+                <option value="forfait">Conseil mensuel (forfait)</option>
+                <option value="autre">Autre demande</option>
+              </select>
             </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.fr" required>
+            </div>
+            <button type="button" class="btn-submit" id="btn-step-next" onclick="formNextStep()">
+              Continuer
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="form-note">Étape 1 sur 2 · Aucun engagement</p>
           </div>
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" placeholder="votre@email.fr" required>
+
+          <!-- ÉTAPE 2 : Détails -->
+          <div id="form-step-2" style="display:none">
+            <p class="form-step-context" id="form-step2-context">Quelques détails pour que je puisse préparer notre échange.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone <span style="color:var(--gray);font-weight:400;font-size:.8rem">(optionnel)</span></label>
+              <input type="tel" id="telephone" name="telephone" placeholder="+596 6XX XX XX XX">
+            </div>
+            <div class="form-group">
+              <label for="organisation">Organisation / Entreprise</label>
+              <input type="text" id="organisation" name="organisation" placeholder="Nom de votre structure">
+            </div>
+            <div class="form-group">
+              <label for="message">Votre situation *</label>
+              <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation ou votre besoin..." required></textarea>
+            </div>
+            <div class="form-checkbox">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">J'accepte que mes données soient utilisées pour traiter ma demande et me recontacter. Ces données ne seront pas transmises à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de modification et de suppression. <a href="#legal">En savoir plus</a>.</label>
+            </div>
+            <div style="display:flex;gap:.75rem;align-items:center">
+              <button type="button" class="btn-back" onclick="formPrevStep()">← Retour</button>
+              <button type="submit" class="btn-submit" id="btn-submit" style="flex:1">
+                <svg width="18" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span id="btn-submit-label">Envoyer ma demande</span>
+              </button>
+            </div>
+            <p class="form-note">Étape 2 sur 2 · Réponse sous 48h ouvrées · Données sécurisées · RGPD</p>
           </div>
-          <div class="form-group">
-            <label for="telephone">Téléphone <span style="color:var(--gray);font-weight:400;font-size:.8rem">(optionnel)</span></label>
-            <input type="tel" id="telephone" name="telephone" placeholder="+596 6XX XX XX XX">
-          </div>
-          <div class="form-group">
-            <label for="organisation">Organisation / Entreprise</label>
-            <input type="text" id="organisation" name="organisation" placeholder="Nom de votre structure">
-          </div>
-          <div class="form-group">
-            <label for="profil">Vous êtes *</label>
-            <select id="profil" name="profil" required>
-              <option value="">Sélectionnez votre profil</option>
-              <option value="entreprise">Entreprise / PME / TPE</option>
-              <option value="collectivite">Collectivité / EPCI</option>
-              <option value="etablissement">Établissement public</option>
-              <option value="artisan">Artisan / BTP</option>
-              <option value="autre">Autre</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="sujet">Objet de votre demande *</label>
-            <select id="sujet" name="sujet" required>
-              <option value="">Sélectionnez un objet</option>
-              <option value="diagnostic">Diagnostic gratuit 30 min</option>
-              <option value="accompagnement">Accompagnement réponse AO</option>
-              <option value="audit">Audit stratégie d'achat</option>
-              <option value="dce">Rédaction DCE / CCTP</option>
-              <option value="formation">Formation marchés publics</option>
-              <option value="forfait">Conseil mensuel (forfait)</option>
-              <option value="autre">Autre demande</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Votre message *</label>
-            <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation ou votre besoin..." required id="message"></textarea>
-          </div>
-          <div class="form-checkbox">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">J'accepte que mes données soient utilisées pour traiter ma demande et me recontacter. Ces données ne seront pas transmises à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de modification et de suppression. <a href="#legal">En savoir plus</a>.</label>
-          </div>
-          <button type="submit" class="btn-submit" id="btn-submit">
-            <svg width="18" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            <span id="btn-submit-label">Envoyer ma demande</span>
-          </button>
-          <p class="form-note">Réponse garantie sous 48h ouvrées · Données sécurisées · RGPD</p>
+
         </form>
         <div id="form-success">
           <p>✓ Message bien reçu !</p>
@@ -2137,29 +2253,31 @@ function toggleAccordion(btn) {
 // ─── FORM SUBMIT ─────────────────────────────────────────────────────────────
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const fields = ['prenom','nom','email','profil','sujet','message'];
-  let valid = true;
-  fields.forEach(f => {
-    const el = document.getElementById(f);
-    if (!el.value.trim()) { el.style.borderColor = '#E53935'; valid = false; }
+  // Étape 2 : valider uniquement les champs de l'étape en cours
+  var fields2 = ['prenom', 'nom', 'message'];
+  var valid = true;
+  fields2.forEach(function(f) {
+    var el = document.getElementById(f);
+    if (!el || !el.value.trim()) { if (el) el.style.borderColor = '#E53935'; valid = false; }
     else el.style.borderColor = '';
   });
   if (!document.getElementById('consent').checked) { valid = false; }
   if (!valid) { alert('Veuillez remplir tous les champs obligatoires et cocher la case de consentement.'); return; }
 
-  const btn = this.querySelector('.btn-submit');
+  var btn = this.querySelector('#btn-submit');
   btn.disabled = true;
   btn.textContent = 'Envoi en cours...';
 
   try {
-    const resp = await fetch('/api/contact', {
+    var resp = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         prenom:       document.getElementById('prenom').value.trim(),
         nom:          document.getElementById('nom').value.trim(),
         email:        document.getElementById('email').value.trim(),
-        organisation: document.getElementById('organisation').value.trim(),
+        telephone:    document.getElementById('telephone') ? document.getElementById('telephone').value.trim() : '',
+        organisation: document.getElementById('organisation') ? document.getElementById('organisation').value.trim() : '',
         profil:       document.getElementById('profil').value,
         sujet:        document.getElementById('sujet').value,
         message:      document.getElementById('message').value.trim()
@@ -2173,7 +2291,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     }
   } catch(err) {
     btn.disabled = false;
-    btn.textContent = 'Envoyer ma demande';
+    btn.innerHTML = '<svg width="18" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span id="btn-submit-label">Envoyer ma demande</span>';
     alert('Une erreur est survenue. Contactez-nous directement par email ou téléphone.');
   }
 });
