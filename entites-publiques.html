@@ -31,24 +31,19 @@ img{max-width:100%;display:block}
 section{padding:clamp(4rem,7vw,8rem) 0}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;transition:all .35s ease;background:transparent}
-nav.scrolled{background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);padding:1.2rem 0;box-shadow:0 2px 20px rgba(0,0,0,.2)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.2)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
 .nav-links{list-style:none;display:flex;align-items:center;gap:2rem}
-.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);transition:color .2s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{background:var(--gold);color:var(--navy)!important;padding:.5rem 1.25rem;border-radius:var(--radius);font-weight:700!important}
-.nav-cta:hover{background:var(--gold-light)!important}
-.nav-back{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:rgba(255,255,255,.6)!important;display:flex;align-items:center;gap:.4rem}
-.nav-back:hover{color:var(--gold)!important}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;cursor:pointer}
-.nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:9999;padding:5rem 2rem 2rem;flex-direction:column;align-items:center;gap:2rem}
+.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);transition:color .2s;text-decoration:none}
+.nav-links a:hover,.nav-links a.active{color:#C9A84C}
+.nav-cta{background:#C9A84C;color:#0F2342!important;padding:.5rem 1.25rem;border-radius:4px;font-weight:700!important}
+.nav-cta:hover{background:#E8C96A!important}
+.hamb{display:none;background:none;border:0;color:white;font-size:1.8rem;cursor:pointer}
+.mobile-menu{display:none;position:fixed;inset:0;background:#0F2342;z-index:2000;padding:5rem 2rem;flex-direction:column;align-items:center;gap:1.4rem}
 .mobile-menu.open{display:flex}
-.mobile-menu a{color:var(--white);font-size:1.4rem;font-family:var(--serif);font-weight:600}
-.mobile-menu a.mobile-cta{background:var(--gold);color:var(--navy);padding:0.8rem 2rem;border-radius:var(--radius)}
-.mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--white);font-size:1.8rem;cursor:pointer}
-@media(max-width:768px){.nav-links{display:none}.nav-hamburger{display:flex}}
+.mobile-menu a{color:white;font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;text-decoration:none}
+.close-btn{position:absolute;right:1.5rem;top:1.25rem;background:none;border:0;color:white;font-size:1.8rem;cursor:pointer}
+@media(max-width:768px){.nav-links{display:none}.hamb{display:block}}
 
 /* HERO */
 .page-hero{background:var(--navy);padding:clamp(7rem,12vw,10rem) 0 clamp(4rem,6vw,6rem);position:relative;overflow:hidden}
@@ -187,39 +182,28 @@ footer a{color:var(--gold)}
 <body>
 
 <!-- NAV -->
-<nav id="navbar">
+<nav>
   <div class="container">
     <div class="nav-inner">
-      <a href="/" class="nav-back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        <svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:30px;width:auto;margin-left:.5rem">
-          <rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C9A84C"/>
-          <text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text>
-          <rect x="13" y="37" width="291" height="1" fill="#C9A84C"/>
-          <text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
-        </svg>
-      </a>
+      <a href="/"><svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto"><rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C9A84C"/><text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text><rect x="13" y="37" width="291" height="1" fill="#C9A84C"/><text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text></svg></a>
       <ul class="nav-links">
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/#methode">Méthode</a></li>
-        <li><a href="/entreprises-privees">Entreprises privées</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/formation-marches-publics-martinique">Formation</a></li>
+        <li><a href="/insights">Insights</a></li>
+        <li><a href="/outils-gratuits">Outils gratuits</a></li>
         <li><a href="/#contact" class="nav-cta">Diagnostic gratuit</a></li>
       </ul>
-      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamb" onclick="toggleMenu()">☰</button>
     </div>
   </div>
 </nav>
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="/" onclick="toggleMenu()">Accueil</a>
+  <button class="close-btn" onclick="toggleMenu()">×</button>
   <a href="/services" onclick="toggleMenu()">Services</a>
-  <a href="/entites-publiques" onclick="toggleMenu()">Entités publiques</a>
-  <a href="/entreprises-privees" onclick="toggleMenu()">Entreprises privées</a>
-  <a href="/faq" onclick="toggleMenu()">FAQ</a>
-  <a href="/#contact" class="mobile-cta" onclick="toggleMenu()">Diagnostic gratuit</a>
+  <a href="/formation-marches-publics-martinique" onclick="toggleMenu()">Formation</a>
+  <a href="/insights" onclick="toggleMenu()">Insights</a>
+  <a href="/outils-gratuits" onclick="toggleMenu()">Outils gratuits</a>
+  <a href="/#contact" onclick="toggleMenu()">Diagnostic gratuit</a>
 </div>
 
 <!-- HERO -->
@@ -498,15 +482,7 @@ footer a{color:var(--gold)}
 </footer>
 
 <script>
-function toggleMenu() {
-  const m = document.getElementById('mobile-menu');
-  m.classList.toggle('open');
-  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
-}
-
-// Navbar scroll
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
+function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}
 
 // FAQ mini toggle
 function toggleFaqMini(btn) {

@@ -1,1 +1,53 @@
-<html><head><title>Politique cookies | Procurement Insider</title></head><body><h1>Politique cookies et traceurs</h1><p>Version du 17 mai 2026.</p><p>Procurement Insider utilise des cookies nécessaires au fonctionnement du site. Avec votre accord, le site peut également utiliser des cookies de mesure d’audience, d’amélioration de l’expérience et, le cas échéant, de suivi des performances des contenus.</p><h2>Cookies nécessaires</h2><p>Ces cookies permettent le fonctionnement du site, la sécurité, la mémorisation de certains choix techniques et l’accès aux services demandés. Ils ne requièrent pas de consentement lorsqu’ils sont strictement nécessaires.</p><h2>Cookies soumis à consentement</h2><p>Les cookies de mesure d’audience non exemptés, de publicité, de suivi marketing, de conversion, de retargeting, de réseaux sociaux ou d’analyse comportementale ne doivent pas être déposés avant consentement.</p><p>Outils tiers réellement utilisés : à confirmer après audit technique définitif. Aucun outil publicitaire ou traceur marketing avancé ne doit être activé avant validation du consentement.</p><h2 id="preferences">Gérer mes préférences cookies</h2><p>Vous pouvez accepter, refuser ou réinitialiser vos choix à tout moment. Le choix est mémorisé localement dans votre navigateur.</p><div id="cookie-status" style="margin:1rem 0;padding:1rem;border:1px solid #e6e0d5;border-radius:12px;background:#fbfaf7">Préférence actuelle : non renseignée.</div><p><button type="button" onclick="piCookieChoice('accepted')">Tout accepter</button> <button type="button" onclick="piCookieChoice('rejected')">Tout refuser</button> <button type="button" onclick="piCookieReset()">Réinitialiser mes préférences</button></p><h2>Exigences appliquées</h2><ul><li>Le refus doit être aussi simple que l’acceptation.</li><li>Aucune case ne doit être précochée.</li><li>Le silence ou la poursuite de navigation ne vaut pas consentement.</li><li>Les cookies soumis à consentement ne doivent pas se déclencher avant accord.</li></ul><p>Voir aussi : <a href="/politique-confidentialite">Politique de confidentialité</a>, <a href="/mentions-legales">Mentions légales</a>, <a href="/deontologie">Déontologie</a>.</p><script>function piCookieRead(){try{return localStorage.getItem('pi_cookie_consent')||''}catch(e){return''}}function piCookieShow(){var el=document.getElementById('cookie-status');if(!el)return;var v=piCookieRead();el.textContent='Préférence actuelle : '+(v==='accepted'?'cookies optionnels acceptés':v==='rejected'?'cookies optionnels refusés':'non renseignée')}function piCookieChoice(v){try{localStorage.setItem('pi_cookie_consent',v)}catch(e){}piCookieShow();alert('Vos préférences cookies ont été enregistrées.')}function piCookieReset(){try{localStorage.removeItem('pi_cookie_consent');localStorage.removeItem('cookie_consent')}catch(e){}piCookieShow();alert('Vos préférences cookies ont été réinitialisées.')}piCookieShow();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique cookies | Procurement Insider</title>
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f7f5f0;color:#17202c;line-height:1.7}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.2)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.container{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+.nav-links{list-style:none;display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);transition:color .2s;text-decoration:none}
+.nav-links a:hover,.nav-links a.active{color:#C9A84C}
+.nav-cta{background:#C9A84C;color:#0F2342!important;padding:.5rem 1.25rem;border-radius:4px;font-weight:700!important}
+.nav-cta:hover{background:#E8C96A!important}
+.hamb{display:none;background:none;border:0;color:white;font-size:1.8rem;cursor:pointer}
+.mobile-menu{display:none;position:fixed;inset:0;background:#0F2342;z-index:2000;padding:5rem 2rem;flex-direction:column;align-items:center;gap:1.4rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:white;font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;text-decoration:none}
+.close-btn{position:absolute;right:1.5rem;top:1.25rem;background:none;border:0;color:white;font-size:1.8rem;cursor:pointer}
+@media(max-width:768px){.nav-links{display:none}.hamb{display:block}}
+.page-content{max-width:900px;margin:0 auto;padding:7rem 2rem 4rem}
+h1{color:#0f1f33}h2{color:#0f1f33}a{color:#0f1f33}a:hover{color:#c9a45c}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/"><svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto"><rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C9A84C"/><text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text><rect x="13" y="37" width="291" height="1" fill="#C9A84C"/><text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text></svg></a>
+      <ul class="nav-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/formation-marches-publics-martinique">Formation</a></li>
+        <li><a href="/insights">Insights</a></li>
+        <li><a href="/outils-gratuits">Outils gratuits</a></li>
+        <li><a href="/#contact" class="nav-cta">Diagnostic gratuit</a></li>
+      </ul>
+      <button class="hamb" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="close-btn" onclick="toggleMenu()">×</button>
+  <a href="/services" onclick="toggleMenu()">Services</a>
+  <a href="/formation-marches-publics-martinique" onclick="toggleMenu()">Formation</a>
+  <a href="/insights" onclick="toggleMenu()">Insights</a>
+  <a href="/outils-gratuits" onclick="toggleMenu()">Outils gratuits</a>
+  <a href="/#contact" onclick="toggleMenu()">Diagnostic gratuit</a>
+</div>
+<div class="page-content"><h1>Politique cookies et traceurs</h1><p>Version du 17 mai 2026.</p><p>Procurement Insider utilise des cookies nécessaires au fonctionnement du site. Avec votre accord, le site peut également utiliser des cookies de mesure d’audience, d’amélioration de l’expérience et, le cas échéant, de suivi des performances des contenus.</p><h2>Cookies nécessaires</h2><p>Ces cookies permettent le fonctionnement du site, la sécurité, la mémorisation de certains choix techniques et l’accès aux services demandés. Ils ne requièrent pas de consentement lorsqu’ils sont strictement nécessaires.</p><h2>Cookies soumis à consentement</h2><p>Les cookies de mesure d’audience non exemptés, de publicité, de suivi marketing, de conversion, de retargeting, de réseaux sociaux ou d’analyse comportementale ne doivent pas être déposés avant consentement.</p><p>Outils tiers réellement utilisés : à confirmer après audit technique définitif. Aucun outil publicitaire ou traceur marketing avancé ne doit être activé avant validation du consentement.</p><h2 id="preferences">Gérer mes préférences cookies</h2><p>Vous pouvez accepter, refuser ou réinitialiser vos choix à tout moment. Le choix est mémorisé localement dans votre navigateur.</p><div id="cookie-status" style="margin:1rem 0;padding:1rem;border:1px solid #e6e0d5;border-radius:12px;background:#fbfaf7">Préférence actuelle : non renseignée.</div><p><button type="button" onclick="piCookieChoice('accepted')">Tout accepter</button> <button type="button" onclick="piCookieChoice('rejected')">Tout refuser</button> <button type="button" onclick="piCookieReset()">Réinitialiser mes préférences</button></p><h2>Exigences appliquées</h2><ul><li>Le refus doit être aussi simple que l’acceptation.</li><li>Aucune case ne doit être précochée.</li><li>Le silence ou la poursuite de navigation ne vaut pas consentement.</li><li>Les cookies soumis à consentement ne doivent pas se déclencher avant accord.</li></ul><p>Voir aussi : <a href="/politique-confidentialite">Politique de confidentialité</a>, <a href="/mentions-legales">Mentions légales</a>, <a href="/deontologie">Déontologie</a>.</p></div>
+<script>function toggleMenu(){document.getElementById('mobile-menu').classList.toggle('open')}</script>
+<script>function piCookieRead(){try{return localStorage.getItem('pi_cookie_consent')||''}catch(e){return''}}function piCookieShow(){var el=document.getElementById('cookie-status');if(!el)return;var v=piCookieRead();el.textContent='Préférence actuelle : '+(v==='accepted'?'cookies optionnels acceptés':v==='rejected'?'cookies optionnels refusés':'non renseignée')}function piCookieChoice(v){try{localStorage.setItem('pi_cookie_consent',v)}catch(e){}piCookieShow();alert('Vos préférences cookies ont été enregistrées.')}function piCookieReset(){try{localStorage.removeItem('pi_cookie_consent');localStorage.removeItem('cookie_consent')}catch(e){}piCookieShow();alert('Vos préférences cookies ont été réinitialisées.')}piCookieShow();</script></body></html>
