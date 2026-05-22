@@ -1,5 +1,6 @@
 const baseHandler = require('./render-page');
 const { applyComplianceLayer } = require('./compliance-layer');
+const crypto = require('crypto');
 
 const PUBLIC_BASE = 'https://marches-publics-martinique.vercel.app';
 const NEUTRAL_CASE_RESULT = "Le dossier a gagné en clarté, en preuves et en cohérence. Résultat : une réponse nettement plus professionnelle, mieux structurée et mieux alignée sur les attentes de l’acheteur.";
@@ -166,8 +167,21 @@ function hardenMobileAndCompliance(html, file) {
 }
 
 module.exports = async function handler(req, res) {
-  const originalEnd = res.end.bind(res);
   const file = String(req.query?.file || '');
+
+  // Token gate — grille-mapa accessible uniquement via lien signé
+  if (file === 'grille-mapa.html') {
+    const token = String(req.query?.t || '');
+    const expiry = parseInt(req.query?.exp || '0', 10);
+    const secret = process.env.GRILLE_SECRET || 'grille-fallback-secret';
+    const expected = crypto.createHmac('sha256', secret).update(String(expiry)).digest('hex');
+    const now = Math.floor(Date.now() / 1000);
+    if (!token || !expiry || now > expiry || token !== expected) {
+      return res.redirect(302, '/outils-gratuits?acces=requis');
+    }
+  }
+
+  const originalEnd = res.end.bind(res);
   res.end = function patchedEnd(chunk, encoding, callback) {
     try {
       const contentType = typeof res.getHeader === 'function' ? String(res.getHeader('Content-Type') || '') : '';

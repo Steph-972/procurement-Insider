@@ -1,3 +1,5 @@
+import { createHmac } from 'crypto';
+
 export default async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,7 +17,12 @@ export default async function handler(req, res) {
   }
 
   const BASE_URL = 'https://marches-publics-martinique.vercel.app';
-  const GRILLE_URL = `${BASE_URL}/grille-mapa`;
+
+  // Token signé HMAC — valide 30 jours
+  const expiry = Math.floor(Date.now() / 1000) + 30 * 24 * 3600;
+  const secret = process.env.GRILLE_SECRET || 'grille-fallback-secret';
+  const token = createHmac('sha256', secret).update(String(expiry)).digest('hex');
+  const GRILLE_URL = `${BASE_URL}/grille-mapa?t=${token}&exp=${expiry}`;
 
   const headers = {
     'api-key': BREVO_KEY,
@@ -153,7 +160,7 @@ export default async function handler(req, res) {
       })
     });
 
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, accessUrl: GRILLE_URL });
 
   } catch (err) {
     console.error('Lead magnet Brevo error:', err);
