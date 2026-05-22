@@ -6,13 +6,13 @@
 <meta name="description" content="Outils gratuits Procurement Insider — Grille de vérification MAPA, ressources pratiques pour répondre aux marchés publics en Martinique.">
 <meta name="robots" content="index, follow">
 <title>Outils Gratuits | Procurement Insider — Marchés Publics Martinique</title>
-<link rel="canonical" href="https://procurement-insider-git-main-procurement-insiders-projects.vercel.app/outils-gratuits">
+<link rel="canonical" href="https://marches-publics-martinique.vercel.app/outils-gratuits">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://procurement-insider-git-main-procurement-insiders-projects.vercel.app/outils-gratuits">
+<meta property="og:url" content="https://marches-publics-martinique.vercel.app/outils-gratuits">
 <meta property="og:site_name" content="Procurement Insider">
 <meta property="og:title" content="Outils Gratuits | Procurement Insider">
 <meta property="og:description" content="Ressources pratiques gratuites pour répondre aux marchés publics en Martinique.">
-<meta property="og:image" content="https://procurement-insider-git-main-procurement-insiders-projects.vercel.app/img/collaboration-pro.jpg">
+<meta property="og:image" content="https://marches-publics-martinique.vercel.app/img/collaboration-pro.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -294,6 +294,19 @@ footer a{color:var(--gold)}
           <div class="coming-soon-icon">⏳</div>
           <h3>En cours de préparation</h3>
           <p>Cet outil est en cours de finalisation. Il sera disponible prochainement. Inscrivez-vous à la grille MAPA pour être notifié en priorité.</p>
+          <div style="background:#f0f4f8;border-radius:8px;padding:20px;margin-top:12px;">
+            <p style="color:#555;font-size:0.9rem;margin-bottom:12px;">Disponible prochainement — soyez informé en premier</p>
+            <form action="/api/contact" method="POST" style="display:flex;gap:8px;flex-wrap:wrap;">
+              <input type="hidden" name="type" value="waitlist">
+              <input type="hidden" name="tool_name" value="Modèle tableau analyse des offres">
+              <input type="email" name="email" placeholder="Votre email professionnel" required
+                     style="flex:1;min-width:200px;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;">
+              <button type="submit"
+                      style="background:#0F2342;color:white;padding:10px 20px;border:none;border-radius:6px;font-size:0.9rem;cursor:pointer;white-space:nowrap;">
+                M'avertir à la sortie
+              </button>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -319,6 +332,19 @@ footer a{color:var(--gold)}
           <div class="coming-soon-icon">⏳</div>
           <h3>En cours de préparation</h3>
           <p>Ce guide est en cours de rédaction. Inscrivez-vous à la grille MAPA pour recevoir une notification dès sa publication.</p>
+          <div style="background:#f0f4f8;border-radius:8px;padding:20px;margin-top:12px;">
+            <p style="color:#555;font-size:0.9rem;margin-bottom:12px;">Disponible prochainement — soyez informé en premier</p>
+            <form action="/api/contact" method="POST" style="display:flex;gap:8px;flex-wrap:wrap;">
+              <input type="hidden" name="type" value="waitlist">
+              <input type="hidden" name="tool_name" value="Guide DC1 DC2">
+              <input type="email" name="email" placeholder="Votre email professionnel" required
+                     style="flex:1;min-width:200px;padding:10px 14px;border:1px solid #ddd;border-radius:6px;font-size:0.9rem;">
+              <button type="submit"
+                      style="background:#0F2342;color:white;padding:10px 20px;border:none;border-radius:6px;font-size:0.9rem;cursor:pointer;white-space:nowrap;">
+                M'avertir à la sortie
+              </button>
+            </form>
+          </div>
         </div>
       </div>
 

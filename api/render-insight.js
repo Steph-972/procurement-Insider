@@ -39,12 +39,21 @@ module.exports = function handler(req, res) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: article.title,
-    description: article.excerpt,
-    author: { '@type': 'Person', name: article.auteur || 'Stéphane Loudoux' },
-    publisher: { '@type': 'Organization', name: 'Procurement Insider' },
-    datePublished: '2026-05-17',
-    dateModified: '2026-05-17',
-    mainEntityOfPage: url
+    description: article.excerpt || '',
+    author: { '@type': 'Person', name: article.auteur || 'Stéphane Loudoux', url: `${BASE_URL}/a-propos` },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Procurement Insider',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/img/logo.png`
+      }
+    },
+    datePublished: article.date || '2026-05-01',
+    dateModified: article.date || '2026-05-21',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    url: url
   });
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
