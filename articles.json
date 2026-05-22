@@ -1,6 +1,7 @@
 [
   {
     "id": "seuils-marches-publics-2026",
+    "slug": "seuils-marches-publics-2026-pouvoirs-entites",
     "published": true,
     "category": "Décryptage",
     "categoryBg": "#F8F5EF",
@@ -15,6 +16,7 @@
   },
   {
     "id": "jur-3-devis-2026",
+    "slug": "trois-devis-commune-tilly-sur-seulles",
     "published": true,
     "category": "Jurisprudence",
     "categoryBg": "#E8EAF6",
@@ -29,6 +31,7 @@
   },
   {
     "id": "jur-criteres-sociaux-rse-2026",
+    "slug": "criteres-sociaux-rse-commande-publique",
     "published": true,
     "category": "Jurisprudence",
     "categoryBg": "#E8EAF6",
@@ -43,6 +46,7 @@
   },
   {
     "id": "mapa-erreurs-martinique-2026",
+    "slug": "mapa-martinique-erreurs-avant-depot",
     "published": true,
     "category": "Astuce terrain",
     "categoryBg": "#F5E9C0",
@@ -57,6 +61,7 @@
   },
   {
     "id": "memoire-technique-criteres-2026",
+    "slug": "memoire-technique-criteres",
     "published": true,
     "category": "Méthode",
     "categoryBg": "#E8F5E9",
@@ -71,6 +76,7 @@
   },
   {
     "id": "prix-anormalement-bas-2026",
+    "slug": "prix-anormalement-bas",
     "published": true,
     "category": "Stratégie",
     "categoryBg": "#F5E9C0",
@@ -85,6 +91,7 @@
   },
   {
     "id": "dce-cctp-incoherences-2026",
+    "slug": "dce-cctp-incoherences",
     "published": true,
     "category": "Acheteur public",
     "categoryBg": "#F8F5EF",
