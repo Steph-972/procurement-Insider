@@ -12,8 +12,7 @@ const ALLOWED_FILES = new Set([
   'faq.html',
   'mentions-legales.html',
   'outils-gratuits.html',
-  'grille-mapa.html',
-  'a-propos.html'
+  'grille-mapa.html'
 ]);
 
 const ROUTES = {
@@ -24,8 +23,7 @@ const ROUTES = {
   'faq.html': '/faq',
   'mentions-legales.html': '/mentions-legales',
   'outils-gratuits.html': '/outils-gratuits',
-  'grille-mapa.html': '/grille-mapa',
-  'a-propos.html': '/a-propos'
+  'grille-mapa.html': '/grille-mapa'
 };
 
 const META = {
@@ -36,8 +34,7 @@ const META = {
   'faq.html': ['FAQ | Procurement Insider — Marchés publics Martinique', 'Questions fréquentes sur l’accompagnement marchés publics, la déontologie, les offres et la commande publique.'],
   'mentions-legales.html': ['Mentions légales | Procurement Insider', 'Mentions légales, données personnelles et informations éditeur du site Procurement Insider.'],
   'outils-gratuits.html': ['Outils gratuits marchés publics | Procurement Insider', 'Outils gratuits pour lire un DCE, préparer une réponse AO, éviter les erreurs en MAPA et améliorer son mémoire technique.'],
-  'grille-mapa.html': ['Grille MAPA gratuite | 12 erreurs à éviter — Procurement Insider', 'Grille gratuite : les 12 points qui font perdre une offre en MAPA. Vérifiez votre dossier avant dépôt.'],
-  'a-propos.html': ['Stéphane Loudoux — Fondateur Procurement Insider | Consultant marchés publics Martinique', '12 ans d\'expérience en commande publique à Martinique — secteur privé (GECODIS) et public (AGEFMA, ODYSSI). Fondateur de Procurement Insider, activité de conseil accessoire.']
+  'grille-mapa.html': ['Grille MAPA gratuite | 12 erreurs à éviter — Procurement Insider', 'Grille gratuite : les 12 points qui font perdre une offre en MAPA. Vérifiez votre dossier avant dépôt.']
 };
 
 const GUARANTEE = "Je m'engage sur la qualité de mes conseils et de mes méthodes. Jamais sur l'attribution d'un marché — c'est une décision qui appartient exclusivement à l'acheteur public.";
@@ -80,47 +77,28 @@ function replaceOrInsert(html, pattern, replacement, before = '</head>') {
 }
 
 function jsonLd(file) {
-  const schemas = [
+  return JSON.stringify([
     {
-      ‘@context’: ‘https://schema.org’,
-      ‘@type’: ‘ProfessionalService’,
-      name: ‘Procurement Insider’,
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Procurement Insider',
       alternateName: "L’Œil de l’Acheteur",
       url: SITE_URL,
-      description: ‘Conseil en marchés publics, commande publique et achat en Martinique et aux Antilles françaises.’,
-      founder: { ‘@type’: ‘Person’, name: ‘Stéphane Loudoux’ },
-      email: ‘loeildelacheteur@gmail.com’,
-      telephone: ‘+596696266231’,
-      areaServed: [‘Martinique’, ‘Guadeloupe’, ‘Guyane’, ‘Antilles françaises’],
-      serviceType: [‘Conseil marchés publics’, ‘Rédaction DCE CCTP’, ‘Accompagnement réponse appel d offres’, ‘Formation marchés publics’]
+      description: 'Conseil en marchés publics, commande publique et achat en Martinique et aux Antilles françaises.',
+      founder: { '@type': 'Person', name: 'Stéphane Loudoux' },
+      email: 'loeildelacheteur@gmail.com',
+      telephone: '+596696266231',
+      areaServed: ['Martinique', 'Guadeloupe', 'Guyane', 'Antilles françaises'],
+      serviceType: ['Conseil marchés publics', 'Rédaction DCE CCTP', 'Accompagnement réponse appel d offres', 'Formation marchés publics']
     },
     {
-      ‘@context’: ‘https://schema.org’,
-      ‘@type’: ‘WebPage’,
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
       url: canonicalFor(file),
-      isPartOf: { ‘@type’: ‘WebSite’, name: ‘Procurement Insider’, url: SITE_URL },
-      inLanguage: ‘fr-FR’
+      isPartOf: { '@type': 'WebSite', name: 'Procurement Insider', url: SITE_URL },
+      inLanguage: 'fr-FR'
     }
-  ];
-  if (file === ‘a-propos.html’) {
-    schemas.push({
-      ‘@context’: ‘https://schema.org’,
-      ‘@type’: ‘Person’,
-      name: ‘Stéphane Loudoux’,
-      jobTitle: ‘Fondateur Procurement Insider’,
-      url: `${SITE_URL}/a-propos`,
-      email: ‘loeildelacheteur@gmail.com’,
-      telephone: ‘+596696266231’,
-      knowsAbout: [‘Marchés publics’, ‘Commande publique’, ‘Appels d\’offres’, ‘DCE CCTP’, ‘Achat public’, ‘MAPA’],
-      alumniOf: [
-        { ‘@type’: ‘EducationalOrganization’, name: ‘Novancia Business School’, description: ‘Master 2 Commerce International’ },
-        { ‘@type’: ‘EducationalOrganization’, name: ‘EGC Martinique’, description: ‘Bachelor Commerce & Gestion’ }
-      ],
-      worksFor: { ‘@type’: ‘Organization’, name: ‘Procurement Insider’, url: SITE_URL },
-      areaServed: [‘Martinique’, ‘Antilles françaises’]
-    });
-  }
-  return JSON.stringify(schemas);
+  ]);
 }
 
 function applySeo(html, file) {
