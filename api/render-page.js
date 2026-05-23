@@ -12,7 +12,8 @@ const ALLOWED_FILES = new Set([
   'faq.html',
   'mentions-legales.html',
   'outils-gratuits.html',
-  'grille-mapa.html'
+  'grille-mapa.html',
+  'a-propos.html'
 ]);
 
 const ROUTES = {
@@ -23,7 +24,8 @@ const ROUTES = {
   'faq.html': '/faq',
   'mentions-legales.html': '/mentions-legales',
   'outils-gratuits.html': '/outils-gratuits',
-  'grille-mapa.html': '/grille-mapa'
+  'grille-mapa.html': '/grille-mapa',
+  'a-propos.html': '/a-propos'
 };
 
 const META = {
@@ -34,7 +36,8 @@ const META = {
   'faq.html': ['FAQ | Procurement Insider — Marchés publics Martinique', 'Questions fréquentes sur l’accompagnement marchés publics, la déontologie, les offres et la commande publique.'],
   'mentions-legales.html': ['Mentions légales | Procurement Insider', 'Mentions légales, données personnelles et informations éditeur du site Procurement Insider.'],
   'outils-gratuits.html': ['Outils gratuits marchés publics | Procurement Insider', 'Outils gratuits pour lire un DCE, préparer une réponse AO, éviter les erreurs en MAPA et améliorer son mémoire technique.'],
-  'grille-mapa.html': ['Grille MAPA gratuite | 12 erreurs à éviter — Procurement Insider', 'Grille gratuite : les 12 points qui font perdre une offre en MAPA. Vérifiez votre dossier avant dépôt.']
+  'grille-mapa.html': ['Grille MAPA gratuite | 12 erreurs à éviter — Procurement Insider', 'Grille gratuite : les 12 points qui font perdre une offre en MAPA. Vérifiez votre dossier avant dépôt.'],
+  'a-propos.html': ['Stéphane Loudoux — Fondateur Procurement Insider | Consultant marchés publics Martinique', '12 ans d’expérience en commande publique à Martinique — secteur privé et public, des deux côtés de la table.']
 };
 
 const GUARANTEE = "Je m'engage sur la qualité de mes conseils et de mes méthodes. Jamais sur l'attribution d'un marché — c'est une décision qui appartient exclusivement à l'acheteur public.";
