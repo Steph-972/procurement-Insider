@@ -14,31 +14,31 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Procurement Insider","alternateName":"L-Oeil de l-Acheteur","description":"Expert en marches publics et commande publique en Martinique. Accompagnement des entreprises et entites publiques depuis 10 ans.","url":"https://marches-publics-martinique.vercel.app","telephone":"+596696266231","email":"<a href="mailto:loeildelacheteur@gmail.com" style="color:inherit">loeildelacheteur@gmail.com</a>","founder":{"@type":"Person","name":"Stephane Loudoux","jobTitle":"Consultant Expert Marches Publics"},"address":{"@type":"PostalAddress","addressLocality":"Fort-de-France","addressRegion":"Martinique","postalCode":"97200","addressCountry":"MQ"},"areaServed":["Martinique","Guadeloupe","Guyane","Antilles francaises"],"serviceType":["Conseil marches publics","Redaction DCE","Formation commande publique","Audit procedures achat"],"priceRange":"EE","openingHours":"Mo-Fr 08:00-18:00"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════
    VARIABLES & RESET
 ═══════════════════════════════════════════════════════ */
 :root {
-  --navy:       #0F2342;
-  --navy-mid:   #1A3A6B;
-  --navy-light: #243F7A;
-  --gold:       #C9A84C;
-  --gold-light: #E8C96A;
-  --gold-pale:  #F5E9C0;
-  --cream:      #F8F5EF;
-  --cream-dark: #EDE8DC;
+  --navy:       #0F0F1E;
+  --navy-mid:   #1A1A2E;
+  --navy-light: #2A2A3E;
+  --gold:       #C4611C;
+  --gold-light: #E07840;
+  --gold-pale:  #FAE8DC;
+  --cream:      #F0EDE8;
+  --cream-dark: #E8E3DB;
   --white:      #FFFFFF;
   --gray:       #6B7080;
   --gray-light: #E8EBF0;
-  --text:       #1C1C2E;
-  --serif:      'Playfair Display', Georgia, serif;
+  --text:       #1A1A24;
+  --serif:      'Cormorant Garamond', Georgia, serif;
   --sans:       'DM Sans', system-ui, sans-serif;
   --mono:       'DM Mono', monospace;
   --radius:     4px;
   --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
-  --shadow:     0 8px 40px rgba(15,35,66,0.12);
-  --shadow-lg:  0 24px 80px rgba(15,35,66,0.20);
+  --shadow:     0 8px 40px rgba(15,15,30,0.12);
+  --shadow-lg:  0 24px 80px rgba(15,15,30,0.20);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; overflow-x: clip; }
@@ -58,9 +58,9 @@ button { cursor: pointer; font-family: var(--sans); }
 /* ═══════════════════════════════════════════════════════
    TYPOGRAPHY SCALE
 ═══════════════════════════════════════════════════════ */
-.display { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; }
-.h1      { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
-.h2      { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.25; }
+.display { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5.2rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; }
+.h1      { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; }
+.h2      { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.25; }
 .h3      { font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; line-height: 1.3; }
 .label   { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
 .lead    { font-size: clamp(1rem, 1.4vw, 1.2rem); font-weight: 300; line-height: 1.8; }
@@ -120,7 +120,7 @@ section[id] { scroll-margin-top: 80px; }
 }
 /* Au top uniquement : transparent sur le hero sombre */
 #navbar.scrolled {
-  background: rgba(15,35,66,0.97);
+  background: rgba(15,15,30,0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 20px rgba(0,0,0,0.25);
@@ -180,7 +180,7 @@ section[id] { scroll-margin-top: 80px; }
   content: '';
   position: absolute; bottom: -8rem; left: -4rem;
   width: 28rem; height: 28rem;
-  border: 1px solid rgba(201,168,76,0.15); border-radius: 50%;
+  border: 1px solid rgba(196,97,28,0.15); border-radius: 50%;
 }
 .hero-diamond {
   position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
@@ -209,7 +209,7 @@ section[id] { scroll-margin-top: 80px; }
   font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem;
   transition: all var(--transition);
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,97,28,0.4); }
 .btn-secondary {
   background: transparent; color: var(--white);
   padding: 0.9rem 2.2rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.3);
@@ -255,7 +255,7 @@ section[id] { scroll-margin-top: 80px; }
 .target-block:last-child  { background: var(--navy); }
 .target-block:hover:first-child { background: var(--navy-light); }
 .target-block:hover:last-child  { background: var(--navy-mid); }
-.target-icon { width: 52px; height: 52px; background: rgba(201,168,76,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.target-icon { width: 52px; height: 52px; background: rgba(196,97,28,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .target-icon svg { width: 24px; height: 24px; stroke: var(--gold); }
 .target-text h3 { color: var(--white); font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin-bottom: 0.25rem; }
 .target-text p { color: rgba(255,255,255,0.62); font-size: 0.875rem; }
@@ -302,11 +302,11 @@ section[id] { scroll-margin-top: 80px; }
 .about-temoignage-footer {
   display: flex; align-items: center; gap: 1rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(201,168,76,0.25);
+  border-top: 1px solid rgba(196,97,28,0.25);
 }
 .about-temoignage-avatar {
   width: 46px; height: 46px; border-radius: 50%;
-  background: rgba(201,168,76,0.15);
+  background: rgba(196,97,28,0.15);
   border: 1.5px solid var(--gold);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -370,7 +370,7 @@ section[id] { scroll-margin-top: 80px; }
   border: 1px solid var(--gray-light); background: var(--cream);
   transition: all var(--transition);
 }
-.service-item:hover { border-color: var(--gold); background: var(--white); box-shadow: 0 4px 20px rgba(201,168,76,0.15); transform: translateX(4px); }
+.service-item:hover { border-color: var(--gold); background: var(--white); box-shadow: 0 4px 20px rgba(196,97,28,0.15); transform: translateX(4px); }
 .service-item-num { font-family: var(--mono); font-size: 0.65rem; color: var(--gold); font-weight: 500; flex-shrink: 0; padding-top: 3px; }
 .service-item-text strong { display: block; font-size: 0.925rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
 .service-item-text span { font-size: 0.825rem; color: var(--gray); line-height: 1.5; }
@@ -399,7 +399,7 @@ section[id] { scroll-margin-top: 80px; }
 #methode::before {
   content: ''; position: absolute; top: -5rem; right: -5rem;
   width: 35rem; height: 35rem;
-  border: 1px solid rgba(201,168,76,0.08); border-radius: 50%;
+  border: 1px solid rgba(196,97,28,0.08); border-radius: 50%;
 }
 .methode-header { text-align: center; margin-bottom: 5rem; }
 .methode-header .label { color: var(--gold); }
@@ -408,7 +408,7 @@ section[id] { scroll-margin-top: 80px; }
 .methode-steps::before {
   content: ''; position: absolute;
   top: 36px; left: calc(12.5% + 24px); right: calc(12.5% + 24px);
-  height: 1px; background: linear-gradient(to right, var(--gold) 0%, rgba(201,168,76,0.2) 100%);
+  height: 1px; background: linear-gradient(to right, var(--gold) 0%, rgba(196,97,28,0.2) 100%);
 }
 .method-step { padding: 0 1.5rem; text-align: center; position: relative; }
 .step-num {
@@ -425,7 +425,7 @@ section[id] { scroll-margin-top: 80px; }
 .method-step .step-detail {
   margin-top: 1rem; padding: 1rem;
   background: rgba(255,255,255,0.04); border-radius: var(--radius);
-  border: 1px solid rgba(201,168,76,0.15);
+  border: 1px solid rgba(196,97,28,0.15);
 }
 .method-step .step-detail span { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--gold); opacity: 0.7; margin-bottom: 0.3rem; }
 .method-step .step-detail small { font-size: 0.775rem; color: rgba(255,255,255,0.45); }
@@ -503,7 +503,7 @@ section[id] { scroll-margin-top: 80px; }
 }
 #diagnostic::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 70% 50%, rgba(196,97,28,0.12) 0%, transparent 60%);
 }
 .diag-inner { position: relative; z-index: 1; text-align: center; max-width: 680px; margin: 0 auto; }
 .diag-inner .label { color: var(--gold); margin-bottom: 1.5rem; display: block; }
@@ -522,7 +522,7 @@ section[id] { scroll-margin-top: 80px; }
   font-weight: 700; font-size: 1rem;
   transition: all var(--transition); text-decoration: none;
 }
-.btn-diag:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(201,168,76,0.4); }
+.btn-diag:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(196,97,28,0.4); }
 .diag-note { margin-top: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.4); font-family: var(--mono); }
 
 /* ═══════════════════════════════════════════════════════
@@ -565,7 +565,7 @@ section[id] { scroll-margin-top: 80px; }
   width: 100%;
 }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(15,35,66,0.08);
+  outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(15,15,30,0.08);
 }
 .form-group textarea { resize: vertical; min-height: 110px; }
 .form-checkbox { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; }
@@ -578,7 +578,7 @@ section[id] { scroll-margin-top: 80px; }
   font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em;
   transition: all var(--transition); display: flex; align-items: center; justify-content: center; gap: 0.5rem;
 }
-.btn-submit:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(15,35,66,0.25); }
+.btn-submit:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(15,15,30,0.25); }
 .form-note { margin-top: 1rem; font-size: 0.75rem; color: var(--gray); text-align: center; font-family: var(--mono); }
 #form-success { display: none; padding: 1.5rem; background: #E8F5E9; border-radius: var(--radius); text-align: center; color: #1B5E20; }
 #form-success p { font-weight: 600; margin-bottom: 0.25rem; }
@@ -708,7 +708,7 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 12px 48px rgba(15,35,66,0.14), 0 2px 8px rgba(15,35,66,0.08);
+  box-shadow: 0 12px 48px rgba(15,15,30,0.14), 0 2px 8px rgba(15,15,30,0.08);
 }
 .about-hero-img-inner::after {
   content: '';
@@ -741,7 +741,7 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 0 2rem; }
 .fp-line.active{background:var(--gold)}
 .btn-back{background:none;border:1px solid var(--gray-light);color:var(--gray);padding:.75rem 1rem;border-radius:var(--radius);font-size:.875rem;cursor:pointer;font-family:var(--sans);transition:.2s;display:flex;align-items:center;gap:.4rem;white-space:nowrap}
 .btn-back:hover{border-color:var(--navy);color:var(--navy)}
-.form-step-context{background:rgba(201,168,76,.07);border-left:3px solid var(--gold);padding:.75rem 1rem;border-radius:0 4px 4px 0;margin-bottom:1.25rem;font-size:.875rem;color:var(--navy);line-height:1.55;font-style:italic}
+.form-step-context{background:rgba(196,97,28,.07);border-left:3px solid var(--gold);padding:.75rem 1rem;border-radius:0 4px 4px 0;margin-bottom:1.25rem;font-size:.875rem;color:var(--navy);line-height:1.55;font-style:italic}
 </style>
 <script>
 // ─── FORMULAIRE CONTEXTUEL ────────────────────────────────────────────────────
@@ -886,7 +886,7 @@ function formPrevStep() {
 <meta name="twitter:image" content="https://marches-publics-martinique.vercel.app/img/collaboration-pro.jpg">
 </head>
 <body>
-<div style="background:#0F2342;color:#C9A84C;font-size:13px;text-align:center;padding:8px 16px;position:sticky;top:0;z-index:1000;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;">
+<div style="background:#0F0F1E;color:#C4611C;font-size:13px;text-align:center;padding:8px 16px;position:sticky;top:0;z-index:1000;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;">
   Ancien acheteur public certifié &nbsp;·&nbsp; 12 ans d'expérience opérationnelle &nbsp;·&nbsp; Conseil indépendant en marchés publics
 </div>
 <!-- ═══════════════════════════════════════════════════
@@ -911,7 +911,7 @@ function formPrevStep() {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: #0F2342;
+  background: #0F0F1E;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -937,7 +937,7 @@ function formPrevStep() {
 #splash-bar {
   width: 6px;
   border-radius: 3px;
-  background: linear-gradient(to bottom, #E8C96A, #C9A84C, #A8872E);
+  background: linear-gradient(to bottom, #E07840, #C4611C, #A8872E);
   height: 0;
   flex-shrink: 0;
   animation: barGrow 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
@@ -967,7 +967,7 @@ function formPrevStep() {
 /* ── FILET OR ────────────────────────────────────────── */
 #splash-line {
   height: 1.5px;
-  background: linear-gradient(to right, #C9A84C, rgba(201,168,76,0));
+  background: linear-gradient(to right, #C4611C, rgba(196,97,28,0));
   width: 0;
   animation: lineGrow 0.8s cubic-bezier(0.16,1,0.3,1) 1.5s forwards;
 }
@@ -979,7 +979,7 @@ function formPrevStep() {
   font-family: Arial, sans-serif;
   font-size: clamp(0.65rem, 1.2vw, 0.875rem);
   letter-spacing: 0.38em;
-  color: #C9A84C;
+  color: #C4611C;
   opacity: 0;
   transform: translateY(8px);
   animation: fadeUp 0.6s ease 1.8s forwards;
@@ -1007,7 +1007,7 @@ function formPrevStep() {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #C9A84C;
+  background: #C4611C;
   opacity: 0;
   animation: dotPulse 1.2s ease 2.8s infinite;
 }
@@ -1081,7 +1081,7 @@ body.splash-active section {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.gold
-        ? `rgba(201,168,76,${p.alpha})`
+        ? `rgba(196,97,28,${p.alpha})`
         : `rgba(255,255,255,${p.alpha * 0.4})`;
       ctx.fill();
       p.x += p.vx; p.y += p.vy;
@@ -1127,10 +1127,10 @@ body.splash-active section {
     <div class="nav-inner">
       <a href="#" class="nav-logo" style="display:flex;align-items:center">
         <svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:auto">
-          <rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C9A84C"/>
+          <rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C4611C"/>
           <text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text>
-          <rect x="13" y="37" width="291" height="1" fill="#C9A84C"/>
-          <text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
+          <rect x="13" y="37" width="291" height="1" fill="#C4611C"/>
+          <text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C4611C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
         </svg>
       </a>
       <ul class="nav-links">
@@ -1360,7 +1360,7 @@ body.splash-active section {
       <span>Devis sous <strong style="color:var(--navy)">48h</strong></span>
     </div>
     <br>
-    <a href="/services" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.9rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;transition:all .25s;text-decoration:none" onmouseover="this.style.background='#1A3A6B'" onmouseout="this.style.background='#0F2342'">
+    <a href="/services" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.9rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;transition:all .25s;text-decoration:none" onmouseover="this.style.background='#1A1A2E'" onmouseout="this.style.background='#0F0F1E'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       Découvrir tous nos services
     </a>
@@ -1488,7 +1488,7 @@ body.splash-active section {
 
     <!-- CTA en bas de section -->
     <div style="text-align:center;margin-top:clamp(3rem,5vw,4rem);padding-top:clamp(2rem,3vw,2.5rem);border-top:1px solid var(--gray-light)">
-      <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.85rem 2rem;border-radius:4px;font-weight:700;font-size:.925rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='#1A3A6B'" onmouseout="this.style.background='var(--navy)'">
+      <a href="#contact" onclick="setFormMode('diagnostic');return false;" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.85rem 2rem;border-radius:4px;font-weight:700;font-size:.925rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='#1A1A2E'" onmouseout="this.style.background='var(--navy)'">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         Réserver mon diagnostic gratuit
       </a>
@@ -1556,14 +1556,14 @@ body.splash-active section {
     </div>
     <div id="insights-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:3rem">
       <div style="background:white;border-radius:4px;border:1px solid #E8EBF0;overflow:hidden;cursor:pointer" onclick="openArticle('001')">
-        <div style="height:5px;background:#C9A84C"></div>
+        <div style="height:5px;background:#C4611C"></div>
         <div style="padding:1.5rem">
-          <span style="display:inline-block;padding:.3rem .8rem;background:#F5E9C0;color:#C9A84C;font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Astuce terrain</span>
-          <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">MAPA : les 5 erreurs qui font perdre les marchés publics en Martinique</h3>
+          <span style="display:inline-block;padding:.3rem .8rem;background:#FAE8DC;color:#C4611C;font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Astuce terrain</span>
+          <h3 style="font-size:1.05rem;color:#0F0F1E;margin-bottom:.75rem;line-height:1.4;font-weight:600">MAPA : les 5 erreurs qui font perdre les marchés publics en Martinique</h3>
           <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">De la sous-évaluation du prix à l'absence de mémoire technique, voici les erreurs les plus fréquentes observées dans les dossiers de réponse aux appels d'offres locaux.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
             <span style="font-family:monospace;font-size:.7rem;color:#6B7080">MAI 2025</span>
-            <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+            <span style="font-size:.8rem;color:#0F0F1E;font-weight:600">Lire →</span>
           </div>
         </div>
       </div>
@@ -1571,11 +1571,11 @@ body.splash-active section {
         <div style="height:5px;background:#1A237E"></div>
         <div style="padding:1.5rem">
           <span style="display:inline-block;padding:.3rem .8rem;background:#E8EAF6;color:#1A237E;font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Jurisprudence</span>
-          <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">Transparence des critères : ce que le Conseil d'État précise en 2024</h3>
+          <h3 style="font-size:1.05rem;color:#0F0F1E;margin-bottom:.75rem;line-height:1.4;font-weight:600">Transparence des critères : ce que le Conseil d'État précise en 2024</h3>
           <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">Retour sur les dernières décisions jurisprudentielles concernant la pondération des critères de sélection et leurs implications pratiques pour les acheteurs publics.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
             <span style="font-family:monospace;font-size:.7rem;color:#6B7080">AVRIL 2025</span>
-            <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+            <span style="font-size:.8rem;color:#0F0F1E;font-weight:600">Lire →</span>
           </div>
         </div>
       </div>
@@ -1583,11 +1583,11 @@ body.splash-active section {
         <div style="height:5px;background:#1D9E75"></div>
         <div style="padding:1.5rem">
           <span style="display:inline-block;padding:.3rem .8rem;background:#E8F5E9;color:#1B5E20;font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">Stratégie</span>
-          <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">Comment calculer son prix dans une offre AO sans se disqualifier</h3>
+          <h3 style="font-size:1.05rem;color:#0F0F1E;margin-bottom:.75rem;line-height:1.4;font-weight:600">Comment calculer son prix dans une offre AO sans se disqualifier</h3>
           <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">Prix trop bas = suspicion. Prix trop haut = élimination. La méthode pour construire une offre financière convaincante en tenant compte de la réalité des marchés antillais.</p>
           <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
             <span style="font-family:monospace;font-size:.7rem;color:#6B7080">MARS 2025</span>
-            <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+            <span style="font-size:.8rem;color:#0F0F1E;font-weight:600">Lire →</span>
           </div>
         </div>
       </div>
@@ -1615,10 +1615,10 @@ body.splash-active section {
       return;
     }
     grid.innerHTML = published.map(a => `
-      <div class="ins-article-card" data-id="${a.id}" style="background:white;border-radius:4px;border:1px solid var(--gray-light,#E8EBF0);overflow:hidden;cursor:pointer;transition:all .3s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,35,66,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='var(--gold)'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='var(--gray-light,#E8EBF0)'" onclick="openArticle('${a.id}')">
+      <div class="ins-article-card" data-id="${a.id}" style="background:white;border-radius:4px;border:1px solid var(--gray-light,#E8EBF0);overflow:hidden;cursor:pointer;transition:all .3s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,15,30,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='var(--gold)'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='var(--gray-light,#E8EBF0)'" onclick="openArticle('${a.id}')">
         <div style="height:5px;background:${a.categoryColor || 'var(--navy)'}"></div>
         <div style="padding:1.5rem">
-          <span style="display:inline-block;padding:.3rem .8rem;background:${a.categoryBg || '#F5E9C0'};color:${a.categoryColor || 'var(--navy)'};font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">${a.category}</span>
+          <span style="display:inline-block;padding:.3rem .8rem;background:${a.categoryBg || '#FAE8DC'};color:${a.categoryColor || 'var(--navy)'};font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">${a.category}</span>
           <h3 style="font-family:var(--serif);font-size:1.05rem;color:var(--navy);margin-bottom:.75rem;line-height:1.4;font-weight:600">${a.title}</h3>
           <p style="font-size:.875rem;color:var(--gray);line-height:1.65;margin-bottom:1.25rem">${a.excerpt}</p>
           <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--gray-light,#E8EBF0)">
@@ -1640,7 +1640,7 @@ body.splash-active section {
     // Fallback : afficher les articles statiques si GitHub inaccessible
     const fallbackArticles = [
       {
-        id:'001', category:'Astuce terrain', categoryColor:'#C9A84C', categoryBg:'#F5E9C0',
+        id:'001', category:'Astuce terrain', categoryColor:'#C4611C', categoryBg:'#FAE8DC',
         title:'MAPA : les 5 erreurs qui font perdre les marchés publics en Martinique',
         excerpt:'De la sous-évaluation du prix à l\'absence de mémoire technique, voici les erreurs les plus fréquentes observées dans les dossiers de réponse aux appels d\'offres locaux.',
         dateLabel:'MAI 2025', document:null
@@ -1652,7 +1652,7 @@ body.splash-active section {
         dateLabel:'AVRIL 2025', document:null
       },
       {
-        id:'003', category:'Stratégie', categoryColor:'#0F2342', categoryBg:'#F5E9C0',
+        id:'003', category:'Stratégie', categoryColor:'#0F0F1E', categoryBg:'#FAE8DC',
         title:'Comment calculer son prix dans une offre AO sans se disqualifier',
         excerpt:'Prix trop bas = suspicion. Prix trop haut = élimination. La méthode pour construire une offre financière convaincante en tenant compte de la réalité des marchés antillais.',
         dateLabel:'MARS 2025', document:null
@@ -1661,15 +1661,15 @@ body.splash-active section {
     const grid = document.getElementById('insights-grid');
     if (grid) {
       grid.innerHTML = fallbackArticles.map(a => `
-        <div style="background:white;border-radius:4px;border:1px solid #E8EBF0;overflow:hidden;cursor:pointer;transition:all .3s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,35,66,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='#C9A84C'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E8EBF0'" onclick="openArticle('${a.id}')">
+        <div style="background:white;border-radius:4px;border:1px solid #E8EBF0;overflow:hidden;cursor:pointer;transition:all .3s" onmouseover="this.style.boxShadow='0 8px 40px rgba(15,15,30,0.12)';this.style.transform='translateY(-4px)';this.style.borderColor='#C4611C'" onmouseout="this.style.boxShadow='';this.style.transform='';this.style.borderColor='#E8EBF0'" onclick="openArticle('${a.id}')">
           <div style="height:5px;background:${a.categoryColor}"></div>
           <div style="padding:1.5rem">
             <span style="display:inline-block;padding:.3rem .8rem;background:${a.categoryBg};color:${a.categoryColor};font-family:monospace;font-size:.7rem;letter-spacing:.1em;border-radius:30px;margin-bottom:1rem">${a.category}</span>
-            <h3 style="font-size:1.05rem;color:#0F2342;margin-bottom:.75rem;line-height:1.4;font-weight:600">${a.title}</h3>
+            <h3 style="font-size:1.05rem;color:#0F0F1E;margin-bottom:.75rem;line-height:1.4;font-weight:600">${a.title}</h3>
             <p style="font-size:.875rem;color:#6B7080;line-height:1.65;margin-bottom:1.25rem">${a.excerpt}</p>
             <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid #E8EBF0">
               <span style="font-family:monospace;font-size:.7rem;color:#6B7080">${a.dateLabel}</span>
-              <span style="font-size:.8rem;color:#0F2342;font-weight:600">Lire →</span>
+              <span style="font-size:.8rem;color:#0F0F1E;font-weight:600">Lire →</span>
             </div>
           </div>
         </div>
@@ -1755,8 +1755,8 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
 </script>
 
 <!-- MODAL ARTICLE -->
-<div id="art-modal" style="display:none;position:fixed;inset:0;background:rgba(15,35,66,.7);z-index:9000;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto" onclick="if(event.target===this)closeArticle()">
-  <div style="background:white;border-radius:8px;max-width:760px;width:100%;padding:0;box-shadow:0 24px 80px rgba(15,35,66,.3);margin:auto">
+<div id="art-modal" style="display:none;position:fixed;inset:0;background:rgba(15,15,30,.7);z-index:9000;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto" onclick="if(event.target===this)closeArticle()">
+  <div style="background:white;border-radius:8px;max-width:760px;width:100%;padding:0;box-shadow:0 24px 80px rgba(15,15,30,.3);margin:auto">
     <div style="background:var(--navy);padding:1.5rem 2rem;border-radius:8px 8px 0 0;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
       <div>
         <span id="art-modal-cat" style="display:inline-block;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;letter-spacing:.08em;margin-bottom:.75rem"></span>
@@ -1783,7 +1783,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Télécharger PDF
       </button>
-      <button onclick="closeArticle()" style="background:var(--cream,#F8F5EF);color:var(--navy);border:1px solid var(--gray-light,#E8EBF0);padding:.7rem 1.4rem;border-radius:4px;cursor:pointer;font-size:.875rem">Fermer</button>
+      <button onclick="closeArticle()" style="background:var(--cream,#F0EDE8);color:var(--navy);border:1px solid var(--gray-light,#E8EBF0);padding:.7rem 1.4rem;border-radius:4px;cursor:pointer;font-size:.875rem">Fermer</button>
     </div>
   </div>
 </div>
@@ -1913,7 +1913,7 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
     <span class="accent-line accent-line-center" style="margin-bottom:1.5rem"></span>
     <h2 class="h1" style="margin-bottom:.9rem">Outils gratuits<br>issus du terrain</h2>
     <p style="color:var(--gray);max-width:480px;margin:0 auto 2rem;font-size:.95rem;line-height:1.7">Grilles de vérification, guides pratiques, ressources opérationnelles — développés à partir de 10 ans de pratique de la commande publique.</p>
-    <a href="/outils-gratuits" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.9rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='#1A3A6B'" onmouseout="this.style.background='#0F2342'">
+    <a href="/outils-gratuits" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:var(--white);padding:.9rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='#1A1A2E'" onmouseout="this.style.background='#0F0F1E'">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Accéder aux outils gratuits
     </a>
@@ -1925,27 +1925,27 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
 <!-- Pricing Section -->
 <section id="tarifs" style="padding:80px 20px;background:#f8f9fa;">
   <div style="max-width:1100px;margin:0 auto;text-align:center;">
-    <h2 style="font-family:'Playfair Display',serif;color:#0F2342;font-size:2rem;margin-bottom:16px;">Nos prestations</h2>
+    <h2 style="font-family:'Cormorant Garamond',serif;color:#0F0F1E;font-size:2rem;margin-bottom:16px;">Nos prestations</h2>
     <p style="color:#555;font-size:1.05rem;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;">Des offres adaptées à chaque situation, avec la transparence que vous méritez.</p>
     <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
       <div style="background:white;border:2px solid #e8e8e8;border-radius:12px;padding:32px 28px;width:300px;text-align:left;transition:box-shadow 0.2s;">
-        <h3 style="font-family:'Playfair Display',serif;color:#0F2342;font-size:1.3rem;margin-bottom:8px;">Diagnostic</h3>
-        <div style="font-size:1.6rem;font-weight:700;color:#C9A84C;margin-bottom:16px;">À partir de 490 €</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;color:#0F0F1E;font-size:1.3rem;margin-bottom:8px;">Diagnostic</h3>
+        <div style="font-size:1.6rem;font-weight:700;color:#C4611C;margin-bottom:16px;">À partir de 490 €</div>
         <p style="color:#666;font-size:0.95rem;line-height:1.6;margin-bottom:24px;">Analyse de votre situation, recommandations personnalisées, 2h d'échange avec un expert ex-acheteur public.</p>
-        <a href="#contact" style="display:inline-block;background:#0F2342;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:0.9rem;font-family:'DM Sans',sans-serif;">En savoir plus</a>
+        <a href="#contact" style="display:inline-block;background:#0F0F1E;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:0.9rem;font-family:'DM Sans',sans-serif;">En savoir plus</a>
       </div>
-      <div style="background:#0F2342;border:2px solid #0F2342;border-radius:12px;padding:32px 28px;width:300px;text-align:left;position:relative;">
-        <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#C9A84C;color:#0F2342;font-size:0.75rem;font-weight:700;padding:4px 12px;border-radius:20px;font-family:'DM Sans',sans-serif;white-space:nowrap;">LE PLUS CHOISI</span>
-        <h3 style="font-family:'Playfair Display',serif;color:white;font-size:1.3rem;margin-bottom:8px;">Accompagnement</h3>
-        <div style="font-size:1.6rem;font-weight:700;color:#C9A84C;margin-bottom:16px;">Sur devis</div>
+      <div style="background:#0F0F1E;border:2px solid #0F0F1E;border-radius:12px;padding:32px 28px;width:300px;text-align:left;position:relative;">
+        <span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#C4611C;color:#0F0F1E;font-size:0.75rem;font-weight:700;padding:4px 12px;border-radius:20px;font-family:'DM Sans',sans-serif;white-space:nowrap;">LE PLUS CHOISI</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.3rem;margin-bottom:8px;">Accompagnement</h3>
+        <div style="font-size:1.6rem;font-weight:700;color:#C4611C;margin-bottom:16px;">Sur devis</div>
         <p style="color:#ccc;font-size:0.95rem;line-height:1.6;margin-bottom:24px;">Suivi complet d'un appel d'offres, rédaction du mémoire technique, revue de conformité du dossier.</p>
-        <a href="#contact" style="display:inline-block;background:#C9A84C;color:#0F2342;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;font-family:'DM Sans',sans-serif;">Demander un devis</a>
+        <a href="#contact" style="display:inline-block;background:#C4611C;color:#0F0F1E;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:700;font-family:'DM Sans',sans-serif;">Demander un devis</a>
       </div>
       <div style="background:white;border:2px solid #e8e8e8;border-radius:12px;padding:32px 28px;width:300px;text-align:left;">
-        <h3 style="font-family:'Playfair Display',serif;color:#0F2342;font-size:1.3rem;margin-bottom:8px;">Formation</h3>
-        <div style="font-size:1.6rem;font-weight:700;color:#C9A84C;margin-bottom:16px;">À partir de 890 €</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;color:#0F0F1E;font-size:1.3rem;margin-bottom:8px;">Formation</h3>
+        <div style="font-size:1.6rem;font-weight:700;color:#C4611C;margin-bottom:16px;">À partir de 890 €</div>
         <p style="color:#666;font-size:0.95rem;line-height:1.6;margin-bottom:24px;">Formation sur mesure aux marchés publics, intra-entreprise ou inter, certifiée et adaptée au contexte martiniquais.</p>
-        <a href="#contact" style="display:inline-block;background:#0F2342;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:0.9rem;font-family:'DM Sans',sans-serif;">En savoir plus</a>
+        <a href="#contact" style="display:inline-block;background:#0F0F1E;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:0.9rem;font-family:'DM Sans',sans-serif;">En savoir plus</a>
       </div>
     </div>
   </div>
@@ -2218,10 +2218,10 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(
     <div class="footer-grid">
       <div class="footer-brand">
         <svg viewBox="0 0 290 50" xmlns="http://www.w3.org/2000/svg" style="height:38px;width:auto;margin-bottom:0.5rem">
-          <rect x="0" y="4" width="5" height="42" rx="2.5" fill="#C9A84C"/>
+          <rect x="0" y="4" width="5" height="42" rx="2.5" fill="#C4611C"/>
           <text x="13" y="30" font-family="Arial Black,Arial,sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text>
-          <rect x="13" y="35" width="270" height="1" fill="#C9A84C"/>
-          <text x="13" y="46" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
+          <rect x="13" y="35" width="270" height="1" fill="#C4611C"/>
+          <text x="13" y="46" font-family="Arial,sans-serif" font-size="7.5" fill="#C4611C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text>
         </svg>
         <p>Expert en commande publique depuis 10 ans. Au service des entités publiques et des entreprises qui souhaitent améliorer la qualité de leurs pratiques d'achat et de réponse aux appels d'offres.</p>
       </div>
@@ -2373,24 +2373,24 @@ function downloadArticlePDF() {
   var brandLine = 'PROCUREMENT INSIDER \u00b7 L\u2019\u0152IL DE L\u2019ACHETEUR';
   var css = [
     '*{box-sizing:border-box;margin:0;padding:0}',
-    'body{font-family:Georgia,serif;color:#1C1C2E;line-height:1.8;max-width:740px;margin:0 auto;padding:3rem 2.5rem;font-size:11pt}',
-    '.hd{border-bottom:3px solid #C9A84C;padding-bottom:1.5rem;margin-bottom:2rem}',
-    '.brand{font-family:Arial,sans-serif;font-size:9pt;letter-spacing:.15em;text-transform:uppercase;color:#C9A84C;font-weight:700;margin-bottom:.5rem}',
-    '.cat{display:inline-block;background:#F5E9C0;color:#0F2342;font-family:Arial,sans-serif;font-size:8pt;padding:.2rem .6rem;border-radius:20px;margin-bottom:.75rem;font-weight:600}',
-    'h1{font-size:20pt;color:#0F2342;line-height:1.25;margin-bottom:.5rem}',
+    'body{font-family:Georgia,serif;color:#1A1A24;line-height:1.8;max-width:740px;margin:0 auto;padding:3rem 2.5rem;font-size:11pt}',
+    '.hd{border-bottom:3px solid #C4611C;padding-bottom:1.5rem;margin-bottom:2rem}',
+    '.brand{font-family:Arial,sans-serif;font-size:9pt;letter-spacing:.15em;text-transform:uppercase;color:#C4611C;font-weight:700;margin-bottom:.5rem}',
+    '.cat{display:inline-block;background:#FAE8DC;color:#0F0F1E;font-family:Arial,sans-serif;font-size:8pt;padding:.2rem .6rem;border-radius:20px;margin-bottom:.75rem;font-weight:600}',
+    'h1{font-size:20pt;color:#0F0F1E;line-height:1.25;margin-bottom:.5rem}',
     '.meta{font-family:Arial,sans-serif;font-size:8.5pt;color:#6B7080}',
-    'h2{font-size:13pt;color:#0F2342;margin:2rem 0 .6rem;font-weight:700}',
-    'h3{font-size:11pt;color:#0F2342;margin:1.5rem 0 .4rem;font-weight:700}',
+    'h2{font-size:13pt;color:#0F0F1E;margin:2rem 0 .6rem;font-weight:700}',
+    'h3{font-size:11pt;color:#0F0F1E;margin:1.5rem 0 .4rem;font-weight:700}',
     'p{margin-bottom:.9rem}',
     'ul{padding-left:1.5rem;margin-bottom:.9rem}',
     'li{margin-bottom:.35rem}',
-    'strong{color:#0F2342}',
+    'strong{color:#0F0F1E}',
     'hr{border:none;border-top:1px solid #E8EBF0;margin:1.5rem 0}',
     'table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:10pt}',
-    'th{background:#0F2342;color:white;padding:.5rem .8rem;text-align:left}',
+    'th{background:#0F0F1E;color:white;padding:.5rem .8rem;text-align:left}',
     'td{padding:.45rem .8rem;border-bottom:1px solid #E8EBF0}',
-    'a{color:#C9A84C;text-decoration:none}',
-    '.ft{margin-top:3rem;padding-top:1.5rem;border-top:2px solid #0F2342;font-family:Arial,sans-serif;font-size:8.5pt;color:#6B7080}',
+    'a{color:#C4611C;text-decoration:none}',
+    '.ft{margin-top:3rem;padding-top:1.5rem;border-top:2px solid #0F0F1E;font-family:Arial,sans-serif;font-size:8.5pt;color:#6B7080}',
     '@media print{@page{margin:1.5cm}body{padding:0}}'
   ].join('');
 
@@ -2437,7 +2437,7 @@ function downloadArticlePDF() {
 #floating-cta {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 8888;
   background: var(--gold); padding: 0;
-  box-shadow: 0 -4px 20px rgba(15,35,66,0.25);
+  box-shadow: 0 -4px 20px rgba(15,15,30,0.25);
   transform: translateY(100%);
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
 }

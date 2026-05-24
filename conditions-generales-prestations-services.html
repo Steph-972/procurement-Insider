@@ -12,18 +12,18 @@
   <meta property="og:type" content="website" />
   <style>
     :root{--navy:#0f1f33;--gold:#c9a45c;--ink:#17202c;--muted:#5f6877;--bg:#f7f5f0;--card:#fff;--border:#e6e0d5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.72}a{color:var(--navy);text-decoration:none}a:hover{color:var(--gold)}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;background:rgba(15,35,66,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.2)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;background:rgba(15,15,30,0.97);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.2)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
 .container{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
 .nav-links{list-style:none;display:flex;align-items:center;gap:2rem}
 .nav-links a{font-size:.875rem;font-weight:500;color:rgba(255,255,255,.85);transition:color .2s;text-decoration:none}
-.nav-links a:hover,.nav-links a.active{color:#C9A84C}
-.nav-cta{background:#C9A84C;color:#0F2342!important;padding:.5rem 1.25rem;border-radius:4px;font-weight:700!important}
-.nav-cta:hover{background:#E8C96A!important}
+.nav-links a:hover,.nav-links a.active{color:#C4611C}
+.nav-cta{background:#C4611C;color:#0F0F1E!important;padding:.5rem 1.25rem;border-radius:4px;font-weight:700!important}
+.nav-cta:hover{background:#E07840!important}
 .hamb{display:none;background:none;border:0;color:white;font-size:1.8rem;cursor:pointer}
-.mobile-menu{display:none;position:fixed;inset:0;background:#0F2342;z-index:2000;padding:5rem 2rem;flex-direction:column;align-items:center;gap:1.4rem}
+.mobile-menu{display:none;position:fixed;inset:0;background:#0F0F1E;z-index:2000;padding:5rem 2rem;flex-direction:column;align-items:center;gap:1.4rem}
 .mobile-menu.open{display:flex}
-.mobile-menu a{color:white;font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;text-decoration:none}
+.mobile-menu a{color:white;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem;text-decoration:none}
 .close-btn{position:absolute;right:1.5rem;top:1.25rem;background:none;border:0;color:white;font-size:1.8rem;cursor:pointer}
 @media(max-width:768px){.nav-links{display:none}.hamb{display:block}}.hero{background:linear-gradient(135deg,#0f1f33,#183657);color:#fff;padding:70px 24px}.hero-inner{max-width:960px;margin:auto}.eyebrow{color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}h1{font-size:clamp(2.1rem,4vw,3.8rem);line-height:1.08;margin:12px 0 14px;letter-spacing:-.04em}.hero p{max-width:780px;color:rgba(255,255,255,.82);font-size:1.06rem}.wrap{max-width:980px;margin:auto;padding:46px 24px 80px}.layout{display:grid;grid-template-columns:260px 1fr;gap:26px}.toc{position:sticky;top:82px;align-self:start;background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px}.toc strong{display:block;color:var(--navy);margin-bottom:10px}.toc a{display:block;font-size:.88rem;color:var(--muted);padding:6px 0;border-bottom:1px solid #f1ede5}.doc{background:#fff;border:1px solid var(--border);border-radius:24px;padding:clamp(24px,4vw,46px);box-shadow:0 18px 40px rgba(15,31,51,.06)}.version{color:var(--muted);font-size:.92rem;margin-bottom:26px}.notice{border-left:4px solid var(--gold);background:#fff9ec;border-radius:14px;padding:16px 18px;margin:20px 0}.field{background:#fbfaf7;border:1px dashed var(--border);border-radius:12px;padding:10px 12px;color:var(--muted)}h2{color:var(--navy);font-size:1.35rem;margin:38px 0 12px;line-height:1.25}h3{color:var(--navy);font-size:1.05rem;margin:22px 0 8px}p,li{font-size:.98rem}ul{padding-left:1.2rem}.toplink{display:inline-block;margin-top:28px;font-weight:750;color:var(--gold)}footer{background:var(--navy);color:rgba(255,255,255,.75);padding:38px 24px}.foot{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}.foot b{color:#fff}.foot a{display:block;color:rgba(255,255,255,.75);margin:.35rem 0}.foot a:hover{color:var(--gold)}@media(max-width:860px){.nav{align-items:flex-start;flex-direction:column}.layout{grid-template-columns:1fr}.toc{position:static}.foot{grid-template-columns:1fr}}@media print{.top,.toc,footer,.toplink{display:none}.wrap{padding:0}.doc{box-shadow:none;border:none}}
   </style>
@@ -32,7 +32,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;background
 <nav>
   <div class="container">
     <div class="nav-inner">
-      <a href="/"><svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto"><rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C9A84C"/><text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text><rect x="13" y="37" width="291" height="1" fill="#C9A84C"/><text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C9A84C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text></svg></a>
+      <a href="/"><svg viewBox="0 0 310 52" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto"><rect x="0" y="4" width="5" height="44" rx="2.5" fill="#C4611C"/><text x="13" y="32" font-family="Arial Black,Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">PROCUREMENT INSIDER</text><rect x="13" y="37" width="291" height="1" fill="#C4611C"/><text x="13" y="48" font-family="Arial,sans-serif" font-size="7.5" fill="#C4611C" letter-spacing="3">L'ŒIL DE L'ACHETEUR</text></svg></a>
       <ul class="nav-links">
         <li><a href="/services">Services</a></li>
         <li><a href="/formation-marches-publics-martinique">Formation</a></li>
